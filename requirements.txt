@@ -4,6 +4,7 @@ numpy
 pillow
 pdf2image
 scikit-image
+langchain_community
 
 # LangChain and LLM
 langchain

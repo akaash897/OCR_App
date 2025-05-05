@@ -2,13 +2,16 @@
 
 from langchain.agents import initialize_agent
 from langchain.agents.agent_types import AgentType
-from langchain.llms import OpenAI
-from langchain.tools import Tool
+from langchain_community.llms import Ollama
 from langchain_tool import preprocessing_tool
 
-llm = OpenAI(temperature=0)
+# Initialize Ollama with LLaMA 3
+llm = Ollama(model="llama3.2:latest")
+
+# Define tools
 tools = [preprocessing_tool]
 
+# Create the agent
 agent = initialize_agent(
     tools,
     llm,
@@ -16,6 +19,6 @@ agent = initialize_agent(
     verbose=True
 )
 
-# Example run:
+# Example run (file should be in the same directory or provide path)
 response = agent.run("Preprocess the file exam_copy.pdf for OCR.")
 print(response)
