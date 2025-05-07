@@ -1,19 +1,4 @@
-# Core Preprocessing
-opencv-python
-numpy
-pillow
+Pillow
 pdf2image
-scikit-image
-langchain_community
+ollama
 
-# LangChain and LLM
-langchain
-openai
-
-# Optional (CLI and Dev Tools)
-python-dotenv
-
-# System dependency notice:
-# For pdf2image, you must also install poppler on your system.
-# Ubuntu/Debian: sudo apt install poppler-utils
-# macOS (with Homebrew): brew install poppler
