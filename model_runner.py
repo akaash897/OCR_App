@@ -8,7 +8,7 @@ PDF_PATH = "input.pdf"
 IMAGE_DIR = "images"
 OUTPUT_DIR = "outputs"
 POPPLER_PATH = r"C:\poppler\poppler-24.08.0\Library\bin"  # Update this to your poppler path
-OLLAMA_PROMPT = "Extract the handwritten text exactly as it appears in the image, without correcting spelling or grammar."
+OLLAMA_PROMPT = "Extract the exact handwritten text as it appears in this image. Do not fix spelling, grammar, or punctuation. Ignore printed elements or headers. Return only the student’s written answers."
 
 # Hardcoded Gemini API key (⚠️ Only for testing)
 GEMINI_API_KEY = "API"  # Replace with your actual API key
