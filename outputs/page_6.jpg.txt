@@ -1,0 +1,23 @@
+Question-2
+Answer-2
+Influenza Spread and Vaccination
+→ for reducing influenza transmission to 5%. level ce combined
+approach of Centrality measurement Should be used to
+determine who get Vaccinated first.
+→ A high Value of betucorners Centrality reveals that the
+node function as a "bridge" through which the disease transmit
+to numerous Other Connection. The immunization of there
+Specific people break transmission pathways between different
+Segment of the network.
+→ High, degree Centrality helps identify "hubs" which possess
+numerous Connection since they have the potential to infect
+multiple other people.
+→ A Computation between and degree Centrality Should be
+performed for every individual.
+→ A list of named people forms based on the Centrality
+measurement result.
+→ The group of people Selected for vaccination needs
+a Strong ranking in both Centrality measures.
+→ Additional individual Should be included for vaccine
+-tion Until 5%. Coverage is reached if the
+top Selected candidates do not suffice.

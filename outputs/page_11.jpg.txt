@@ -1,0 +1,18 @@
+Question-6
+Strategy A| Strategy B
+Strategy U (3,2) (0,1)
+Strategy L (2,0) (2,3)
+11
+Answer-(a)
+→ A Strategy pain where Player can improve their payoff
+byunilaterally changing their Strategy.
+→ Check each point
+(U, A): Pay off (3,2)
+→ Player 1: SNitch to L → 2<3, no improve
+→ Player 2: SNitch to B → 1<2, no improve
+→ Nash equilibrium.
+(U, B): Payoff (0,1)
+→ Player 1: SNitch L → 2>0, improve
+→ Not Nash
+(L, B): Payoff (2,3)
+→ Player 1: SNitch to U → 0<2 No improve

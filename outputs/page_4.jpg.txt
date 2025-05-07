@@ -1,0 +1,20 @@
+The goal of Community detection (Modularity) is to identify 4
+Communities through dense Connection within those group
+Compared to random Chance expectation.
+Answer-(H)
+Answer→ Option-(B) 2/5
+→Jaccard Coefficient,
+Neighbory of X: A, B, C, D
+Neighbours of Y: C, D, E.
+Intersection: C, D (2 nodes)
+Union: A, B, C, D, E (5 nodes)
+Jaccards Coefficient = Intersection/Union = 2/5 = 0.4
+The Jaccords Coefficient Calculates set (neighbors) Similarity by
+dividing the overlapping intersection by their combined elements.
+Answer-(?)
+Answer→ Option-(B)→ LTM Uses edge Probabilities independently;
+LTM uses a weighted Sum of active
+neighbors Compared to a node threshold.
+→CH operates through independent edge probabilities but LTM
+Adopts a threshold-based method which takes the
+weighted Sum of neighbors impact.

@@ -1,0 +1,22 @@
+Homophily
+→ Due to the natinal human technology of homophily the
+System will provide recommendation related to researchers
+within Similar academic fields.
+→ Due to encouraging diverse Collabonatiue Has the system
+requines a diversity matric within It recommendation.
+functionality. Although the link prediction Score may
+be Stightly lower the Systern will give priority to
+Mesearch links that Combiner field from distinct areas.
+Question-4
+Answer-(a)
+Crinvan-Newman Core Idea
+→The Crinuan - Newman algorithm detects Communities
+through a processing method which successively
+Climinates edges Connecting different Commenities.
+Answer-(b)
+Edge Betweenners Centrality →
+→ Edge Betweenners Centrality analyzes the number of times
+an edge lies between all pains of nodes to discover
+there edges. etc.
+→ Edges with high betweenners values link Seperate
+Commenities according to this method.

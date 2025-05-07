@@ -1,0 +1,20 @@
+→ The connection, relationship between nodes in a graph Structure appear
+in adjacency matrix format. The adjacency matrix contains value
+1 in Positions (i, j) and (j, i) when node i and Node j having
+an edge, otherwise both position contain 0.
+The adjacency matrix will represent node to node connection.
+1 2 3 4
+1 0 1 0 0
+2 1 0 1 1
+3 0 1 0 0
+4 0 1 0 0
+Answer - (B)
+Ans → Option -(B) → Erdős - Rényi (Random Network) Model.
+→ In the Erdős - Rényi model the edges connect randomly
+because every edge formation remaining isolated from other
+edges.
+Answer - (C)
+Ans → Option -(C) → Nash Equilibrium
+→ Players reach a stable position known as Nash Equilibrium when
+none of them achieve higher rewards through independent
+strategy modifications.

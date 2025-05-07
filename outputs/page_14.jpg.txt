@@ -1,0 +1,29 @@
+Question-7
+Answer-7
+14
+B
+A
+C
+D
+(0)
+Aggregate
+(Avg)
+Transform
+(W)
+Activate
+(σ= ReLU)
+(1)
+h<sub>B</sub>
+Graph Neural Network feature update
+Given,
+Directed edge A→B
+C→B
+D→B
+Weighted matrix W =  [<sup>0.5</sup> 0<sup>0</sup>]
+                                  [<sup>0.1</sup> 0<sup>.2</sup>]
+Step-1 Aggregate neighbor features.
+h<sub>A</sub><sup>(0)</sup> + h<sub>C</sub><sup>(0)</sup> + h<sub>D</sub><sup>(0)</sup> = [<sup>1</sup>] + [<sup>0</sup>] + [<sup>2</sup>]
+                                          [<sup>3</sup>]
+                                          [<sup>6</sup>]
+h<sub>NCB</sub><sup>(0)</sup> = <sup>1</sup>/<sub>3</sub> [<sup>3</sup>] = [<sup>2</sup>]
+                                  [<sup>6</sup>]

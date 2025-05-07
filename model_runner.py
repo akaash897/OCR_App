@@ -1,19 +1,22 @@
 import os
 from pdf2image import convert_from_path
 from PIL import Image
-import subprocess
+import google.generativeai as genai
 
 # --- CONFIG ---
 PDF_PATH = "input.pdf"
 IMAGE_DIR = "images"
 OUTPUT_DIR = "outputs"
-MODEL_NAME = "llava:7b"  # or "minicpm-v"
+POPPLER_PATH = r"C:\poppler\poppler-24.08.0\Library\bin"  # Update this to your poppler path
 OLLAMA_PROMPT = "Extract the handwritten text exactly as it appears in the image, without correcting spelling or grammar."
 
-# Set Poppler path for Windows
-POPPLER_PATH = r"C:\poppler\poppler-24.08.0\Library\bin"  # Adjust if needed
+# Hardcoded Gemini API key (⚠️ Only for testing)
+GEMINI_API_KEY = "API"  # Replace with your actual API key
 
-# Ensure directories exist
+# --- SETUP ---
+genai.configure(api_key=GEMINI_API_KEY)
+model = genai.GenerativeModel("models/gemini-1.5-flash")  # or "models/gemini-pro-vision"
+
 os.makedirs(IMAGE_DIR, exist_ok=True)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -21,32 +24,42 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 print("Converting PDF to images...")
 pages = convert_from_path(PDF_PATH, dpi=300, poppler_path=POPPLER_PATH)
 
-def resize_image(img, max_size=1024):
-    img = img.convert("RGB")  # ensure correct format
-    img.thumbnail((max_size, max_size), Image.LANCZOS)
-    return img
-
+image_paths = []
 for idx, page in enumerate(pages):
-    resized = resize_image(page)
     img_path = os.path.join(IMAGE_DIR, f"page_{idx+1}.jpg")
-    resized.save(img_path, "JPEG", quality=95)
-print(f"Saved and resized {len(pages)} pages to {IMAGE_DIR}/")
+    page.convert("RGB").save(img_path, "JPEG", quality=95)
+    image_paths.append(img_path)
 
-# --- STEP 2: Run each image through the model ---
-print("Processing images with VLM...")
-for img_file in sorted(os.listdir(IMAGE_DIR)):
-    img_path = os.path.join(IMAGE_DIR, img_file)
-    cmd = [
-        "ollama", "run", MODEL_NAME,
-        OLLAMA_PROMPT, img_path
-    ]
+print(f"Saved {len(image_paths)} pages to {IMAGE_DIR}/")
+
+# --- STEP 2: Process images with Gemini ---
+all_outputs = []
+print("Processing images with Gemini...")
+
+for img_path in image_paths:
+    img_file = os.path.basename(img_path)
     print(f"> Processing {img_file}")
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
-        output_path = os.path.join(OUTPUT_DIR, f"{img_file}.txt")
-        with open(output_path, "w", encoding="utf-8") as f:
-            f.write(result.stdout)
-    except subprocess.CalledProcessError as e:
-        print(f"Error processing {img_file}:\n{e.stderr}")
+        pil_img = Image.open(img_path)
+        response = model.generate_content(
+            [OLLAMA_PROMPT, pil_img],
+            generation_config={"temperature": 0.2}
+        )
+        page_output = response.text
+        all_outputs.append(f"\n=== {img_file} ===\n{page_output.strip()}")
 
-print(f"\n✅ Done. Outputs saved in {OUTPUT_DIR}/")
+        # Save per-page output
+        with open(os.path.join(OUTPUT_DIR, f"{img_file}.txt"), "w", encoding="utf-8") as f:
+            f.write(page_output)
+
+    except Exception as e:
+        print(f"Error processing {img_file}: {str(e)}")
+
+# --- STEP 3: Combine all outputs ---
+combined_output_path = os.path.join(OUTPUT_DIR, "combined_output.txt")
+with open(combined_output_path, "w", encoding="utf-8") as f:
+    f.write("\n\n".join(all_outputs))
+
+print(f"\n✅ Done. All outputs saved in '{OUTPUT_DIR}/'")
+
+
