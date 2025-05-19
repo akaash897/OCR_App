@@ -9,7 +9,7 @@ from typing import Tuple # Keep for clarity or if using older Python versions so
 # --- Configuration ---
 
 # 1. MANUALLY SET YOUR GOOGLE API KEY HERE
-GOOGLE_API_KEY_MANUAL = "AIzaSyAEDhV00ymUFp2V9QpTGyDjEjgjF-nQ6_Y" # <--- REPLACE WITH YOUR ACTUAL API KEY
+GOOGLE_API_KEY_MANUAL = "NA" # <--- REPLACE WITH YOUR ACTUAL API KEY
 
 if GOOGLE_API_KEY_MANUAL == "YOUR_API_KEY_HERE":
     print("Error: Please replace 'YOUR_API_KEY_HERE' with your actual Google API Key in the script.")
