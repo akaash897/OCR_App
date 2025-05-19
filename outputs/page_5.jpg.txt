@@ -1,8 +1,0 @@
-Answer-(j)
-Answer→Option-(B)→ Because aggregating features, from dissimilar
-neighbors can blur the node's own represen
--tative features, making classification harder.
-→When the terophily occurs during GCN and Heterophily
-operations it become difficult to classify nodes because
-they lose their individual characteristics through the
-features aggregation process from dissimilar neighbors.
