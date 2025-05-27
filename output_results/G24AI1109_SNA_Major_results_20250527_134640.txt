@@ -1,0 +1,679 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\G24AI1109_SNA_Major.pdf
+Processing Date: 2025-05-27 13:46:40
+Model Used: gemini-2.0-flash
+Total Pages Processed: 12
+API Calls Made: 96
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+```
+MAJOR EXAM
+G24A1 1109
+ANMOL CHUCH
+SOCIAL NETWORK ANALYSIS                                                                                                                                                   DATE
+
+(1). Incidence matrix
+ text
+ 1 0 0                                                                                                                            Now lets
+ 1 1 1                                                                                                                             nodes = 1, 2, 3, 4 – Assumption,
+ 0 1 0                                                                                                                              Edges = E₁, E₂, E₃-                  //
+ 0 0 1
+
+E, connects nodes 1 & 2
+E₂     //           //           2 & 3
+E₃     //           //           3 & 4.
+.                         | 1                  2                3                 4
+                           ------------------------------------------------------------------
+1                     | 0                  0                0                0
+2                     | 0                  1                0                1
+3                     | 0                  1                1                  0
+4                     | 0                  1                0                 0
+
+Q1:
+a) Not provided in the text.
+b) Erdős – Rényi (Random. Network) Model
+Justification – This model assumes each pair of nodes is connected with equal & Independent probability.
+c) Nash Equilibrium
+Justification :- At Nash Equilibrium, no player can gain by changing only their own strategy.
+d) B) Assortative Mixing.
+Justification:- As it describes the preference of nodes to connect with 'similar' nodes (e.g same degree).
+e) D) Because it quantifies how often a node lies on the shortest paths between the nodes.
+Justification :- It is because betweeness centrality is more useful in determining control over Information flow through shortest paths.
+f) c) The presence of many nodes with very high degree (hulbs) that maintain Connectivity
+Justification : Hubs ensure network connectivity despite random faileds but eve vulnerable to targeted allarbe
+g) A) the number of intra-community edges is significantly higher than expected in a random-network with same degree sequence
+Justification : High modularity partitions have dense intra-community connections & sparse inter-community Connections
+h) B) 2/5
+Justification: In both C & D X, Y are common. In both X, Y -> C & D are common making them the intersection which makes intersection = 2 whole union = 5. Coefficient = I/U =2/5
+i) A) ICM uses edge probabilities independently, LIM uses a weighted sum of active neighbors compared to a node threshold
+Justification:- ICM- fach active node tries to activate neighbor independently with some probability
+LIM:- A node activates only if the total influence from neighbors exceeds a threshold
+j) B) Because aggregating features from dissimiliae neighbors can blue the node's own representative features making classification harder.
+Justification :- In heterophilic networks, nodes often connect to dissimiliae nodes. Standard GCNs assume homophily (nodes connected to similiae nodes), so when, aggregating neighbor features, the model might get "confused" due to irrelevant information from dissimiliae neighbors.
+
+Q2: We can vaccinate 5% of the population to minimize infections using two network analysis concepts.
+1) Betweeness Centrality :-
+So as per understanding it identifies nodes on the most shortest paths between others, acting as bridges for disease spread.
+It's application can help prioritize nodes with highest scores, as vaccinating them disrupts transmission paths.
+It can be explained as the SIR model disease. Spreads through Contact Nodes with high betweeness are critical for connecting different parts of network. this will reduce the spread
+2) Degree centralitys.
+It measures the numbers of Heat Connections (Contacts) a node has.
+Understanding - It
+Application - After high betweeness uell focus on high degree contrality to maximize the number of direct Contacts.
+It can be justified as high degree nodes can be heavy spreadels in the SIR model. Therefore can reduce initial spread. vaccinating them
+
+Q3: Combine Link Prediction.
+Approach.
+* Note Embeddings (Noded Vee):
+•) Methodology: Train Node 2 Vec on a co-authorship) citation network. Nodes are researchees, edges are co-authorships of citations. Node 2 Vec uses random walks e to generate low-dimensional embeddings capturing structured & neighborhood Similiarities.
+* Link Prediction Algorithm:
+•) Methodology:- Use metrics like Jacard Coefficient
+Jacard Coefficient
+Neighbors (i)Neighbors (j)
+Neighbors (i) V Neighbors (j)
+Now we combine them as follows:-
+1) Use Node 2 Ver to filter researchers with similias embedding
+2) Apply Link prediction on filtered set to rank' collaboratade based on network suture.
+3) New recommendations of researchers are both. topically similias (embeddinge) & likely to collaborate (link prediction)
+ROLE OF HOMO PHILY
+•) Researchers tend to collaborate within same fields:
+•) Node 2 Vee embeddings reflect homophily due to Co- authorship! citation patterns. This ensures recommendation align with existing research intrests.
+•)However, dependency on homoplily may limit cross & disciplinary collaborations.
+Promoting Class-Disciplinary Collaboration
+-
+•) Introduction of a diverse penalty in rankings.
+•) Occassionally recommend researchers with high link prediction scoces but moderate embedding disinillarety encouraging collaboratia
+•) This will balance homophily-driven recomenghdationg
+
+Q4: a) Core idea of Girvan-Newman Algorithm:
+•) It detects communitas by iteratively removing edges with the highest edge betweeness centrality, splitting the network into disconnected components (communities).
+•) Edge with high betweeness connect different Communities as they lie on many chart paths
+b). Use of Edge between Centrality: -
+Steps:-
+1) Compute edges betweeness for all edges.
+2) Remove the edge with highest betweeness.
+3) Recalculate betweeness for remaining edges
+4) Repeat until network splits into desired communities
+c) Majse computational Limitation;
+•) Computing edge betweenesss se computationally expensive requiring shortest path calculations fre all node pairs.
+•) It is complen as it is repeated multiple times making it enfeasible for ldege graphs.
+•) Also Scales poorly for networks with millions of nodes/edges
+d) Louvain Methed as, a
+Scalable Alternative.
+•) Optimizes modulacity by iterative merging of rodes Eto communities to maximize intra- community edges..
+Process: - 1) Start with each rode as its own community.
+2) for each rode, try moving it to a neighbor's Community if it increases modularity
+3) Repeat until no modularity gain.
+•4) Aggregate community into supernades & repeat on courses, graph
+
+Q5: a) Intuition behinde' PageRank :-
+•) It assigns importance to nodes in a directed graph (eg weeb pages) based on idea that important nodes are linked to other important nodes.
+•) Due to which the intuition becomes Nodes, with many Incoming links from high- Page Rank nodes are more important.
+b) Role of Damping factor d's
+•) It is the probability that the surfer follows an outgoing link ; 1- d. is the probability of jumping to a Random hode.
+•) It ensures convergence by introducing randomness, preventing the surfer from getting stuck in loops.
+•) Higher d emphasizes link structure ; lower d makes scores more uniform.
+c) Dangling Nodes Problems. & Solution :-
+•) It has no outgoing links causing the random surfer to "stop"
+•) The Transition matrix becomes, non- convergent to steady state.
+Soln
+•) Assume dangling nodes link to all nodes unfornly.
+•) Add a teem to Page Rank vector update, redistributing the dangling nodes probability mabs. equally acesss all nodes
+•) Formula. adjustment: PR = d. (A. PR +D) +11-d. 1. when D accounts for dangling neder. N
+
+Q6: a) A strategy pours where player can improve thell pay off by unilaterally changing there strategy
+--
+Chark Rach paie:
+
+(U,A): paj off (3,2)
+
+- player: Switch to L→ 2<3, no improvem
+- played: player 2 Switch to B→ 122,
+Nash Equilibriven.
+(U,B): Payoff (0,1).
+Player 1: Switch 00.2>0, improvement.
+Not Nash
+21
+
+(L,B): Payoff (2,3).
+* Playee 1: Switch Poorou0
+0<2
+ノ
+no
+improvenat.
+- player 2: Switch to A → 0 < 3,
+no improvement.
+Nash Equilibrium
+
+There are two pure strategy Nash Equilibria
+(U, A) & (L, B)
+
+b) •) Player / plays U with probability P, L with
+probability top
+•) Player 2's strategy.
+
+Expected payoff for player 2 is choosing strategy
+A.:
+E [A] : px2 + [(1-p)x0] = 2p.
+
+Expected payoff for player 2 if choosing strategy B:
+E [B] = px 1 + [(1-p) x3. :
+= p + 3-3p
+= 3-2p
+
+c) For player 2:
+E(A) = 2p = 2x0.7 = 104.
+E(B) = 3/2p = 3 - 2x0.7 = 1.6.
+
+Since E[B] > E[A], player 2 would choose strategy: for playa 1 (0.7 0, 0.32)
+Expected payoff = 0.7x0 + 0.3 x 2 = 0.6 (when player 2 chaos)
+Stabegy B
+The expected outcome for Player) receives payoff of 0.6 & player 2 receives a payoff of 1.6.
+
+Q7: Given
+Directed Eelges A → B
+C → B
+D → B.
+Weighted matrin W = 
+\[
+\begin{bmatrix}
+0.5 & 0 \\
+0.1 & 0.2
+\end{bmatrix}
+\]
+Step 1 : Aggregate neighbor.
+$h_A^{(0)} + h_C^{(0)} + h_D^{(0)} =$
+\[
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}
+\] + 
+\[
+\begin{bmatrix}
+0 \\
+3
+\end{bmatrix}
+\] + 
+\[
+\begin{bmatrix}
+2 \\
+3
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+3 \\
+6
+\end{bmatrix}
+\]
+$h_{N(B)}^{(0)} = \frac{1}{3}
+\begin{bmatrix}
+3 \\
+6
+\end{bmatrix} = \frac{1}{2}$
+
+Step 2:
+
+W
+[1] = [0.5  0 ] [1]
+[2]   [0.  1  0.2]  [2]
+= [0.5 ]
+[0.1x1 + 0.2x2]
+= [0.5 ]
+[0.1 + 0.4]
+= [0.5 ]
+[0.5]
+
+Step 3:
+
+ReLU([0.5, 0.5]) = [0.5, 0.5]
+
+Final Answer hp^(1) = [0.5, 0.5];
+```
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here is the transcription of the handwritten text from the image, preserving the original layout and line breaks:
+
+```
+MAJOR EXAM
+                                                                                                                                                                                        G24A1 1109
+                                                                                                                                                                                         ANMOL CHUCH
+SOCIAL NETWORK ANALYSIS                                                                                                                                                     DATE
+                                                                                                                                                                                          PAGE
+
+(1). Incidence matrix
+ text
+ 1 0 0                                                                                                                            Now lets
+ 1 1 1                                                                                                                             nodes = 1, 2, 3, 4 – Assumption,
+ 0 1 0                                                                                                                              Edges = E₁, E₂, E₃-                  //
+ 0 0 1
+
+E, connects nodes 1 & 2
+E₂     //           //           2 & 3
+E₃     //           //           3 & 4.
+.                         | 1                  2                3                 4
+                           ------------------------------------------------------------------
+1                     | 0                  0                0                0
+2                     | 0                  1                0                1
+3                     | 0                  1                1                  0
+4                     | 0                  1                0                 0
+
+
+Q16) B) Erdős – Rényi (Random. Network) Model
+• Justification – This model assumes each pair of nodes is
+ connected with equal & Independent probability.
+
+Q1 c) Nash Equilibrium
+Justification :- At Nash Equilibrium, no player can gain by
+ changing only their own strategy.
+
+Q1) d) B) Assortative Mixing.
+Justification:- As it describes the preference of nodes to
+ connect with 'similar' nodes (e.g same degree).
+
+Q1) e) D) Because it quantifies how often a node lies on the
+ shortest paths between the nodes.
+Justification :- It is because betweeness centrality is more
+ useful in determining control over Information flow through
+ shortest paths.
+```
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+M
+Q1) f) c) The presence of many nodes with very high degree
+(hulbs) that maintain Connectivity
+
+Justification : Hubs ensure network connectivity despite random
+faileds but eve vulnerable to targeted allarbe
+
+Q1) g). A) the number of intra-community edges is significantly
+higher than expected in a random-network with same
+degree sequence
+
+Justification : High modularity partitions have dense
+intra-community connections & sparse inter-community.
+Connections
+
+Q1) h) B) 2/5
+
+Justification:
+In both C & D
+X, Y are common. In both X, Y -> C & D
+are common making them the intersection which
+makes intersection = 2 whole union = 5.
+Coefficient = I/U
+=2/5
+
+Q1) i) A) ICM uses edge probabilities independently,
+LIM uses a weighted sum of active neighbors compared to
+a node threshold
+
+Justification:- ICM- fach active node tries to activate
+neighbor independently with some probability
+
+LIM:- A node activates only if the total influence
+from neighbors exceeds a threshold
+```
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Q1) 9) B) Because aggregating features from dissimiliae
+neighbors can blue the node's own representative features
+making classification harder.
+
+Justification :- In heterophilic networks, nodes often
+connect to dissimiliae nodes. Standard GCNs assume
+homophily (nodes connected to similiae nodes), so when,
+aggregating neighbor features, the model might get "confused"
+due to irrelevant information from dissimiliae neighbors.
+
+Q2) We can vaccinate 5% of the population to minimize
+infections using two network analysis concepts.
+
+1) Betweeness Centrality :-
+
+So as per understanding it identifies nodes on the
+most shortest paths between others, acting as bridges for
+disease spread.
+
+It's application can help prioritize nodes with highest
+scores, as vaccinating them disrupts transmission
+paths.
+
+It can be explained as the SIR model disease.
+Spreads through Contact Nodes with high betweeness
+are critical for connecting different parts of network.
+this will reduce the spread
+
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+M
+
+2) Degree centralitys.
+It measures the numbers of Heat
+Understanding - It
+Connections (Contacts) a node has.
+
+Application - After high betweeness uell focus on high
+number of direct
+degree contrality to maximize the number
+Contacts.
+
+It can be justified as high degree nodes can
+be heavy spreadels in the SIR model. Therefore
+can reduce initial spread.
+vaccinating them
+
+Q3) Combine Link Prediction.
+
+Approach.
+
+* Note Embeddings (Noded Vee):
+
+•) Methodology: Train Node 2 Vec on a co-authorship)
+citation network. Nodes are researchees, edges are co-
+authorships of citations. Node 2 Vec uses random walks e
+to generate low-dimensional embeddings capturing structured
+& neighborhood Similiarities.
+
+* Link Prediction Algorithm:
+
+•) Methodology:- Use metrics like Jacard Coefficient
+On
+the co-authorship to predict potential Collaborations,
+
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Jacard Coefficient
+
+Neighbors (i)Neighbors (j)
+Neighbors (i) V Neighbors (j)
+
+Now we combine them as follows:-
+
+1) Use Node 2 Ver to filter researchers with similias
+embedding
+
+2) Apply Link prediction on filtered set to rank'
+collaboratade based on network suture.
+
+3) New recommendations of researchers are both.
+topically similias (embeddinge) & likely to collaborate
+(link prediction)
+
+ROLE OF HOMO PHILY
+
+•) Researchers tend to collaborate within same fields:
+
+•) Node 2 Vee embeddings reflect homophily due to
+Co- authorship! citation patterns. This ensures recommendation
+align with existing research intrests.
+
+•)However, dependency on homoplily may limit cross &
+disciplinary collaborations.
+
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+M
+
+Promoting Class-Disciplinary Collaboration
+-
+
+•) Introduction of a diverse penalty in rankings.
+
+•) Occassionally recommend researchers with high link
+prediction scoces but moderate embedding disinillarety
+encouraging collaboratia
+
+•) This will balance homophily-driven recomenghdationg
+
+(4) a) Core idea of Girvan-Newman Algorithm:
+
+•) It detects communitas by iteratively removing edges
+with the highest edge betweeness centrality, splitting the
+network into disconnected components (communities).
+
+•) Edge with high betweeness connect different
+Communities as they lie on many chart paths
+
+b). Use of Edge between Centrality: -
+
+Steps:-
+1) Compute edges betweeness for all edges.
+2) Remove the edge with highest betweeness.
+3) Recalculate betweeness for remaining edges
+4) Repeat until network splits into desired communities
+
+
+--- Page 7 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+() Majse computational Limitation;
+
+•) Computing edge betweenesss se computationally expensive
+requiring shortest path calculations fre all node pairs.
+
+•) It is complen as it is repeated multiple times
+making it enfeasible for ldege graphs.
+
+•) Also Scales poorly for networks with millions of
+nodes/edges
+
+d) Louvain Methed as, a
+Scalable Alternative.
+
+•) Optimizes modulacity by iterative merging of rodes
+Eto communities to maximize intra- community edges..
+
+Process: - 1) Start with each rode as its own community.
+
+2) for each rode, try moving it to a neighbor's
+Community if it increases modularity
+
+3) Repeat until no modularity gain.
+
+•4) Aggregate community into supernades & repeat on courses,
+graph
+
+
+--- Page 8 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                                                    DATE
+                                                    PAGE
+Q5) a) Intuition behinde' PageRank :-
+
+•) It assigns importance to nodes in a directed
+   graph (eg weeb pages) based on idea that important
+   nodes are linked to other important nodes.
+
+•) Due to which the intuition becomes Nodes,
+   with many Incoming links from high- Page Rank
+   nodes are more important.
+
+b) Role of Damping factor d's
+•) It is the probability that the surfer follows an
+   outgoing link ; 1- d. is the probability of jumping to
+   a Random hode.
+
+•) It ensures convergence by introducing randomness,
+   preventing the surfer from getting stuck in loops.
+
+•) Higher d emphasizes link structure ; lower d
+   makes scores more uniform.
+
+c) Dangling Nodes Problems. & Solution :-
+•) It has no outgoing links causing the random
+   surfer to "stop"
+
+•) The Transition matrix becomes, non- convergent to
+   steady state.
+```
+
+--- Page 9 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Soln
+•) Assume dangling nodes link to all nodes unfornly.
+
+•) Add a teem to Page Rank vector update,
+redistributing the dangling nodes probability mabs.
+equally acesss all nodes
+
+•) Formula. adjustment: PR = d.
+(A. PR +D) +11-d. 1. when D
+N
+accounts for dangling neder.
+
+Q6) a) A strategy pours where player can improve
+thell pay off by unilaterally changing there strategy
+--
+Chark Rach paie:
+
+(U,A): paj off (3,2)
+
+- player: Switch to L→ 2<3, no improvem
+- played: player 2 Switch to B→ 122,
+Nash Equilibriven.
+(U,B): Payoff (0,1).
+Player 1: Switch 00.2>0, improvement.
+Not Nash
+21
+
+(L,B): Payoff (2,3).
+* Playee 1: Switch Poorou0
+0<2
+ノ
+no
+improvenat.
+
+--- Page 10 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+- player 2: Switch to A → 0 < 3,
+no improvement.
+Nash Equilibrium
+
+There are two pure strategy Nash Equilibria
+(U, A) & (L, B)
+
+Q6) b) •) Player / plays U with probability P, L with
+probability top
+•) Player 2's strategy.
+
+Expected payoff for player 2 is choosing strategy
+A.:
+E [A] : px2 + [(1-p)x0] = 2p.
+
+Expected payoff for player 2 if choosing strategy B:
+E [B] = px 1 + [(1-p) x3. :
+= p + 3-3p
+= 3-2p
+
+Q6) c) For player 2:
+E(A) = 2p = 2x0.7 = 104.
+E(B) = 3/2p = 3 - 2x0.7 = 1.6.
+
+Since E[B] > E[A], player 2 would choose strategy
+:
+
+
+--- Page 11 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+for playa 1 (0.7 0, 0.32)
+
+Expected payoff = 0.7x0 + 0.3 x 2
+= 0.6 (when player 2 chaos)
+Stabegy B
+The expected outcome for Player) receives payoff of
+0.6 & player 2 receives a payoff of 1.6.
+Q7) Given
+Directed Eelges A → B
+C → B
+D → B.
+Weighted matrin W = 
+\[
+\begin{bmatrix}
+0.5 & 0 \\
+0.1 & 0.2
+\end{bmatrix}
+\]
+Step 1 : Aggregate neighbor.
+$h_A^{(0)} + h_C^{(0)} + h_D^{(0)} =$
+\[
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}
+\] + 
+\[
+\begin{bmatrix}
+0 \\
+3
+\end{bmatrix}
+\] + 
+\[
+\begin{bmatrix}
+2 \\
+3
+\end{bmatrix}
+\]
+\[
+\begin{bmatrix}
+3 \\
+6
+\end{bmatrix}
+\]
+$h_{N(B)}^{(0)} = \frac{1}{3}
+\begin{bmatrix}
+3 \\
+6
+\end{bmatrix} = \frac{1}{2}$
+
+
+--- Page 12 (HYBRID_PROCESSING) ---
+Confidence: 0.75
+Text:
+Here's the corrected transcription of the handwritten text from the image:
+
+Step 2:
+
+W
+[1] = [0.5  0 ] [1]
+[2]   [0.  1  0.2]  [2]
+= [0.5 ]
+[0.1x1 + 0.2x2]
+= [0.5 ]
+[0.1 + 0.4]
+= [0.5 ]
+[0.5]
+
+Step 3:
+
+ReLU([0.5, 0.5]) = [0.5, 0.5]
+
+Final Answer hp^(1) = [0.5, 0.5];
+
+

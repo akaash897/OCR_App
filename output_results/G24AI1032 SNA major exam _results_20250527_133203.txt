@@ -1,0 +1,676 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\G24AI1032 SNA major exam .pdf
+Processing Date: 2025-05-27 13:32:03
+Model Used: gemini-2.0-flash
+Total Pages Processed: 12
+API Calls Made: 25
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+Here's the consolidated information from the handwritten answer sheets, organized by question.
+
+**Question (a):**
+
+Given incidence matrix of a simple unidirected graph:
+        e₁  e₂  e₃
+v₁ [ 1  0  0 ]
+v₂ [ 1  1  1 ]
+v₃ [ 0  1  0 ]
+v₄ [ 0  0  1 ]
+
+v₁,v₂,v₃,v₄ → Vertices
+e₁,e₂,e₃ → edges
+the given graph is unidirected ⇒ each edge connects two vertices and has two 1's in its column.
+v₁→v₂ ⇒ A[0][1] = A[1][0] = 1
+v₂→v₃ ⇒ A[1][2] = A[2][1] = 1
+v₂→v₄ ⇒ A[1][3] = A[3][1] = 1
+     v₁  v₂  v₃  v₄
+Adjacency matrix → v₁ [ 0  1  0  0 ]
+                      v₂ [ 1  0  1  1 ]
+                      v₃ [ 0  1  0  0 ]
+                      v₄ [ 0  1  0  0 ]
+
+**Question (b):**
+
+Erdos - Renyi (Random network) Model
+
+→ The Erdos-Renyi model (ER model) is a random network model where:
+* Each pair of nodes is connected with equal (uniform) probability
+* The presence of each edge is independent of the presence of any other edge.
+Barbesi-Albert Model→ they don't have uniform probability
+Watts-Strogatz Model→ they are not independent or uniform over all pairs
+Configuration model → they are not based on uniform edge probability
+
+**Question (c):**
+
+[C] Nash Equilibrium
+In game theory. Nash Equilibrium is a situation where,
+* No player can gain a better outcome by unilaterally changing their strategy
+* provided the other player's strategies remain unchanged
+* It represents a stable state where all players are playing their best responses to each other.
+
+**Question (d):**
+
+[B] Assortative Mixing
+Assortative mixing refers to the tendency of individuals in a network to connect with others who are similar to themselves in some way - such as age, gender, profession etc.
+while structural equivalence is when two nodes are structurally equivalent i.e., if they have identical connections to all other nodes.
+
+Regular equivalence → nodes are regularly equivalent if they have similar roles in the network.
+Network density → it measures how many connections exist in the network relative to the total possible.
+
+**Question (e):**
+
+[D] Because it quantifies how often a node lies on the shortest paths between other nodes.
+
+* Betweenness centrality measures how often a node appears on the shortest paths between other pairs of nodes in a network.
+* It identifies critical nodes that act as bridges or information passers, especially in networks where data flows along specific paths.
+* Total no. of connections → Degree centrality, not Betweenness
+* Clustering coefficient refers to local neighborhood density not centrality
+* Betweenness centrality is computationally more complex, not easier to calculate for large graphs.
+
+**Question (f):**
+
+N(X)∩N(Y)= {C,D} → 2
+N(X)∪N(Y)= {A,B,C,D,E} → 5
+∴ Jaccard co-efficient =2/5
+
+**Question (i):**
+
+[A] ICM uses edge probabilities independently; LTM uses a weighted sum of active neighbors compared to a node threshold.
+ICM (Independent cascade, model)
+* When a node becomes active, it gets one chance to activate each of its inactive neighbors
+* Each attempt succeeds with an independent probability p assigned to the edge.
+* Activation is probabilistic & independent for each edge
+
+LTM (Linear Threshold model)
+* Each node has a threshold ∈ [0, 1]
+* Each edge has a weight ω
+* A node becomes active only when the sum of incoming influence from active neighbors ≥ threshold.
+
+**Question (j):**
+
+[B] Because aggregating features from dissimilar neighbors can blur the node's own representative features, making classification harder.
+
+* In networks with high heterophily, connected nodes have different labels or features.
+* Graph convolutional networks (GCNs) aggregate information from a node's immediate neighbors, which can be problematic in heterophilic networks because the aggregation of dissimilar features from neighbors can result in blurring the node's own characteristics.
+* This can make it harder for the GCN to classify nodes correctly, as the node's own identity gets diluted by irrelevant neighbor information
+
+**Question 1:**
+
+To minimize the total number of infections in a social network using the SIR (Susceptible, Infected, Recovered-model) and given the constraint of vaccinating only 5%. of the population, we need a targeted vaccination strategy that identifies the most influential nodes in spreading the disease,
+
+1> Degree centrality:
+→ It measures how many direct contacts (edges) a person (node) has.
+* Individuals with high degree centrality have many direct connections, making them highly likely to spread the infection to many others.
+* By identifying and vaccinating the high-degree nodes, especially the top 2.5% of the population (half of the given 5%. quota), helps break many potential direct transmission chains easily
+
+11) Betweeness centrality:
+→ It quantifies how often a node lies on the shortest paths between other nodes
+* Nodes with high betweenness centrality act as bridges between communities. Vaccinating them can disrupt the disease's ability to jump across groups.
+* Vaccinate the remaining 2.5%. individuals with high betweenness centrality, focusing on those who connect otherwise distant parts of the network.
+
+Approach:
+> Calculate both degree and betweenness centrality for all nodes in the network.
+ⅱ) Rank nodes by a composite score or select the top nodes from both centrality lists, ensuring coverage of both hubs and bridges
+iii) Vaccinate the top 5%. of nodes based on this combined ranking.
+
+This dual approach ensures that both the most connected individuals (who can infect many directly) and the key connectors between groups (who can spread infection across the network) are immunized, maximizing the impact of limited vaccination resources.
+
+Hence, the degree centrality targets local super-spreaders, quickly reducing the number of new infections in their immediate neighborhood. & the betweenness centrality targets global-connectors, preventing the epidemic from spreading between different parts of the network.
+combining both ensures that we are cutting off dense local clusters as well as the paths between distant groups.
+
+**Question 3:**
+
+Combining Link Prediction and Node Embedding for suggested collaborators:
+
+Link prediction algorithms:
+Our goal is to predict likely future collaborations based on current network structure:
+We need to use graph-based heuristics such as:
+* Common neighbors: More shared collaborators - more likely to collaborate.
+
+* Jaccard co-efticient or Adamic- Adar index: weight shared neighbors by uniqueness
+* Preferential attachment: High-degree nodes are more likely to gain new links
+These approaches estimate the probability of a link forming between two researchers based on network topology.
+
+Node Embedding with Node2Vec:
+Our goal is to capture latent structural and semantic properties of researchers in a vector space
+
+* Node2Vec learns low-dimensional embeddings of nodes based on random walks that mimic sequences of collaborations and citations.
+These embeddings represent:
+* Structural roles
+* Research community proximity
+* Topic similarity especially when co-authorship and citation networks are combined.
+
+To combine both Approaches:
+* Generate candidate pairs using node embeddings
+* Rank these using link prediction scores for better precision
+* Train the machine learning model using
+- features from graph heuristics - Jaccard, CN, PA
+- vector similarities from Node 2Vec
+- additional features like shared keywords, publication venues or research areas.
+
+Role of homophily:
+→ It is the tendency for researchers to collaborate with those who are similar in research interests, institutional affiliations or academic backgrounds.
+This naturally leads to:
+- strong intra-disciplinary links
+- Dense subgraphs within the same field
+
+Promote Cross-Disciplinary collaboration
+To counteract homophily and encourage cross-disciplinary collaboration integrate a diversity-aware objective:
+* Penalty for too-similar embeddings
+* Identify nodes that connect disparate communities
+* By introducing diversity-aware mechanisms - ex: embedding dissimilarity scoring or cross-cluster bridges to encourage novel, impactful partnerships.
+
+**Question 4 (a):**
+
+Core - idea behind the Girvan - Newman algorithm for community detection:
+* The Girvan-Newman algorithm detects communities by progressively removing edges with the highest edge betweenness centrality.
+* Edges connecting different communities are likely to lie on many shortest paths between nodes in separate groups
++ By removing these - bridge edges the network gradually splits into distinct communities.
+
+This is a divisive approach - it starts with the full graph and removes edges to reveal the underlying community structure...
+
+**Question 4 (b):**
+
+Use of Edge betweenness centrality Iteratively
+* Edge betweenness centrality is calculated for all edges in the graph.
+* The edge with the highest betweenness is removed.
+* After removal. betweenness values are recomputed, and the next edge with the highest score is removed.
+* This process is repeated iteratively until the desired number of communities is found or modularity is maximized
+
+**Question 4 (c):**
+
+Major computational limitation of this algorithm
+* Recomputing betweenness centrality after each edge removal is very expensive - typically o(n x m) per iteration
+* This makes the algorithm impractical for large-scale networks, especially as the graph size grows.
+
+**Question 4 (d):**
+
+Louvain method for Scalable modularity optimization
+
+* It is a greedy, hierarchical algorithm that optimizes modularity efficiently in large networks
+* Local modularity optimization
+- Initially, each node is in its own community
+- Nodes are moved between neighboring communities it it increases modularity
+- This continues until no further improvement is possible.
+
+* Community Aggregation:
+- Each community becomes a single node in a new, smaller graph.
+- The process repeats on this compressed graph.
+This multi-level refinement makes it much faster and scalable compared to Girvan. Newman, and it works well for large real-world networks.
+
+**Question 5:**
+
+Intuition behind the PageRank Algorithm.
+The PageRank algorithm measures node importance based on the idea that a node is important if it is linked to by other important nodes.
+* originally designed to rank web pages, PageRank assumes a random surfer who follows hyperlinks at random.
+* A page (node) that receives many links from other important pages will get a higher score.
+> Importance flows through the network via links, similar to how authority or attention spreads.
+So, a node's rank is proportional to the ranks of nodes linking to it, distributed evenly across their outbound links.
+
+Role of the Damping factor (d)
+The damping factor (d) models the probability that a random surfer continues clicking links, rather than jumping to a random page.
+- with probability(d) - the surfer follows an outbound link from the current node.
+- with probability (1-d) - the surfer teleports to any random node in the graph.
+*It prevents the algorithm from getting stuck in loops or sink nodes
+* Ensures the stochastic transition matrix is irreducible and aperiodic which guarantees convergence to a unique stationary distribution.
+
+**Question 6 (a):**
+
+(L,A)→(2,0)
+ - Player 2 would deviate to B(gets 3>0)
+  - Not an equilibrium
+
+**Question 6 (b):**
+
+(L,B)→(2,3)
+ - Player l's best response to B:L(gets 2 vs 0 for A)
+ - Player d's best reponse to L: B(gets 3 vs 0 for A)
+ - This is a Nash Equilibrium!
+ ∴ Two pure strategy Nash equilibria: (U,A) & (L,B)
+ In both cases, neither player has an incentive to deviate unilaterally.
+
+**Question 6 (c):**
+
+Expected payoff for player 2 based on mixed strategy by player l
+ Let player l play:
+ - Strategy U with probability P
+ - Strategy L with probability (1-P)
+ We compute the expected payoff for player 2 for each of their strategies:
+ strategy A:
+ - Payoff = P x 2 (from (U,A)) + (1-P) x 0 (from (L,A))
+     = 2P
+ strategy B:
+ - payoff = P x 1 (from (U,B)) + (1-P) x 3 (from (L,B))
+       = P + (1-P) 3 = P + 3 - 3P = 3-2P
+
+Expected outcome if P= 0.7
+  Strategy A ⇒ 2P =2×0.7=1.4
+  Strategy B ⇒3-2P = 3-2×0.7=1.6
+
+**Question 7:**
+
+Given:
+  Initial feature vectors:
+  h(0) = [1] , h(0) = [2], h(0) = [2]
+  hB       HA          hC
+Weight matrix W:
+W = [0.5 0]
+[0.1 0.2]
+
+Formula:
+hB(1) = σ(W. (Σ h(0))
+           ( (B) UEN(B)
+
+1. Aggregate neighor features
+ Neighbors of B : A.C.D ⇒
+ Aggregate (h(0) + h(0) + h(0))
+hA + hC
+2
+2
+= 1 ([1] + [3] + [3]) = 1 [3]
+2                    3
+(1) = []
+
+2. Transform:
+w[2] = [0.5 0] [1] = [0.5×1 + 0x2] = [0.5]
+[0.1 0.2] 2 [0.1×1 + 0.2x2] [0.5]
+
+3. Activate
+(1)=
+Relu[0.5] = [max (0,0.5] = [0.5]
+0.5                     max (0,0.5)          0.5
+0.5
+hB
+[0.5]
+
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+SOCIAL NETWORK ANALYSIS
+G24AI1032
+CHINMAYE. A.
+
+a) Given incidence matrix of a simple unidirected
+graph:
+        e₁  e₂  e₃
+v₁ [ 1  0  0 ]
+v₂ [ 1  1  1 ]
+v₃ [ 0  1  0 ]
+v₄ [ 0  0  1 ]
+
+v₁,v₂,v₃,v₄ → Vertices
+e₁,e₂,e₃ → edges
+the given graph is unidirected ⇒ each edge connects.
+two vertices and has two l's in its column.
+v₁→v₂ ⇒ A[0][1] = A[1][0] = 1
+v₂→v₃ ⇒ A[1][2] = A[2][1] = 1
+v₂→v₄ ⇒ A[1][3] = A[3][1] = 1
+     v₁  v₂  v₃  v₄
+Adjacency matrix → v₁ [ 0  1  0  0 ]
+                      v₂ [ 1  0  1  1 ]
+                      v₃ [ 0  1  0  0 ]
+                      v₄ [ 0  1  0  0 ]
+
+b) Erdos - Renyi (Random network) Model
+
+→ The Erdos-Renyi model (ER model) is a random network model
+where:
+* Each pair of nodes is connected with equal (uniform) probability
+* The presence of each edge is independent of the presence of
+any other edge.
+Barbesi-Albert Model→ they don't have uniform probability
+Watts-Strogatz Model→ they are not independent or uniform over
+all pairs
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Configuration model → they are not based on uniform edge
+probability
+
+c) [C] Nash Equilibrium
+In game theory. Nash Equilibrium is a situation where,
+* No player can gain a better outcome by unilaterally changing their
+strategy
+* provided the other player's strategies remain unchanged
+* It represents a stable state where all players are playing their
+best responses to each other.
+
+d) [B] Assortative Mixing
+Assortative mixing refers to the tendency of individuals in a network
+to connect with others who are similar to themselves in some way -
+such as age, gender, profession etc.
+while structural equivalence is when two nodes are structurally
+equivalent i.e., if they have identical connections to all other nodes.
+
+Regular equivalence → nodes are regularly equivalent if they have
+similar roles in the network.
+Network density → it measures how many connections exist in the
+network relative to the total possible.
+
+e) [D] Because it quantifies how often a node lies on the shortest
+paths between other nodes.
+
+* Betweenness centrality measures how often a node appears on the
+shortest paths between other pairs of nodes in a network.
+* It identifies critical nodes that act as bridges or information passers,
+especially in networks where data flows along specific paths.
+* Total no. of connections → Degree centrality, not Betweenness
+* Clustering coefficient refers to local neighborhood density not centrality
+* Betweenness centrality is computationally more complex, not easier
+to calculate for large graphs.
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.30
+Text:
+
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+N(X)∩N(Y)= {C,D} → 2
+N(X)∪N(Y)= {A,B,C,D,E} → 5
+∴ Jaccard co-efficient =2/5
+
+i) [A] ICM uses edge probabilities independently; LTM uses a
+    weighted sum of active neighbors compared to a node
+    threshold.
+ICM (Independent cascade, model)
+* When a node becomes active, it gets one chance to activate
+each of its inactive neighbors
+* Each attempt succeeds with an independent probability p assigned
+to the edge.
+* Activation is probabilistic & independent for each edge
+
+LTM (Linear Threshold model)
+* Each node has a threshold ∈ [0, ]
+* Each edge has a weight ω
+* A node becomes active only when the sum of incoming influence
+from active neighbors ≥ threshold.
+j) [B] Because aggregating features from dissimilar neighbors can
+   blur the node's own representative features, making classification
+   harder.
+
+* In networks with high heterophily, connected nodes have different
+labels or features.
+* Graph convolutional networks (GCNs) aggregate information from
+a node's immediate neighbors, which can be problematic in
+heterophilic networks because the aggregation of dissimilar features
+from neighbors can result in blurring the node's own
+characteristics.
+* This can make it harder for the GCN to classify nodes correctly,
+as the node's own identity gets diluted by irrelevant neighbor
+information
+```
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+To minimize the total number of infections in a social
+network using the SIR (Susceptible, Infected, Recovered-model)
+and given the constraint of vaccinating only 5%. of the
+population, we need a targeted vaccination strategy that identifies
+the most influential nodes in spreading the disease,
+1> Degree centrality:
+→ It measures how many direct contacts (edges) a person
+(node) has.
+* Individuals with high degree centrality have many direct
+connections, making them highly likely to spread the infection
+to many others.
+* By identifying and vaccinating the high-degree nodes, especially
+the top 2.5% of the population (half of the given 5%. quota), helps
+break many potential direct transmission chains easily
+11) Betweeness centrality:
+→ It quantifies how often a node lies on the shortest paths
+between other nodes
+* Nodes with high betweenness centrality act as bridges
+between communities. Vaccinating them can disrupt the disease's
+ability to jump across groups.
+* Vaccinate the remaining 2.5%. individuals with high
+betweenness centrality, focusing on those who connect otherwise
+distant parts of the network.
+Approach:
+> Calculate both degree and loetweenness centrality for all nodes
+in the network.
+ⅱ) Rank nodes by a composite score or select the top nodes from
+both centrality lists, ensuring coverage of both hubs and
+bridges
+iii) Vaccinate the top 5%. of nodes based on this combined ranking.
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here is the transcription of the handwritten text from the image, preserving the layout and line breaks:
+
+This dual approach ensures that both the most connected
+individuals (who can infect many directly) and the key
+connectors between groups (who can spread infection across the
+network) are immunized, maximizing the impact of limited
+vaccination resources.
+
+Hence, the degree centrality targets local super-spreaders,
+quickly reducing the number of new infections in their immediate
+neighborhood. & the betweenness centrality targets global-connectors,
+preventing the epidemic from spreading between different parts
+of the network.
+combining both ensures that we are cutting off dense local
+clusters as well as the paths between distant groups.
+
+3) Combining Link Prediction and Node Embedding for suggested
+collaborators:
+
+Link prediction algorithms:
+Our goal is to predict likely future collaborations based on current
+network structure:
+We need to use graph-based heuristics such as:
+* Common neighbors: More shared collaborators - more likely to
+collaborate.
+
+* Jaccard co-efticient or Adamic- Adar index: weight shared neighbors
+by uniqueness://
+* Preferential attachment: High-degree nodes are more likely to gain
+new links
+These approaches estimate the probability of a link forming
+between two researchers based on network topology.
+
+Node Embedding with Node2Vec:
+Our goal is to capture latent structural and semantic properties
+of researchers in a vector space
+
+
+--- Page 7 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+* Node2Vec learns low-dimensional embeddings of nodes based
+on random walks that mimic sequences of collaborations
+and citations.
+These embeddings represent:
+* Structural roles
+* Research community proximity
+* Topic similarity especially when co-authorship and citation
+networks are combined.
+To combine both Approaches:
+* Generate candidate pairs using node embeddings
+* Rank these using link prediction scores for better precision
+* Train the machine learning model using
+- features from graph heuristics - Jaccard, CN, PA
+- vector similarities from Node 2Vec
+- additional features like shared keywords, publication venues
+or research areas.
+Role of homophily:
+→ It is the tendency for researchers to collaborate with those
+who are similar in research interests, institutional affliations or
+academic backgrounds.
+This naturally leads to:
+- strong intra-disciplinary links
+- Dense subgraphs within the same field
+Promote Cross-Disciplinary collaboration
+To counteract homophily and encourage cross-disciplinary collaboration
+integrate a diversity-aware objective:
+* Penalty for too-similar embeddings
+* Identify nodes that connect disparate communities
+* By introducing diversity-aware mechanisms - ex: embedding
+dissimilarity scoring or cross-cluster bridges to encourage novel,
+impactful partnerships.
+
+--- Page 8 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+4> a) Core - idea behind the Girvan - Newman algorithm for community.
+detection:
+* The Girvan-Newman algorithm detects communities by progressively
+removing edges with the highest edge betweenness centrality.
+* Edges connecting different communities are likely to lie on mang
+shortest paths between nodes in separate groups
++ By removing these - bridge edges the network gradually splits
+into distinct communities.
+8
+This is a divisive approach - it starts with the full graph and
+removes edges to reveal the underlying community structure...
+
+by Use of Edge betweenness centrality Iteratively
+* Edge betweenness centrality is calculated for all edges in the graph.
+* The edge with the highest betweenness is removed.
+* After removal. betweenness values are recomputed, and the next
+edge with the highest score is removed.
+* This process is repeated iteratively until the desired number of
+communities is found or modularity is maximized
+
+c) Major computational limitation of this algorithm
+* Recomputing betweenness centrality after each edge removal is
+very expensive - typically o(nxm) per iteration
+* This makes the algorithm impractical for large-scale networks,
+especially as the graph size grows.
+d> Louvain method for Scalable modularity optimization
+
+* It is a greedy, hierarchical algorithm that optimizes modularity
+efficiently in large networks
+* Local modularity optimization
+- Initially, each node is in its own community
+- Nodes are moved between neighboring communities it it
+increases modularity
+- This continues until no further improvement is possible.
+
+--- Page 9 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+* Community Aggregation:
+- Each community becomes a single node in a new, smaller graph.
+- The process repeats on this compressed graph.
+This multi-level refinement makes it much faster and scalable
+compared to Girran. Newman, and it works well for large real-world
+networks.
+
+5> as Intuition behind the PageRank Algorithm.
+The PageRank algorithm measures node importance based on the
+idea that a node is important if it is linked to by other important
+nodes.
+* originally designed to rank web pages, PageRank assumes a random
+surfer who follows hyperlinks at random.
+* A page (node) that receives many links from other important
+pages will get a higher score.
+> Importance flows through the network via links, similar to how
+authority or attention spreads.
+So, a node's rank is proportional to the ranks of nodes linking to it,
+distributed evenly across their outbound links.
+
+by Role of the Damping factor (d)
+The damping factor (d) models the probability that arandom
+surfer continues clicking links, rather than jumping to a random
+page.
+- with probability(d) - the surfer follows an outbound link from the
+current node.
+- with probability (1-d) - the surfer teleports to any random node
+in the graph.
+*If prevents the algorithm from getting stuck in loops or sink
+nodes
+* Ensures the stochastic transition matrix is irreducible and aperiodic
+which guarantees convergence to a unique stationary distribution.
+
+--- Page 10 (LLM_PROCESSING) ---
+Confidence: 0.30
+Text:
+
+
+--- Page 11 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+3) (L,A)→(2,0)
+ - Player 2 would deviate to B(gets 3>0)
+  - Not an equilibrium
+4> (L,B)→(2,3)
+ - Player l's best response to B:L(gets 2 vs 0 for A)
+ - Player d's best reponse to L: B(gets 3 vs 0 for A)
+ - This is a Nash Equilibrium!
+ ∴ Two pure strategy Nash equilibria: (U,A) & (L,B)
+ In both cases, neither player has an incentive to deviate
+ unilaterally.
+by Expected payoff for player 2 based on mixed strategy by
+ player l
+ Let player l play:
+ - Strategy U with probability Puhat
+ - Strategy L with probability (1-P)
+ We compute the expected payoff for player 2 for each of
+ their strategies:
+ strategy A:
+ - Payoff = px2 (from (U,A)) + (1-p) x0 (from (L,A))
+     = 2p
+ strategy B:
+ - payoff = px 1 (from (U,B)) + (1-P) x3 (from (L,B))
+       = p + (1-p) 3 = P + 3 - 3p = 3-2p
+
+
+--- Page 12 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+c) Expected outcome if P= 0.7
+  Strategy A ⇒ 2P =2×0.7=1.4
+  Strategy B ⇒3-2P = 3-2×0.7=1.6
+
+7)
+Given:
+  Initial feature vectors:
+  h(0) = [1] , h(0) = [2], h(0) = [2]
+  hB
+  HA
+Weight matrix W:
+W = [0.5 0]
+[0.1 0.2]
+
+Formula:
+hB(1) = σ(W. (Σ h(0))
+           ( (B) UEN(B)
+
+1. Aggregate neighor features
+ Neighbors of B : A.C.D ⇒
+ Aggregate (h(0) + h(0) + h(0))
+hA + hC
+2
+2
+= 1 ([1] + [3] + [3]) = 1 [3]
+2
+3
+(1) = []
+
+2. Transform:
+w[2] = [0.5 0] [1] = [0.5×1 + 0x2] = [0.5]
+[0.1 0.2] 2 [0.1×1 + 0.2x2] [0.5]
+
+3. Activate
+(1)=
+Relu[0.5] = [max (0,0.5] = [0.5]
+0.5 max (0,0.5) 0.5
+0.5
+hB
+[0.5]
+
+

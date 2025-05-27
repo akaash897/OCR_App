@@ -1,0 +1,423 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\G24Ai1022.pdf
+Processing Date: 2025-05-27 13:51:40
+Model Used: gemini-2.0-flash
+Total Pages Processed: 8
+API Calls Made: 121
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+Here's a consolidated breakdown of the provided text, organized by question and answer:
+
+Question: Qa Given Incidence Matrix
+[ 1  0  0 ]
+[ 1  1  0 ]
+[ 0  1  1 ]
+[ 0  0  1 ]
+Consider rows as nodes - 4 nodes
+Consider Columns as edges - 3 edges
+-> Find adjacency Matrix by following baba Mapping
+Edge 1 conneeds node A 2B
+Edge 2 Conneeds node B 2 C
+Edge 3 Conneeds node B 2D
+
+Answer:
+[ 0  1  0  0 ]
+[ 1  0  1  1 ]
+[ 0  1  0  0 ]
+[ 0  1  0  0 ]
+
+Question: b
+Answer: Erdos - Renyi Chardon network Model)
+- It creates Edges batucau pairs of nodes is favored
+independantly with equal prabability
+
+Question: C
+Answer: Nath Equilibrial
+- It states where noplayar can benefit by
+unilaterly changing their strategy, afsusing all
+other players are holding their Strastagies contact.
+
+Question: d
+Answer: Afsartadbe Misdig.
+- The tendency of nodes in a netowarth to connect with
+other nodes that have similar characteristics.
+
+Question: e
+Answer: Because it guardified how often a node lies on
+the Startest paths between other nodes.
+
+Question: f
+Answer: The presence of many nodes with very Digh degrees
+(hubs) that Mantare connecticity.
+
+Question: 6.2
+Answer: The number of indra-community edges is significantly
+higher than expected in randoar network with the
+Sorre degree Sequare.
+X: A, B, C.A
+Y: C.DIE.
+AOB XUY = 5
+AAB XnY = 2
+Jobcard Coffficient = \frac{2}{5}
+B: \frac{2}{5}
+
+Question: A. &CM was das probabilities independently:
+Answer: LTM cited a weighted sure of active neighbors
+Compared to a node Kreshald.
+
+Question: B.
+Answer: Because aggrizeding festares front dissimilar
+neeighbours can star the nodes own sieprestative
+fectares, raking classification order.
+
+Question: Vaccination Strategy casing netcak analyses
+Answer:
+a. Betsemaads contraidity - Set helps to identify
+notes that act as brides between different
+Commanities. Mese nodes often lie on the
+Shortest paths between Mary pairs of nades
+and contral the cow of the infection between
+Lifferent parts of the catwalk.
+✓ Degree cantorality - set helps to idantigey
+High degree notes that have many commctions and
+higher potential to spread the virus.
+
+Question: a.
+Answer: The card idea behind Grisivoe-New.
+-New Mau
+alzarithere is
+to identify commenities in a network by interatively
+sorcoving edges with high betweenness contral.
+until the netrark breaks down into smaller,
+aell defined groups.
+
+Question: (H)b
+Answer: Betrcaness centrality Mesures how often a node lies
+on the Shartsst path betacee other rodas in a natarack.
+
+Question: c
+Answer:
+- Ethelps to calculate betweenness centrality for all
+edges in the netwarte.
+- Percoving the caffe with highest baticaness cantalist
+Ac
+
+Question: d
+Answer: Medar computational limitation of Gurvan - wow lase
+algorithere is its high computational complinity.
+- Far a network n rodes & on edges anel calculates
+with One) diree.
+- Mis calentation madt be srespected after remaing
+each cdze.
+- Everald his reakes the algorithre impractical
+for large networks with thousands millions of
+nodes 2 edges.
+
+Question: Md
+Answer: rocware method provides a more scalable alternative
+far opdiarizing rendularity through.
+
+A
+local optimization - It steeds by asdieung cach nde
+to ids own codaily. than taratinal moves individhand
+modes to commanddes that rebelt den the largest
+incrase in ocadalardly
+
+Hierarchial Apgrization - It creates new network
+where nades are the corcocendies found in peccatoas stage.
+
+Seteration on Reduced Network - Et repeds the proces
+on this Stellaratwark callowing it to detect
+Maltilevel conoceity state.
+
+Question: Page Rank Algorithal
+Answer: Entention behind page Rank is based on the idea
+that the popularity of a webpage is Letar clued
+nat anly by the raacber of dressing lives
+but also by the third of den cascadings bures.
+istrations prare welly ranked pages contribute
+More than lower raulled webpages.
+
+Question: 5.6 Rate of damping factar (d).
+Answer: Damping factor (d) represents the peabes willity that
+the raider surfer will follow an edging walk
+rather than randomly teleporting to amater
+page..
+
+Question: 5.C problems with Daughing nodes.
+Answer: Daughleg nodes create a leak in pagehank calculatin
+- It cases all page house values to approach zero.
+
+Question: Gudan payoff Matrise
+Answer:
+
+Strategy-A Strategy-B
+Strategy-0 (3,2) (0,1)
+Strategy-L (2,0) (2,3)
+6.a pure Strategy
+(0,A) - plager get's 3, plagar 2 get 2
+(0,B) - player gets o, plager 2 gets!
+(L,A) - plopen I guls 2, plager 2 get 0
+(L,B) - playor gets, player 2 gets 3
+
+Question: 6.b
+Answer: For Expected payoffs for A
+   E[A] = p x 2 + (1-p) x 0 = 2p
+
+   Expected payoffs for B
+   E[B] = p x 1 + (1-p) x 3 = p + 3 - 3p = 3 - 2p
+
+Question: 6.c
+Answer: Expected outcome of p = 0.7
+   E[A] = 2p = 2 x 0.7 = 1.4
+   E[B] = 3 - 2p = 3 - 2 x 0.7 = 1.6
+
+Question 8:
+Answer: Neighbors of B n(CB) = {A, C, D}
+Given feature vectors
+hA = [1], hc = [8], hD = [2]
+
+Find average of initial feature vectors.
+h(0) = (h(0) + h(0) + h(0)) = ([1]+[8]+[2]) = 11/3 = (+) = +
+
+Given weight Matrix
+W = [0.5 0
+0.1 0.2]
+
+W x h(0) = [0.5 0] [t]
+0.1 0.2 2
+= [0.5x1 + 0x2
+0.1x1 + 0.2x2]
+= [0.5 + 0
+0.1 + 0.4]
+
+o = [0.5]
+
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+G2HA81022  KRISHNA REDDY.OM SNA
+
+Qa  Given Hoosidence Matrix
+[ 1  0  0 ]
+[ 1  1  0 ]
+[ 0  1  1 ]
+[ 0  0  1 ]
+
+Consider rowsas nodes - 4 nodes
+Condider Calumas as edges - 3 edges
+-> Find adjacency Matrix by following baba Mapping
+Edge 1 conneeds node A 2B
+Edge 2 Conneeds node B 2 C
+Edge 3 Conneeds node B 2D
+
+[ 0  1  0  0 ]
+[ 1  0  1  1 ]
+[ 0  1  0  0 ]
+[ 0  1  0  0 ]
+
+@b
+Ans B. Erdos - Renyi Chardon network Model)
+- It creates Edges batucau pairs of nodes is favored
+independantly with equal prabability
+
+O.C
+Ans
+C. Nath Equilibrial
+- It states where noplayar can benefit by
+unilaterly changing their strategy, afsusing all
+other players are holding their Strastagies contact.
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+(
+O.d
+-
+B. Afsartadbe Misdig.
+- The tendency of nodes in a netowarth to connect with
+other nodes that have similar characteristics.
+D.e
+D. Because it guardified how often a node lies on
+the Startest paths between other nodes.
+of
+C. The presence of many nodes with very Digh degrees
+(hubs) that Mantare connecticity.
+6.2
+A. The number of indra-community edges is significantly
+higher than expected in randoar network with the
+Sorre degree Sequare.
+X: A, B, C.A
+Y: C.DIE.
+AOB XUY = 5
+AAB XnY = 2
+Jobcard Coffficient = \frac{2}{5}
+B: \frac{2}{5}
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+A. &CM was das probabilities independently:
+LTM cited a weighted sure of active neighbors
+Compared to a node Kreshald.
+
+B. Because aggrizeding festares front dissimilar
+neeighbours can star the nodes own sieprestative
+fectares, raking classification order.
+
+② Vaccination Strategy casing netcak analyses
+a. Betsemaads contraidity - Set helps to identify
+notes that act as brides between different
+Commanities. Mese nodes often lie on the
+Shortest paths between Mary pairs of nades
+and contral the cow of the infection between
+Lifferent parts of the catwalk.
+✓ Degree cantorality - set helps to idantigey
+High degree notes that have many commctions and
+higher potential to spread the virus.
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+(Ha.
+The card idea behind Grisivoe-New.
+-New Mau
+alzarithere is
+to identify commenities in a network by interatively
+sorcoving edges with high betweenness contral.
+until the netrark breaks down into smaller,
+aell defined groups.
+b
+(H)
+Betrcaness centrality Mesures how often a node lies
+on the Shartsst path betacee other rodas in a natarack.
+c
+- Ethelps to calculate betweenness centrality for all
+edges in the netwarte.
+- Percoving the caffe with highest baticaness cantalist
+Ac
+-
+Medar computational limitation of Gurvan - wow lase
+algorithere is its high computational complinity.
+- Far a network n rodes & on edges anel calculates
+with One) diree.
+- Mis calentation madt be srespected after remaing
+each cdze.
+- Everald his reakes the algorithre impractical
+for large networks with thousands millions of
+nodes 2 edges.
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Md
+rocware method provides a more scalable alternative
+far opdiarizing rendularity through.
+-
+A
+
+local optimization - It steeds by asdieung cach nde
+to ids own codaily. than taratinal moves individhand
+modes to commanddes that rebelt den the largest
+incrase in ocadalardly
+
+Hierarchial Apgrization - It creates new network
+where nades are the corcocendies found in peccatoas stage.
+
+Seteration on Reduced Network - Et repeds the proces
+on this Stellaratwark callowing it to detect
+Maltilevel conoceity state.
+
+Ba page Rank Algorithal
+
+-
+Entention behind page Rank is based on the idea
+that the popularity of a webpage is Letar clued
+nat anly by the raacber of dressing lives
+but also by the third of den cascadings bures.
+istrations prare welly ranked pages contribute
+More than lower raulled webpages.
+
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+6
+5.6 Rate of damping factar (d).
+Damping factor (d) represents the peabes willity that
+the raider surfer will follow an edging walk
+rather than randomly teleporting to amater
+page..
+5.C problems with Daughing nodes.
+7
+Daughleg nodes create a leak in pagehank calculatin
+- It cases all page house values to approach zero.
+Gudan payoff Matrise
+
+Strategy-A Strategy-B
+Strategy-0 (3,2) (0,1)
+Strategy-L (2,0) (2,3)
+6.a pure Strategy
+(0,A) - plager get's 3, plagar 2 get 2
+(0,B) - player gets o, plager 2 gets!
+(L,A) - plopen I guls 2, plager 2 get 0
+(L,B) - playor gets, player 2 gets 3
+
+--- Page 7 (HYBRID_PROCESSING) ---
+Confidence: 0.75
+Text:
+Here is the corrected OCR output:
+
+6.b For Expected payoffs for A
+   E[A] = p x 2 + (1-p) x 0 = 2p
+
+   Expected payoffs for B
+   E[B] = p x 1 + (1-p) x 3 = p + 3 - 3p = 3 - 2p
+
+6.c Expected outcome of p = 0.7
+   E[A] = 2p = 2 x 0.7 = 1.4
+   E[B] = 3 - 2p = 3 - 2 x 0.7 = 1.6
+
+--- Page 8 (HYBRID_PROCESSING) ---
+Confidence: 0.75
+Text:
+Okay, here is the corrected transcription of the handwritten text:
+
+(8) Neighbors of B n(CB) = {A, C, D}
+
+Given feature vectors
+(0)
+hA = [1], hc = [8], hD = [2]
+
+Find average of initial feature vectors.
+(1) 1
+h(0) = } (h(0) + h(0) + h(0))
+n(CB)
+A C D
+= ([:]+[8]+[3])
+
+= (+) = +
+
+Given weight Matrix
+
+W = [0.5 0
+0.1 0.2]
+
+W x h(0) = [0.5 0] [t]
+n(CB) 0.1 0.2 2
+= [0.5x1 + 0x2
+0.1x1 + 0.2x2]
+= [0.5 + 0
+0.1 + 0.4]
+
+o = [0.5]
+
+

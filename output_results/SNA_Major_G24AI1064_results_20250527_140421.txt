@@ -1,0 +1,763 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\SNA_Major_G24AI1064.pdf
+Processing Date: 2025-05-27 14:04:21
+Model Used: gemini-2.0-flash
+Total Pages Processed: 13
+API Calls Made: 183
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+Here's a consolidated view of the answers, organized by question:
+
+**Question 1:**
+a) Matrix:
+         E₁   E₂   E₃
+N₁       1    0    0
+N₂       1    1    1
+N₃       0    1    0
+. N₄     0    0    1
+
+E₁→ N₁, N₂
+E₂→ N₂, N₃
+E₃→ N₂, N₄.
+
+∴ Adjacency Matrix
+       N₁   N₂   N₃   N₄
+= N₁   0    1    0    0
+   N₂   1    0    1    1
+   N₃   0    1    0    0
+   N₄   0    1    0    0
+
+b) Endios-Renyi (Random Network) Model
+- In this model, each node pair is connected with fixed probability and is independant of other edges.
+
+c) Nash Equilibrium
+- This occures when every player's strategy is already optimal given the strategies of other players is known . No one gains much anything if they change their strategy alone
+
+d) Assortative mixing
+- In Assortative mixing, it refers to preference of connecting with similar others.
+
+e) D) Because it quantifies how often a node lies on the shortest paths between other nodes.
+- Betweemess centrality measures the number of shortest paths passing through a node. This helps more to identify critical nodes.
+
+F) C] The presence of many nodes with very high degrees (hubs) that maintain connectivity.
+-These hubs ensure network connectivity despite random failures but are vulnerable to targeted attacks.
+
+g) A] The number of inter-community edges is significantly higher than expected in a random network with the same degree sequence.
+
+High modularity means dense connections with communities and less connection between them.
+
+h) B] 2/5.
+
+Jaccard Coeff : {C,D} = 2/5.
+                     {A,B,C,D,E}
+
+i) A] ICM uses edge probabilities independantly, LTM uses a weighted sum of active neighbors compared to a node thresholed.
+
+-In ICM - an active neighbour tries to activate others, independant
+-LTM - a node activates if combined influence is crosseel.
+
+**Question 2:**
+j) Because aggregating features from dissimilar neighbors makes node's representative features harder, Making classification hardes.
+- As in hetrophilic networks the nodes connected are often eliffernt, aggregating their features will reduce accuracy make classification.
+
+Strategy that can be applied:
+① Betweeness Centrality.
+- This measures the nodes that frequently lie shortest path of other nooles.
+-These maybe like bridges.
+-So if we vaccinate these individuals with high betweeness Centrality As these are also like bridges, will break key transmission, between multiple clustures will reduce.
+
+② Degree Centrality
+This measures the direct connections that elge node has, So More connections more risk of spread.
+- So vaccinating these individuals with high number of connections will reduce poo transmission.
+.: By Combining these 2 strategies.
+-We can find those individulas who act as bridges as well have high number of connections.
+- We rank the individuals on the collated score of these 2 methools.
+- Then the top 5% of population we preemptively vaccinate will be most efficient.
+
+Node Embeddings (Node 2 vec)
+- This is a graph based embedding that learns vector representations by going through random walles on the network
+- So in this scenario, of the researchers who are structurally close aie in similar communities will have similar embeddings
+- This will be there even if they have not collaborated.
+
+- Link Prediction,
+- Once the noele embeeldings are created link prediction can be applied to get the likelihood of collaboration between researchers. This can be done by using Similarity between the embedding vectors. Thus the system can sugges potential collaborators based on high predicted scores.
+
+- Homophily
+In this case it is the tendency of the researchers to collaborate with others from similar fields. The Node 2 vec captures this as its vector embeddings is similar researchers are closer in graph. This helps suggesting collaborators who are relevant in terms of expertise and research area.
+
+One potential way to promote Cross disciplinary collaboration using this system is by combining Similarity scores with topics er Key words which will help suggest collaborators from complemengest complementary fields.
+
+**Question 4:**
+a) Girvan - Newman Algorithm for Community Detection.
+The core. idea for this algorithm is it detects communities by removing edges with highest edge betweeness centrality ore by one.
+These are the bridges between communities and help identify different communities.
+
+b) Edge Betweenness. Centrality measures the shortest paths through an edge.
+It iteratively calculates edge betweenness for all edges.
+Removes the edge with highest value.
+This is kept being re iteratively till the graph breaks into communities
+
+c) This algorithm is very computationally expensive for large graph.
+Also has a very high time complexity due to the number iterations it performs.
+
+d) The Louvain method provides a scalable alternative for optimizing modularity by detecting communities by maximizing modularity.
+- This is a greedy optimization algorithm.
+- So, how it does is it first assigns each node to its own community.
+- Move each node to neighbouring community having highest modularity gain.
+- Then it aggregates nodes from the same community into a single node.
+- This process is repeated.
+- This is highly scalable due to its aggregation which reduces graph size at each iteration.
+
+**Question 5:**
+a) The Page Rank Algorithm estimates the importance of a node based on number and quality of links pointing to it.
+- A node with have a high score if it is linked to other important nodes.
+- It navigates the network by following outgoing links like a random surfer-
+
+b) Damping Factor. (d)
+This is the probability that the surfer continues following links.
+The other probability i.e (1-d) takes care for random jumps to any node so rank sinks are prevented.
+
+c) Dangling Nodes in Page Ranks.
+-Dangling nodes gre the nodes with no outgoing links which cause the algorithm May to not converge Properly.
+-This is handled by redistributing the rank from these dangling nodes uniformely across all nodes during each iterative loop. This helps algorithm converge to a steady state, and reduces randomness.
+
+**Question 6:**
+Payoff Matrin:
+
+                  Strategy A           Strategy  B
+  Strategy U      (3,2)               (0,1)
+  Strategy L      (2,0)               (2,3)
+
+a) Pure Strategy Nash Equilibria.
+   Pairs:
+    • (U,A) :- Payoff (3,2)
+       Player! : Switch to L → 2 < 3, no
+               improvement.
+       Player 2 : Switch to B → K2, no
+            improvement.
+       .: Nash.
+    • (U,B) : Payoff (0,1)
+       Player! : Switch to L → 2 > 0,
+                improves.
+       Not Nash.
+    • (L,A) : Payoff (2,0)
+       Player! :. Switch to U → 3 > 2
+                improves
+       Not Nash.
+    • (L,B) : Payoff (2,3)
+       Player! : Switch to U → 0 < 2,
+                no improvement.
+       Player 2 : Switch to A → 0 < 3, no
+                improvement
+       .: Nash
+
+Pure Strategy Nash Equilibria are (U,A) and (L,B)
+
+b) Expected Payoff for player 2.
+
+Player1 - Strategy U - Probability p.
+               Strategy 1 - Probability 1-p.
+
+Player 2 Strategies:
+   Strategy A:
+- Payoff is U:2, if 1:o
+∴Expected payoff: p.2+ (1-p).0 = 2p.
+
+Strategy B:
+Payoff if U:1, if L:3.
+Expected payoff. p.1+ (1-p).3
+= p + 3 - 3p = 3 - 2p
+
+∴ Strategy A : 2p
+   Strategy B : 3-2p.
+
+c) P= 0.7.
+
+Player 2 plays A: 2xp
+                       = 2x0.7 = 1.4
+
+Player 2 plays B= 3 - 2x0.7 = 1.6
+
+∴ Player 2 will choose strategy B
+
+Expected Pay offs:
+
+  Player 1   =  0.7 x 0  +  0.3x2   =0.6
+  Player 2   =  1.6.
+
+  ∴ Expected Payoff : (0.6,1.6)
+
+**Question 7:**
+Given:
+       Directed Edges:
+       A → B, C → B, D → B..
+
+                         (0)
+       h  = [⅓]     h   = [0/3]   h   = [2/3]
+        A              C              D
+
+       weight matrix : W = [0.5  0
+                              0.1  0.2]
+
+       Formula:  h  =
+                  B
+                                  Σ h (0)
+           σ ( W.(  1      vEN(B)
+                ( [N(B)])
+
+           σ = ReLU, N(B) ={A,C,D}.
+
+  1) Aggregate Neighbor Feature.
+
+        ∴|N (B)| =3
+
+        h   + h   + h   = [⅓] + [0/3] + [2/3] = [3/6]
+         A     C     D
+
+        ∴ h  (B) =   [3/6] = [½]
+             N
+
+2) Transform
+𝜔 · [½] = [0.5   0 ]. [½] = [0.5]
+                               0.1   0-2              
+3) Activate:
+   Relu Activation
+
+⊗ σ ( (0.5)) = [max (0,0.5)] = (0.5)
+                                max (0, 0.5)           
+
+∴ h𝐵(1) = [0.5]
+                   [0.5]
+
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                            RANKA
+DATE      /       /
+PAGE
+
+Social Network Analysis - Major
+Name: Chaitanya Gaikwad .
+Roll no: G24 AI 1064
+
+1)
+a) Matrix:
+         E₁   E₂   E₃
+N₁       1    0    0
+N₂       1    1    1
+N₃       0    1    0
+. N₄     0    0    1
+
+E₁→ N₁, N₂
+E₂→ N₂, N₃
+E₃→ N₂, N₄.
+
+∴ Adjacency Matrix
+       N₁   N₂   N₃   N₄
+= N₁   0    1    0    0
+   N₂   1    0    1    1
+   N₃   0    1    0    0
+   N₄   0    1    0    0
+```
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+QD
+b) B] Endios-Renyi (Random Network) Model
+- In this model, each node pair is
+connected with fixed probability and
+is independant of other edges.
+
+c) c] Nash Equilibrium
+- This occures when every player's
+strategy is already optimal given
+the strategies of other players is
+known . No one gains much anything
+if they change their strategy alone
+
+d) B] Assortative mixing
+- In Assortative mixing, it refers to
+preference of connecting with similar
+others.
+-
+e) D) Because it quantifies how often a
+node lies on the shortest paths
+between other nodes.
+- Betweemess centrality measures the
+number of shortest paths passing
+through a node. This helps more
+to identify critical nodes.
+```
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+F) C] The presence of many nodes
+with very high degrees (hubs)
+that maintain connectivity.
+
+-These hubs ensure network connectivity
+despite random failures but are
+vulnerable to targeted attacks.
+
+g) A] The number of inter-community edges
+is significantly higher than expected
+in a random network with the same
+degree sequence.
+
+High modularity means dense connections
+with communities and less connection
+between them.
+
+h) B] 2/5.
+
+Jaccard Coeff : {C,D} = 2/5.
+                     {A,B,C,D,E}
+
+i) A] ICM uses edge probabilities indepen-
+dantly, LTM uses a weighted sum of
+active neighbors compared to a
+node thresholed.
+
+-In ICM - an active neighbour
+tries to activate others, independant
+-LTM - a node activates if
+combined influence is crosseel.
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+2)
+DATE
+PAGE
+RANKA
+j) Because aggregating features from
+dissimilar neighbors
+pode's
+αυπ
+representative features,
+Making classification
+hardes.
+-
+As in hetrophilic networks the
+nodes connected
+aggregating
+make
+are
+their features.
+classification
+often eliffernt,
+will
+reduce accu.
+accuracy
+Strategy that
+can be applied
+① Betweeness Centrality.
+-
+This measures identify
+nodes that
+Frequently
+shortest path of other
+liè
+that
+グ
+nooles.
+-These maybe like bridges.
+-80 if
+we
+vaccinate these individuals
+with high betweeness
+As these
+will break key
+are
+the spread
+Centrality
+transmission,
+also like bridges,
+between mültiple
+clustures will reduce,
+Degree Centrality
+This measures the direct
+connections that
+So
+More
+spread.
+connections
+elge node has,
+more risk of
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+DATE
+RANKA
+11
+PAGE
+- So vaccinating these individuals
+with high number of connections
+will reduce poo transmission,
+.: By Combining these 2 strategies.
+-We can find those individulas
+who act as bridges as well have
+high number of connections.
+- We rank the individuals on the
+collated score of these 2 methools.
+- Then the top 5% of population
+we preemptively vaccinate will be
+most efficient.
+
+Node Embeddings (Node 2 vec)
+- This is a graph based embedding
+that learns vector representations
+by going through random walles
+on the network
+- So in this scenario, of the researchers
+who are structurally close aie in
+similar communities will have similar
+embeddings
+- This will be there even if they
+have not collaborated.
+
+- Link Prediction,
+- Once the noele embeeldings are
+created link prediction
+can be applied to get the
+likelihood of collaboration between
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+DATE
+PAGE
+-RANKA
+-
+-
+2
+researchers.
+This
+can be done by using
+Similarity
+between ve the
+embedding vectors.
+Thus the
+potential
+system can
+sugges
+collaborators based
+on high predicted
+scores.
+-
+Homophily
+P
+In this caвад
+case
+it is
+tendency of
+the
+researchers to
+1
+collaborate with others from similar
+fields.
+The Node 2 vec
+captures
+embeddings
+its vector
+researchers are
+this is
+as
+is similar
+graph
+closer in
+This helps suggesting collaborators who
+are
+and
+relevant in terms of expertise
+research
+area.
+One potential way to
+promote Cross
+disciplinary collaboration
+using
+this system is by combining
+Similarity
+scores
+with
+topics
+er
+Key words
+which will help suggest
+fields.
+collaborators from
+complemengest
+complementary
+
+--- Page 7 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+04)
+-RANKA
+DATE / /
+PAGE
+a) Girvan - Newman Algorithm for
+Community Detection.
+The core. idea for this algorithm
+is it detects communities by
+removing edges with highest
+edge betweeness centrality ore
+by one.
+These are the bridges between
+communities and help identify
+different communities.
+
+b) Edge Betweenness. Centrality measures
+the shortest paths through an edge.
+It iteratively calculates edge
+betweenness for all edges.
+Removes the edge with highest value.
+This is kept being re iteratively
+till the graph breaks into communities
+
+c) This algorithm is very computationally
+expensive for large graph.
+Also has a very high time complexity
+due to the number iterations it
+performs.
+
+d) The Louvain method provides a
+scalable alternative for optimizing
+modularity by
+detecting communities by maximizing
+modularity.
+
+
+--- Page 8 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+- This is a greedy optimization
+  algorithm.
+- So, how it does is it first
+  assigns each node to its own
+  community.
+- Move each node to neighbouring
+  community having highest modularity
+  gain.
+- Then it aggregates nodes from
+  the same community into a
+  single node.
+- This process is repeated.
+- This is highly scalable due
+  to its aggregation which reduces
+  graph size at each iteration.
+
+5)
+a) The Page Rank Algorithm estimates
+  the importance of a node based
+  on number and quality of links
+  pointing to it.
+- A node with have a high score if
+  it is linked to other important
+  nodes.
+- It navigates the network by
+  following outgoing links like a
+  random surfer-
+
+--- Page 9 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+-
+DATE
+PAGE
+RANKA
+
+b)
+-
+-
+Damping Factor. (d)
+This is the probability that the
+surfer continues following links.
+The other probability i.e (1-d)
+takes care for random jumps to
+any node so rank sinks are prevented.
+
+c) Dangling Nodes in Page Ranks.
+-
+Dangling nodes
+no
+outgoing
+cause the
+Properly.
+
+-
+This is
+gre the nodes with
+links which
+algorithm
+May
+to not
+converge
+handled by redistributing
+the rank from these dangling
+nodes uniformely
+during
+-
+each iterative loop.
+across
+all nodes
+This helps algorithm converge
+to a steady
+randomness.
+state, and reduces
+
+--- Page 10 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                   RANKA---
+                  DATE    /   /
+                   PAGE         *
+6)
+Payoff   Matrin:
+
+                  Strategy A           Strategy  B
+  Strategy U      (3,2)               (0,1)
+  Strategy L      (2,0)               (2,3)
+
+
+a) Pure Strategy Nash Equilibria.
+   Pairs:
+    • (U,A) :- Payoff (3,2)
+       Player! : Switch to L → 2 < 3, no
+               improvement.
+       Player 2 : Switch to B → K2, no
+            improvement.
+       .: Nash.
+    • (U,B) : Payoff (0,1)
+       Player! : Switch to L → 2 > 0,
+                improves.
+       Not Nash.
+    • (L,A) : Payoff (2,0)
+       Player! :. Switch to U → 3 > 2
+                improves
+       Not Nash.
+    • (L,B) : Payoff (2,3)
+       Player! : Switch to U → 0 < 2,
+                no improvement.
+       Player 2 : Switch to A → 0 < 3, no
+                improvement
+       .: Nash
+
+```
+
+--- Page 11 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Pure Strategy Nash Equilibria are
+(U,A) and (L,B)
+
+b) Expected Payoff for player 2.
+
+Player1 - Strategy U - Probability p.
+               Strategy 1 - Probability 1-p.
+
+Player 2 Strategies:
+   Strategy A:
+- Payoff is U:2, if 1:o
+∴Expected payoff: p.2+ (1-p).0 = 2p.
+
+Strategy B:
+Payoff if U:1, if L:3.
+Expected payoff. p.1+ (1-p).3
+= p + 3 - 3p = 3 - 2p
+
+∴ Strategy A : 2p
+   Strategy B : 3-2p.
+
+c) P= 0.7.
+
+Player 2 plays A: 2xp
+                       = 2x0.7 = 1.4
+
+Player 2 plays B= 3 - 2x0.7 = 1.6
+
+∴ Player 2 will choose strategy B
+
+
+--- Page 12 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                      _RANKA
+                    DATE    /   /
+                    PAGE    - -
+  Expected   Pay offs:
+
+  Player 1   =  0.7 x 0  +  0.3x2   =0.6
+  Player 2   =  1.6.
+
+  ∴ Expected Payoff : (0.6,1.6)
+
+  (Q7)
+  →7  Given:
+       Directed Edges:
+       A → B, C → B, D → B..
+
+                         (0)
+       h  = [⅓]     h   = [0/3]   h   = [2/3]
+        A              C              D
+
+       weight matrix : W = [0.5  0
+                              0.1  0.2]
+
+       Formula:  h  =
+                  B
+                                  Σ h (0)
+           σ ( W.(  1      vEN(B)
+                ( [N(B)])
+
+           σ = ReLU, N(B) ={A,C,D}.
+
+  1) Aggregate Neighbor Feature.
+
+        ∴|N (B)| =3
+
+        h   + h   + h   = [⅓] + [0/3] + [2/3] = [3/6]
+         A     C     D
+
+        ∴ h  (B) =   [3/6] = [½]
+             N
+
+```
+
+--- Page 13 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+DATE
+PAGE
+RANKA
+/
+/
+
+2) Transform
+𝜔 · [½] = [0.5   0 ]. [½] = [0.5]
+                               0.1   0-2              
+3) Activate:
+   Relu Activation
+
+⊗ σ ( (0.5)) = [max (0,0.5)] = (0.5)
+                                max (0, 0.5)           
+
+∴ h𝐵(1) = [0.5]
+                   [0.5]
+
+

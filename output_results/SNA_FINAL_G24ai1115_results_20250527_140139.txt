@@ -1,0 +1,550 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\SNA_FINAL_G24ai1115.pdf
+Processing Date: 2025-05-27 14:01:39
+Model Used: gemini-2.0-flash
+Total Pages Processed: 11
+API Calls Made: 169
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+Here's a consolidation of the answers based on the provided page segments:
+
+Question 1:
+(a) Incidence to adjacency Matrix Conversion:
+The incidence matrix has 4 rows (nodes, 1,2,3,4) and 3 columns (edges e1,e2,e3).
+Edge e1 connects nodes 1 and 2.
+Edge e2 connects nodes 2 and 3
+Edge e3 connects nodes 2 and 4.
+
+The corresponding adjacency matrix A for this simple undirected graph:
+
+    1   2   3   4
+1 [ 0 1 0 0 ]
+2 [ 1 0 1 1 ]
+3 [ 0 1 0 0 ]
+4 [ 0 1 0 0 ]
+
+(b) Network Model
+Answer (B). Erdös-Rényi (Random Network Model)
+
+The Erdös-Rényi model (specifically G(n,p) defining a graph where each possible edge between n nodes is included independently with a uniform probability p.
+
+(c) Answer (C) Nash Equilibrium
+
+A Nash equilibrium is a state in a game where no player can benefit by changing their strategy unilaterally, assuming all other players keep their strategies unchanged.
+
+(d) Answer (B) Assortive Mixing
+Assortive mixing, often referred to as homophily, is the principle that nodes in a network tend to connect to other nodes that are similar to themselves for some characteristic (example age, interests)
+
+(e) Answer (D) Because it quantifies how often a node lies on the shortest paths between other nodes.
+Degree centrality measures direct connecting while betweeness centrality measures a node's importance as an intermediary in the network.
+For information flowing along specific paths, nodes with high betweenness act as crucial bridges or bottlenecks, making betweeners more relevant than just the number of connections
+
+(f) Answer (C) Scale-Free Network Robustness/vulnerability.
+Scale free networks are characterized by hubs. Random failures are unlikely to hit these rare hubs, preserving overall connectivity
+However targetted attacks removing these hubs quickly fragment the network. (Vulnerability)
+
+(g) Answer (A). The number of intra-community edges is significantly higher than expected in a random network with the same degree sequence.
+Justification!
+Modularity measures the strength of division of a network into Community. High modularity indicetly dense connections within Community and sparse connections between them, compared to a random baseline
+
+(h) answer
+Neighboury (x) = N(X) = { A, B, C,D}
+Neighboury (Y) = N(Y) = {C, D, E}
+Intersection (N(X) ∩ (N(Y)) | = |{ C,D} | = 2
+Union | N(X) U N(Y)| = | N(X) ∩ N(Y) / N(X) U N(Y) | = 2/5
+Answer is (B) 2/5
+
+(i) Answer (A) ICM uses edge probabilities independently : LFM uses a wersighted sum of active neighbours compared to a node threshold
+Justification In ICM, an active node tries to activate its neighbours based on probability associated with the edges independent of other neighbours. In LTM, a node activates only if the total weight of influence from its already active neighbours surpasses its individual threshold.
+
+(j) Answer (B). Because aggregating features from disimilar neighbours can blur the node's own representatage features, making classification harder.
+Standard GCNs coork by  averaging of summing features from neighbours In heterophilic networks, cohere neighboors are often disiniler. this aggregation mixes unlike features, potentially obscuring the central node's characteristics and making tasks like node classification less acurate
+
+Question 2:
+I can derive a strategy based on the learnings from classy, bac need to first think about the state strategy.
+Strategy:
+Calculating degree of centrality and betweenness for each individu of in the social contact network. Then we need to select top 5% of individuals for vaccination by prioritizing those coho rank highest is the either degree of centrality or betweenness centrality:
+Degree of centrality: Target individuals colth the direct contacts in the highest number. These people are likely highly infected and there are Chancy like these people will affect others more rapidly. So identifying and vaccinating them and protting them is isolation can stop superspreading.
+continue Betweenness Centrality: It basically target people who acts Lice a bridge bezocen person to person, and groop to group is the community of network. So
+Silent wide by capturing these and vaccinating them copy ideally prevents speading of the influenza, which will help redocis virus spread from cluster to closter,
+
+Question 3:
+To improve collaborator suggestions, first we need to generate vettorentedding for each researcher, using Nodez vee trained on the paper citafion and Co-authorship network These embeddings captores researchers' positiong and relationships within the network, such that similar regearcherg (based on atation/collaboration patterns) have similar vectors.
+Next cwe need apply link prediction algorithmy to these embeddingss. This involuy calasleting a score for potential collaborations (links) between pairs o of researchers based on their respective embeddings. commen nom netwdy Betodeinclody computing cosine similarity between enbedding vectors or using the embeddings as input features to a leaned function Cerample, sopervised Classifier trapsed on known past collaborators) to predict the probability of a future linle, Higher the scores Podienty a higher likelihood of collaborchiory,
+
+Any Continued:
+To promote cross disciplinary collaborating, the recommendations output can be adjusted calculating inttich link prediction scores, re-rank potential Collaboratory by introducing a diversity criterion. For instance, slightly Penalizing the scory of collaborators from the researchers' own fieldy or boost the scory for those from different fields, using metadefa Cexample: Publication keywords, departmental affelichicon) to determine disciplinary alignment. In this way we can establish cross-disciplinary collaborationg
+
+Question 4:
+(a) Girvan-Newman algorithm
+The Girvan-Newman algorithm identifies communities by iteratively removing edges with the highest edge betweeness centrality. This process progressively breaks the network down into smaller discontinued components, which represent the detected communities
+
+(b) The algorithm colocolates the betweeness centrality for all edges in the current network. If then removes the edge (or edges, in case of ties) with the highest betweeness score. After removed, it recalculates the betweeness centrality for all remaining edges and repeats the removal process.
+
+(c) A major computational limitation is its time complexity. Calculating edge betweeness centrality for all edges is computationally expensive, and the algorithm needs to repeat this calculation after each edge removal., making it very slow for large networks.
+
+(d) Ans. Louvain method:
+This is a greedy method, hierachiel algorithm, that optimize, modulast much faster, than Girvan-Newman, It iteratively performy two steps,
+First it locally aptionizes modularity by moving nodes between community
+Second. It aggregates nodes within the same community into "super nodey" to build a new smaller network. These steps are repeated leading to a fast convergence and making it highly Scalable for large networks because it avoids the expensive global recalculations needed is Girvan-Newman algorithm.
+
+Question 5:
+(a) Answer.
+PageRank ranleg nody based on the idea that important nodey are likely to be linked to by other important nodes, It simulaty a random- Surfer navigating the networly, there more likely the surfer is to land on a page (node), the higher its rank. A mode's importance Score depends on both the number of incoming links and the Rimpottence of the nodes providing these links. Links from important nodes transfer more "rank valve" than links from less important ones.
+
+This is how page randoing cooly is backend, search systems like google, Yahoo, youtube search worles on the similar ideologis along with other metrics also.
+
+(b) The damping factor (d) represents the probability that the random surfer will follow an outgoing link from the current node. The complimentary probability (1-d), is the chance that the surfer will stop following links, and instead 'teleport' to a random node anywhere in the network. This prevents the surfer from getting trapped in cycles of. non-zero page rank, scored edges.
+
+(c) Dangling Body
+
+Dangling Body creates a few problems like the surfer will stuck at any node and from there, he will might not be able to find another forward node. In other words he will stuck there because of having no idea about which node is linked from there. This leads page rank leaking out of the network model, as the probability mass arriving at these nodes, nodes, are not distributed further
+
+To handle this² convergence ensuring, the algorithm typically treats dangling nodes as if they link to every node in the network with equal probability. This means that when the random surfer reaches the dangling nodes, in the next step, they teleport to any node in the graph uniformly at random, effectively redistributing the pagerank that would otherwise be lost.
+
+Question 6:
+(a)
+
+```
+    Str Strategy   Strategy A  Strategy B
+  Strategy U      (3,2)       (0,1)
+  Strategy L      (2,0)       (2,3)
+```
+
+The pure Strategy Nash Equillibris (PNSE) are (U, A) and (L, B)
+
+(U, A) is a PSNE:
+
+Because If player 1 plays U, player 2 gets a higher payoff from A than B (1)
+
+If player 2 plays A, player 1 gets a higher payoff from U (3) than L(2)
+Neither player has an incentive to unilaterally deviate.
+
+(L, B) is a PSNE:
+
+Because If player 1 plays L, player 2 gets a higher payoff B (3) than A(0)
+If player 2 plays B, player 1 gets a higher payoff from L(2) than U(0)
+Neither player has an incentive to unilaterally deviate.
+
+(b) Let E2(A) be the expected payoff for player 2 playing strategy A
+and E2 (B) be the expected payoff for player 2 playing strategy 2.
+Expected Payoff for player 2 choosing strategy A:
+
+E2 (A) = (payoff of A if p1 plays U) x P(p1 plays U) + (Payoff of A of
+p1 plays L) x P(p1 plays;
+E2 (A)= 2x P+ 0 x(1-P)
+E2 (A)=        2p.
+        ①
+Expected payoff for player 2 choosing strategy B
+E2(B) = (payoff of B if P1 plays U) x P(p1 plays U) +(payoff of B if P1 plays L) x
+       Ray
+E2(B) = 1xP+ 3x (1-p)           (P(p1 plays L))
+=  P+3-3p
+E2(B) =  3-2p  ②
+The expected of player 2 is 2p, for stategy A and 3-2p for
+    Stategy B
+
+(c) 4f p = 0.7 from 6(b) we know that E2(A) = 2P
+                          EL(B)=3-2p
+if we substitute p,in equation① & ②
+
+E2(A)= 2(0.7) =1.4
+E2 (B) = 3-(2x0.7)
+= 3-1.4 = 1.6
+
+Question 7:
+Computing updated feature vector for node B. vector h<sub>B</sub><sup>(1)</sup>
+
+(i) Aggregate neighbour features.
+The neighbours of node 'B' are N(B) = {A, C, D}, the number of neighbours
+is |N(B)| = 3.
+
+The initial feature vectors are
+
+h<sub>A</sub><sup>(0)</sup> = (<sup>1</sup><sub>1</sub>)
+h<sub>C</sub><sup>(0)</sup> = (<sup>0</sup><sub>3</sub>)
+h<sub>D</sub><sup>(0)</sup> = (<sup>2</sup><sub>2</sub>)
+
+calculating the average of these vectors.
+
+h<sub>N(B)</sub><sup>(0)</sup> = <sup>1</sup>/<sub>3</sub> (h<sub>A</sub><sup>(0)</sup> + h<sub>C</sub><sup>(0)</sup> + h<sub>D</sub><sup>(0)</sup>) = <sup>1</sup>/<sub>3</sub> ((<sup>1</sup><sub>1</sub>) + (<sup>0</sup><sub>3</sub>) + (<sup>2</sup><sub>2</sub>))
+h<sub>N(B)</sub><sup>(0)</sup> = <sup>1</sup>/<sub>3</sub> (<sup>1+0+2</sup><sub>1+3+2</sub>) = <sup>1</sup>/<sub>3</sub> (<sup>3</sup><sub>6</sub>) = (<sup>1</sup><sub>2</sub>)
+
+(ii) Transform
+Next, we need to apply the linear transformation using the weight
+matrix w:
+
+w = (<sup>0.5  0</sup><sub>0.1  0.2</sub>)
+
+w x h<sub>N(B)</sub><sup>(0)</sup> = (<sup>0.5  0</sup><sub>0.1  0.2</sub>) (<sup>1</sup><sub>2</sub>) = (<sup>0.5x1 + (0x2)</sup><sub>(0.1x1) + (0.2x2)</sub>) = (<sup>0.5</sup><sub>0.1+0.4</sub>) = (<sup>0.5</sup><sub>0.5</sub>)
+
+(iii) Finally, we have to apply the ReLU activation σ(x) = max(0, x) by each element
+
+ h(B)^(1) = σ (0.5) = ( max(0,0.5) ) = (0.5)
+              0.5    ( max(0,0.5) )    0.5
+
+The updated feature vector for node B is = h(B)^(1) = (0.5)
+                                                          0.5
+
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (HYBRID_PROCESSING) ---
+Confidence: 0.75
+Text:
+Here's the corrected OCR output:
+
+```
+G24A51115                                             Page ①
+
+① (a) Incidence to adjacency Matrix Conversion:
+
+The incidence matrix has 4 rows (nodes, 1,2,3,4) and 3 columns (edges
+Edge e1 connects nodes 1 and 2.                                        e1,e2,e3)
+Edge e2 connects nodes 2 and 3
+Edge e3 connects nodes 2 and 4.
+
+The corresponding adjacency matrix A for this simple undirected graph:
+
+    1   2   3   4
+1 [ 0 1 0 0 ]
+2 [ 1 0 1 1 ]
+3 [ 0 1 0 0 ]
+4 [ 0 1 0 0 ]
+
+① (b) Network Model
+
+Answer (B). Erdös-Rényi (Random Network Model)
+
+The Erdös-Rényi model (specifically G(n,p) defining a graph where each
+possible edge between n nodes is included independently with a uniform
+probability p.
+
+① (c) Answer (C) Nash Equilibrium
+
+A Nash equilibrium is a state in a game where no player
+can benefit by changing their strategy unilaterally, assuming all
+other players keep their strategies unchanged.
+
+```
+
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here's the transcription of the handwritten text from the image, preserving the layout and line breaks as accurately as possible:
+
+Page ②
+①(d) Answer
+(B) Assortive Mixing
+Assortive mixing, often referred to as homophily, is the principle
+that needs in a network tend to connect to other nodes that
+are similar to themselvy for some characteristic (example age, interests)
+
+①(e) Answer
+(D) Because it quantifies how often a node lies on the shortest paths
+between other nodes.
+Degree centrality measures direct connecting while betweeness centrality
+measury a node's importance as an intermediary in the network.
+For information flowing along specific paths, nodes with high
+befweenness act as crucial bridges or bottlenecks, making betweeners
+more relevant than gust the number of connections
+
+①(f) Answer
+(C) Scale-Free Network Robustness/vulnerability.
+Scale free networks are characterized by hubs. Random failures
+are unlikely to hit these rare hubs, preserving overall connectivity
+However targetted attacks
+removing these hubs quickly fragment the network. (Vulnerability)
+
+①(g) Answer
+(A). The number of intra-community edges is significantly higher than
+expected in a random network with the same degree sequence.
+
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+page
+①(g) Justification!
+Modularity measures the strength of division of a network into
+Community. High modularity indicetly dense connections within
+Community and sparse connections between them, compared to a
+random baseline
+
+① (h) answer
+Neighboury (x) = N(X) = { A, B, C,D}
+Neighboury (Y) = N(Y) = {C, D, E}
+Intersection (N(X) ∩ (N(Y)) | = |{ C,D} | = 2
+Union | N(X) U N(Y)| = | N(X) ∩ N(Y) / N(X) U N(Y) | = 2/5
+Answer is (B) 2/5
+
+① (i) Answer
+(A) ICM usy edge probabilities independently : LFM usy a wersighted
+sum of active neighbours compared to a node threshold
+
+Justification In ICM, an active node tries to activate its neighbours
+based on probability associated with the edges Pistependent of other
+neighbours. In LTM, a node activates only if the total weight of
+influence from its already active neighbours surpasses its individod
+threshold.
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here's the transcription of the handwritten text, formatted to match the original layout:
+
+```
+                                                                                                                Page (4)
+①(j) Amwa|
+(B). Because aggregating features from disimilar neighbours can blur
+the nede's own representatage features, making classification harder.
+Standard GCNs coork by  averaging of summing features from
+neighbours In heterophilic networks, cohere neighboors are often disiniler.
+this aggregation mixes unlike features, potentially obscuring the central
+node's, &haracteristics and making tasks like node classification less acurate
+
+④(a) Girvan-Newman algorithm
+The Girvan-Newman algorithm identifig ammunities by iteratively removing
+edges with the highest edge betweeness centrality. This process progressively
+brealy the network down. into smaller discontinued components, which
+represent the detected communities
+
+④(b) The algorithm colocolates the betweeness centrality for all edges
+in the current network. If then removes the edge (or edges, in case of ties)
+with the highest betweeness score. After removed, it recalculates the
+betweeness centrality for all remaining edges and repeats the removal process.
+
+④(c) A major computational limitation is its time complexity.
+Calculating edge betweeness centrality for all edges is computationally
+expensive, and the algorithm needs to repeat this calculation
+after each edge removal., making it very slow for large networks.
+```
+
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+④(d) Ans. Louvain method:
+This is a greedy method, hierachiel algorithm, that optimize, modulast
+much faster, than Girvan-Newman, It iteratively performy two
+steps,
+First it locally aptionizes modularity by moving nodes between community
+Second. It aggregates nodes within the same community into
+"super nodey" to build a new smaller network. These steps are
+repeated leading to a fast convergence and making it highly
+Scalable for large networks because it avoids the expensive global
+recalculations needed is Girvan-Newman algorithm.
+
+② Answer
+I can derive a stragegy based on the learnings from classy, bac need
+to first think about the state strategy.
+Strategy:
+Calalating degree of centrality and betweenness for each individu of in
+the social contact network. Then we need to select top 5% of individuals
+for vaccination by prioritizing these coho rank highest is the either
+degree of centrality or betweenness centrality:
+Degree of centrality: Target individuals colth the direct contacts in
+the highest number. These people are likely highly infected and there
+are Chancy like these people will affect others more rapidly.
+So Pdentifying and vaccinating them and protting them is isolation
+can stop superspreading.
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+2
+Page 6
+② continue Betweenness Centrality: It basically target people who acts Lice
+2
+å bridge bezocen person to person, and groop to group is the community.
+of network. So
+Silent wide
+by capturing these and vaccinating them copy ideally prevents
+speading of the influenza, which will help redocis
+wirus spread from cluster to closter,
+③ Answer
+To improve collaborator suggestions, first
+(
+we need to
+reducing the
+ducing
+generate vettorentedding
+for each researcher, using Nodez vee trained on the paper citafion and
+Co-authorship network These embeddings captores researchers' positiong
+and relationships within the network, such that similar regearcherg
+(based on atation/collaboration patterns) have similar vectors.
+Next cwe need apply link prediction algorithmy to these embeddingss. This
+iasto involuy calasleting a score for potential collaborations (inks) between
+pairs o
+of
+researchers based on their
+respective embeddings. commen
+nom netwdy Betodeinclody computing cosine similarity between enbedding
+vectors or using
+or using the embeddings as input features to a
+leaned function
+Cerample, sopervised Classifier trapsed on known past collaborators) to
+predict the probability of a future linle, Higher the scores
+Podienty a higher likelihood of collaborchiory,
+Scanned with OKEN Scanner
+
+--- Page 7 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+page ⑦
+③ Any Continued:
+To promote cross disciplinary collaborating, the recommendations output
+can be adjusted calculating inttich link prediction scores, re-rank potential
+Collaboratory by introducing a diversity criterion. For instance, slightly
+Penalizing
+the scory of collaborators from the researchers' own fieldy
+or boost the scory for those from different fields, using
+metadefa Cexample: Publication keywords, departmental affelichicon) to
+determine disciplinary alignment.
+In this way we can establish cross-disciplinary collaborationg
+
+(5) (a) Answer.
+PageRank ranleg nody based on the idea that important nodey
+are likely to be linked to by other important nodes, It simulaty a
+random- Surfer navigating the networly, there more likely the surfer is
+to land on a page (node), the higher its rank. A mode's importance
+Score depends on both the number of incoming links and the Rimpottence
+of the nodes providing these links. Links from important nodes transfer
+more "rank valve" than links from less important ones.
+
+This is how page randoing cooly is backend, search systems like
+google, Yahoo, youtube search worles on the similar ideologis along
+with other metrics also.
+```
+
+--- Page 8 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+⑤(b) The damping factor (d) represents the probability that the random
+surfer will follow an outgoing link from the current node. The complimentary
+probability (1-d), is the chance that the surfer will stop following
+links, and instead 'teleport' to a random node anywhere in the
+network. This prevents the surfer from getting trapped in cycles of.
+non-zero page rank, scored edges.
+
+⑤(c) Dangling Body
+
+Dangling Body creates a few problems like the surfer will stuck at
+any node and from there, he will might not be able to find another forward
+node. In other words he will stuck there because of having no idea
+about which node is linked from there. This leads page rank leaking
+out of the network model, as the probability mass arriving at these nodes,
+nodes, are not distributed further
+
+To handle this² convergence ensuring, the algorithm typically treats
+dangling nodes as if they link to every node in the network with
+equal probability. This means that when the random surfer reaches
+the dangling nodes, in the next step, they teleport to any node in the
+graph uniformly at random, effectively redistributing the pagerank
+that would otherwise be lost.
+
+--- Page 9 (HYBRID_PROCESSING) ---
+Confidence: 0.75
+Text:
+Here's the corrected text from the image:
+
+(7) Computing updated feature vector for node B. vector h<sub>B</sub><sup>(1)</sup>   page (1)
+
+(i) Aggregate neighbour features.
+The neighbours of node 'B' are N(B) = {A, C, D}, the number of neighbours
+is |N(B)| = 3.
+
+The initial feature vectors are
+
+h<sub>A</sub><sup>(0)</sup> = (<sup>1</sup><sub>1</sub>)
+h<sub>C</sub><sup>(0)</sup> = (<sup>0</sup><sub>3</sub>)
+h<sub>D</sub><sup>(0)</sup> = (<sup>2</sup><sub>2</sub>)
+
+calculating the average of these vectors.
+
+h<sub>N(B)</sub><sup>(0)</sup> = <sup>1</sup>/<sub>3</sub> (h<sub>A</sub><sup>(0)</sup> + h<sub>C</sub><sup>(0)</sup> + h<sub>D</sub><sup>(0)</sup>) = <sup>1</sup>/<sub>3</sub> ((<sup>1</sup><sub>1</sub>) + (<sup>0</sup><sub>3</sub>) + (<sup>2</sup><sub>2</sub>))
+h<sub>N(B)</sub><sup>(0)</sup> = <sup>1</sup>/<sub>3</sub> (<sup>1+0+2</sup><sub>1+3+2</sub>) = <sup>1</sup>/<sub>3</sub> (<sup>3</sup><sub>6</sub>) = (<sup>1</sup><sub>2</sub>)
+
+(ii) Transform
+Next, we need to apply the linear transformation using the weight
+matrix w:
+
+w = (<sup>0.5  0</sup><sub>0.1  0.2</sub>)
+
+w x h<sub>N(B)</sub><sup>(0)</sup> = (<sup>0.5  0</sup><sub>0.1  0.2</sub>) (<sup>1</sup><sub>2</sub>) = (<sup>0.5x1 + (0x2)</sup><sub>(0.1x1) + (0.2x2)</sub>) = (<sup>0.5</sup><sub>0.1+0.4</sub>) = (<sup>0.5</sup><sub>0.5</sub>)
+
+(iii) Finally, we have to apply the ReLU activation σ(x) = max(0, x) by each element
+
+
+--- Page 10 (HYBRID_PROCESSING) ---
+Confidence: 0.75
+Text:
+```
+⑦ Continues                            page (1)
+
+ h(B)^(1) = σ (0.5) = ( max(0,0.5) ) = (0.5)
+              0.5    ( max(0,0.5) )    0.5
+
+The updated feature vector for node B is = h(B)^(1) = (0.5)
+                                                          0.5
+(6)
+    Str Strategy   Strategy A  Strategy B
+  Strategy U      (3,2)       (0,1)
+  Strategy L      (2,0)       (2,3)
+
+(6)(9) The pure Strategy Nash Equillibris (PNSE) are (U, A) and (L, B)
+
+(U, A) is a PSNE:
+
+Because Because If player 1 plays U, player 2 gets a higher payoff from A
+than B (1)
+
+If player 2 plays A, player 1 gets a higher payoff from U (3) than L(2)
+Neither player has an incentive to unilaterally deviate.
+
+(L, B) is a PSNE:
+
+Because If player 1 plays L, player 2 gets a higher payoff B (3) than A(0)
+If player 2 plays B, player 1 gets a higher payoff from L(2) than U(0)
+Neither player has an incentive to unilaterally deviate.
+```
+
+--- Page 11 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                                                        Pase 12
+(6b)
+Let E2(A) be the expected payoff for player 2 playing strategy A
+and E2 (B) be the expected payoff for player 2 playing strategy 2.
+Expected Payoff for player 2 choosing strategy A:
+
+E2 (A) = (payoff of A if p1 plays U) x P(p1 plays U) + (Payoff of A of
+p1 plays L) x P(p1 plays;
+E2 (A)= 2x P+ 0 x(1-P)
+E2 (A)=        2p.
+        ①
+Expected payoff for player 2 choosing strategy B
+E2(B) = (payoff of B if P1 plays U) x P(p1 plays U) +(payoff of B if P1 plays L) x
+       Ray
+E2(B) = 1xP+ 3x (1-p)           (P(p1 plays L))
+=  P+3-3p
+E2(B) =  3-2p  ②
+The expected of player 2 is 2p, for stategy A and 3-2p for
+    Stategy B
+(6(c) 4f p = 0.7 from 6(b) we know that E2(A) = 2P
+                          EL(B)=3-2p
+if we substitute p,in equation① & ②
+
+E2(A)= 2(0.7) =1.4
+E2 (B) = 3-(2x0.7)
+= 3-1.4 = 1.6
+```
+

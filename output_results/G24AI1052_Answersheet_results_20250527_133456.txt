@@ -1,0 +1,616 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\G24AI1052_Answersheet.pdf
+Processing Date: 2025-05-27 13:34:56
+Model Used: gemini-2.0-flash
+Total Pages Processed: 13
+API Calls Made: 39
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+Here's a consolidation of the answers based on the provided page text:
+
+Question 1: @ICM uses edge probabilities independently; LTM uses a weighted sum of active neighbours compared to a node threshold. Justification: ICM is probabilistic per edge, LTM is threshold-based.
+@because aggregating features from dissimilar neighbours can blur the nodes's own representative features, making classification harder. Justification: Heterophily causes features blurring.
+
+Question 2: Task: vaccinate 5% of the population to minimize infection using two network analysis concepts.
+1. Betweenness centrality: Identify nodes that bridge different communities is crucial since these nodes can act as "gate keepers" that control the spread of infection between communities. Vaccinating these high coherence individuals would effectively fragment the network and contain outbreaks within smaller communities.
+2. k-core Decomposition: this technique identifies densely connected subgroups in the network where infections could spread rapidly. The nodes in the highest k-core represent individuals embedded in the most densely connected parts of networks - "superspreaders" who, once infected, could rapidly transmit to many others.
+
+Implementation strategy:
+•Calculate betweenness centrality for all nodes and rank them
+•Perform k-core decomposition to identify nodes in the highest k-cores.
+•Create a combined score: aB + (1-a)k, where B is normalized betweenness and K is normalized k-core value.
+•Allocate vaccines to the top 5% of nodes based on this combined score.
+
+Justification: This approach balances two critical aspects of epidemic control:
+i) Cutting transmission pathways between communities (betweenness)
+ii) Targeting potential super-spreaders within densely connected groups (K-Core).
+The combined approach is more effective than other measures alone because it addresses both network-wide transmission and local outbreak potential.
+
+Question 3: Node embedding (Node2Vec):
+- Compute similarity between embeddings to identify researchers with similar research profiles.
+Link Prediction Algorithms:
+- Identify users likely to collaborate based on shared connections. Rank potential collaborators by link prediction.
+
+Approach:
+STEP1: Create a heterogeneous network including researchers, papers, institutions, and research topics.
+STEP2: Generate node embeddings using Node2Vec on this network, capturing both structural & semantic relationships.
+STEP3: Apply link prediction algorithms, combined with similarity scores from the embedded features space.
+STEP 4: Combine traditional link predictions with embedding shared similarity scores using weighted averaging.
+OUTPUT: Recommended researchers who are both typically similar (homophily) and statistically likely to collaborate (link prediction).
+
+Justification: Embeddings capture research similarity (homophily), while link prediction leverages network structures for practical collaboration likelihood.
+
+Role of homophily:
+Homophily has a significant role in academic collaboration based on doing work within their fields.
+• The embedding vectors naturally capture the tendency as researchers within their fields will have similar embedding vectors.
+• Link prediction algorithms would ensure recommendation align with existing research interest, increasing acceptance.
+
+Potential way to promote cross-Disciplinary Collaboration
+Method: Introduce a disciplinary/diversity penalty in recommendation ranking.
+- Compute a disciplinary distance metric.
+- Adjust the final score = Link prediction score + λ * Disciplinary Distance,
+Where λ is a small weight to boost diverse pairs.
+
+Implementations: occasionally researchers with high link prediction Scores but moderate embedding dissimilarity, encouraging cross-field collaboration.
+
+Question 4:
+(a) The Girvan-Newman algorithm detects communities by iteratively removing edges with the highest edge betweenness centrality, until the network is disconnected into components (communities). The core idea is to identify and progressively remove edges that are most likely to connect communities rather than to be internal to communities.
+(b) Edge betweenness is the number of shortest paths between all node pairs that pass through an edge.
+Algorithm:
+1. Calculate betweenness centrality for all edges in the current network.
+2. Remove the edges with the highest betweenness (likely a bridge between communities).
+3. Recalculate betweenness values for all remaining edges.
+4. Continue removing edges & recalculating until the network is fragmented into components.
+(c) The major computational limitation is high time complexity. For a network with n nodes and m edges, each betweenness calculation takes O(nm) time, and this must be repeated after each edge removal, leading to overall complexity O(m^2 n) in the worst case. This makes it impractical for large networks.
+(d) The Louvain method provides a more scalable approach to modularity optimisation through:
+1. A greedy local optimization phase that assigns nodes to communities to maximize modularity again.
+2. A community aggregation phase that creates a new network where nodes represent the communities found.
+3. Iterative application of these two phases until further improvement in modularity is not possible.
+Justification: The approach is more scalable because it operates in a hierarchical manner.
+
+Question 5:
+@A strategy pair where no player can improve their payoff by unilaterally changing their strategy.
+Check each pair:
+(U,A): Payoff (3,2). Player 1: Switch to L -> 2 < 3, no improve. Player 2: Switch to B -> 1 < 2, no improve. - Nash equilibrium.
+(U,B): Payoff (0,1). Player 1: Switch to L -> 2 > 0, improve. - Not Nash equilibrium.
+(L,B): Payoff (2,3). Player 1: Switch to U -> 0 < 2, no improvement. Player 2: Switch to A -> 0 < 3, no improvement. - Nash equilibrium.
+There are two pure strategy Nash equilibria: (U,A) & (L,B)
+
+6b @ Player 1 plays U with probability P, L with probability 1-p. @ Player 2's strategy.
+
+Expected payoff for Player 2 if choosing strategy A: E[A] = P * 2 + (1-p) * 0 = 2p
+Expected payoff for Player 2 if choosing strategy B: E[B] = P * 1 + (1-p) * 3 = p + 3 - 3p = 3 - 2p
+
+6C for player:
+E(A) = 2P = 2 * 0.7 = 1.4
+E[B] = 3 - 2p = 3 - 2 * 0.7 = 1.6
+
+Since E[B] > E[A], player 2 would choose strategy B.
+
+For Player 1 (0.7, 0.3)
+Expected payoff = 0.7 * 0 + 0.3 * 2 = 0.6 (When Player 2 chooses B).
+The expected outcome for player 1 receives a payoff of 0.6 & player 2 recieves a payoff of 1.6.
+
+Question 6: (The numbering seems mixed up, but based on the context, this section might belong to question 7, if there was a previous question numbered 6).
+
+Given:
+Directed edges AB, CB, D-B
+Weighted matrix W = [[0, 5, 0, 2]]
+Step 1: Aggregate neighbours
+[1]+[9]+[3] = [월]
+[0][5] = [월] + [월] + [월] = 101
+[ㅎ] + [월] [월]
+[1]
+Transform
+IN[2] = [0.5 0] [1]
+[0.1 0.2] [2]
+
+=[0.5]
+0.  1+0.4
+
+=[0.5]
+0.  5
+
+Step 3: ReLU([0.5, 0.5]) = [0.5, 0.5]
+Final Answer hB(1) = [0.5, 0.5]
+
+Question 7: (Or 8, based on prior question renumbering).
+
+@Intuition:
+• PageRank determines a node's importance based on the principle that important nodes receive links from other important nodes.
+• Nodes with many incoming links from high PageRank nodes are more important.
+(5b) d (typically 0.85) is the probability the surfer follows an outgoing link. 1-d is the probability of jumping to a random node.
+Impact: Higher d emphasizes link structure; lower d makes scores more uniform.
+(Sc) Dangling nodes problem & Solution:
+→ Dangling nodes can trap the random walker causing the ranks to sink.
+Solution: Redistribute their page rank uniformly to all nodes at each iteration ensuring convergence and probability.
+
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+19/04/25
+DOMS Page No.
+Date
+/
+/
+01
+Major Examination
+@The given, incidence matrix has 4 rows
+(nodes) and 3 columns ledges). Eachht in
+the matrix indicates anodes is incident
+on an edge.
+Edge. I connats noches 142.
+Edge 211
+Edge 3
+ว
+११
+243
+११
+284
+The adjacency matrix for a simple
+undirected graph
+0 1 0 0
+1 0 1 1
+0 1 0 0
+0 1 0 0
+⑥Erdos-Ronyi (Random Nehornc) Model.
+Justification: This model explicitly arzumes
+edges from with uniform probability
+P, independent of other edgs
+Narh, Equilibrium
+Equilibrium.
+Justification: This definition maliches Nank
+@)
+ASS
+Justice
+عيد
+nod
+Jertif
+co
+hi
+Jus
+is
+Ju
+66
+
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```text
+  JURS
+Date Page No.
+1
+1
+⑥ (a) Assortative Mixing
+ Justification : Associating with similar others
+    is avortative mixing
+ⓒ (d) Because it quantifies how often a node
+ lies on the shortest path between other
+ nodes
+ Justification : This makes betweeness centrality
+ particularly relevant or identifying nodes that
+ control information flow
+ (f) @ The presence of many nodes with very
+ high degree (Chuns) that makes Connectivity
+ Justification : Hubs are critical for connecting.
+  (g)@ The number of intra-community edges
+ is significantly higher than expected is in a
+ random network with same degree sequenes.
+ Justification : This defines modularity in
+ community decision.
+ (h)(b) 2/51
+ Given:
+ -Neighbours of X: {A,B,C,DY
+ -Neighbours of Y: {C,D,E}
+Jaccard coefficient : |Neighbour (X) n Neighber (Y) |
+  |Neighbour (x) U(Neighbour (Y) |
+```
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+= {A, B, C, D} n {C, D, E, Y}
+{A, B, C, D} U {C, D, E, S}
+{C, D, Y}
+=
+{A, B, C, D, Y}
+
+①@1CM wees edge probabilities independently;
+LTM ves a weighted eum of active
+neighhours ciempared to a node therrhoad
+Justification: ICM is probabilistic per edge
+LTM is threshold-hared.
+
+①⑥ because aggregating features from
+dissimilar neighhours con blur the nodes's
+own representative features, making classtine
+harger
+Justification: Heterophily causes features
+hlurring: =
+Q2. Task: vaccinate 5% of the porelation
+to minimize Infection using two network
+analysis concept
+I Behveenens contrality:
+O gdentify nodes that bridges different
+communities is crucial since there
+nodes can act as "gali teepers" that
+connoi the spread of infection nerven
+communities.
+VG
+NO
+WO
+con
+2. K-
+C
+wi
+
+الله
+C
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+DOMS
+Date
+/
+Page No.
+/
+
+@vaccinating there high coherence is individuat
+wand effectively fragment the network and
+contain outbreaks within. smaller comments
+2. k-core. Decomposition: this technique
+densely connected subgroups in the network.
+where. infections could spread rapidly.
+-The nodes in the highest k-core represent
+Individual embedded in the most densely
+connected parts of networks - "superspreader"
+who once, infected, could rapidly transmit
+to many others.
+
+Implementation strategy:
+•Calculate betweenness centrality for all
+nodes and rank them
+• Perform. k-core decomposition to identity
+nodes in the highest k-cores.
+•Create a combine, score. aB+ (1-a)k,
+Where. B is normalized betweenness and
+K is normalized. k-core value.
+•Allocate vaccines to the top 5% of nodes
+based on this combined score.
+
+Justification: This approach balances two
+critical aspects of epidemic control
+i) Cutting transmission pathway between
+Communities (between men)
+ii> targeting potential super-spreaders
+Within. densely connected groups
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Date
+(K-Core).
+The combined approach is more effective
+than other measures alone hecaine
+it address both network mide
+transmision and local outbreak
+potential.
+03. Node, 6 mhedeling (Node 2 Vec):
+- Compute simicarity henueen, embeddingp
+to identity researchers with similar
+research propies
+Link Mradiction. Algorithns:
+- golentity Naum likely to collaborat
+based on ehared connection. Lank
+petenti al collaborators hy link prediction
+
+Approach:
+STEP1: Create a hetergences network
+including researchers, papers, instihitom
+and trearch topis-
+
+STEP2: Generati node emreddings using
+Node 2Vec on this network icanturing.
+both emectural & semantic relation hip
+STEP3: Apply Linie prediction algorithms.
+chaneed with similarty scores from
+the epatbedded features spaer.
+STE
+مها
+OUT
+
+Ju
+
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No.
+/
+/
+
+effective
+hecaine
+
+heddings
+imicar
+
+wrat
+ank
+editton
+
+4G
+thitom
+
+ng
+orning
+Gomilép
+hms.
+from
+DOMS Page No.
+Date
+STEP 4: Combines traditiond link predictions
+Nith embedding thared. similarty scores
+using Neighted averag
+OUTPUT: Recommended reaserchers who are
+both. typically similar and etmeckered
+likely to collaborati (link prediction).
+Justification: Embeddings captures research.
+similarity chomophily) while link preken
+leverages renerk smithres for practical
+collaboration likelihood.
+Role of homophily:
+Hemophily Mas a significant role in
+academises collaboration based on do
+within their fields.
+• The embedding vectors naturally captures
+The tendency as crearchers Nithin their
+fields will have similar enhedding veckor.
+prelittien algorithm would crures
+recommodation align with existing
+verearch. intend, incruoring acceptan
+Potential way to promote cross-Disciplinary
+Colla buralam
+
+
+--- Page 7 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Method: Inhodere a disciplinary/
+diversity renalty in recommendation
+rinking.
+- Compute a disciplinary distance metricul
+- Acljust the final score =
+-
+Link prediction soure +A. Dis-
+ciplinary Distaner,
+Where X is a small, weight to boost
+divene pain
+ofe
+thie
+Algo
+1.00
+C
+2.
+3.
+recommender
+4
+Implementations: accansionly
+researchers with high unik prediction
+Scores heut moderate embedding
+dissimanity, encouraging coll
+acerers field.
+encouraging coutahoration 4@ Th
+04.@ The Girvan Newman algorithm
+detuts communities by iteratively
+removing edges with the highest eage
+betweenness cont
+conmality,
+-the network int, dis connected
+components Clommenitis)
+• The core idea is to identify and
+progresively removes edges that
+are most likely connect commeenitis
+rather than to internal commemitis.
+d
+
+--- Page 8 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here is the transcription of the handwritten text from the image:
+
+```
+DOMS
+Page No.
+Date
+/
+/
+04.b Edges betweenness is the number
+of shortest path between all nodes pairs
+that pass through an edge.
+Algorithm :-
+1. calculates betweenness centrality for
+all edges in the current network.
+2. Remove the edges with the highest
+betweenness (likely a bridge between community)
+3. Recalculate betweenness values for all
+remaining edge. 1
+4. Continues removing edges & recalculating
+until the network is fragmented into comments.
+
+4.c The major computational limitation is
+high time complexity. For a network with
+n nodes and m edges each betweenness
+calculation takes O(nm) time ; and this
+must be repeated after each edge removal,
+leading to overall complexity O(m^2 n/is
+the worst case's. This makes it impractical
+for large network.
+
+4.d The Louvain method provides a more
+scalable approach to modularity optimisation
+through:
+1. A greedy local optimization phase that
+assign nodes to communities to maximize
+modularity again.
+```
+
+--- Page 9 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+2. A community aggregation phore
+that creates anew network, where
+nodes reprment the commemeties foun
+3. Iterative application of there tho
+places until tofurther improvement
+in modularity is norsikle
+Justification: The approach is mor
+scalante koccure it operate in
+hierrachiral mamre
+
+Q5
+@Astrategy paino inhere player con
+improve their nayoff byunitatkraly
+changing their strategy
+
+check cach pars:
+(U,A): Pay oft (3,2).
+- player 1: SiNitch to L→ 2<3, no impor
+- Player 2: SiNith to B→ 1<2, ,
+- Nash equilibrium
+
+(UIB): Payoff (0,1)
+• Playel: SiNitch → 2>0, improve
+• Not Nash
+
+(LIB): payott (2,3):
+• Player 1: sivitch to U→0<2,
+no improvement
+6b
+
+(6C)
+
+--- Page 10 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```text
+Date
+unn
+ent
+• player 2: SiNitch TOA < 3,
+        no improvement.
+• Nash equilibritem.
+There are timoneure. Stratagy nanh
+equilibria: (U,AT&CLB)
+6b @player/playp U with probabibity P, L
+Nith. probability I-p.
+@Player 2's strategy.
+
+Exrected payott for Player 2 is choring
+strategy A:
+E[AY: PX2+(1-p) x0 = 2p
+
+Expected payoft for player 2 if chooung
+Strategy B
+F [BJ = PX1+ (1-p):x3
+        = p+3(1-p)
+        = p+3-3p
+        = 3-2p:
+
+6C for player: [
+E(A)=2P
+ = 2×0.7=1.4
+E [B]= 3-2p=3-2x0,7 = 1.6
+
+siree ETBJ > ELA), player 2 Nould
+choore, streetegy B.
+A
+```
+
+--- Page 11 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```text
+Date
+for player1. (0.7010-327
+Expected payott = 0.7x0 +0.3×2
+= 0.6 (When. Playera
+Chowe B).
+The expected outcome for plagerl
+receives ca payoff of 0.6&
+player 2 rettes & payot of
+07. Given. 1
+Directed edges AB
+2
+Tran
+CB
+D-B
+[0:50.2]
+Weighted matrix IN =
+step1: Aggregati reighers
+= 10194 +10174+10144
+[1]+[9] +13] 2015
+3
+[후)= [월]무 = 184.
+(0)
+```
+
+--- Page 12 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Tramoum
+In [2]= [0.5 0] [1]
+          [0.1 0.2] [2]
+
+[0.5]
+0.1 x 1+0.2 x 2
+
+=[0.5]
+  0.1+0.4
+
+=[0.5]
+  0.5
+
+Step 3:
+ReLU ([0.5,0.5])=[0.5,0.5]
+
+Final. Ammer hB(1) = [0.5,0.5]
+
+QS
+@ Intinition:
+• Pagerank denermis the nodes
+  importamer based on principal that
+  Importent nodes receives lines fron
+  Other important. Nades.
+
+
+--- Page 13 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+• Nodes Nith many incoming lines from
+high.-Page. Rantes noches are more
+important.
+(5b) d (typically 0.85) is the probability.
+the surfers followes as outgoing Ling
+1-d is the probability of jumping
+to a random nodi
+Impact: Higher a emphasises link
+shuchere !, lower d makes score
+more medium-
+(Sc) Dangling noces problems & Solution:
+→banging nodes con. nap the random v
+causing the rame, sine.
+Solution! Reclis biheaten their paye rank
+uniformly to all nodes at eveniteraan
+emuning convergence and probability
+

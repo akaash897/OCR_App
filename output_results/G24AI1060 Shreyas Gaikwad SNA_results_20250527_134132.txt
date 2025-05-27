@@ -1,0 +1,1116 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\G24AI1060 Shreyas Gaikwad SNA.pdf
+Processing Date: 2025-05-27 13:41:32
+Model Used: gemini-2.0-flash
+Total Pages Processed: 19
+API Calls Made: 71
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+```
+Question 1: [Full answer for question 1, consolidated from all relevant page segments]
+I a. Convert Given matrix of simple undirected graph into adjacency matrix
+
+ 100 We know that Each colum represents edge
+ 110 ; and row shows nodes-
+ 0 10
+ Edge 1 connects node 1&2→ A[1][3]
+ 001
+ → A[2,1]=1
+Edge 2 connects node 2&3 → A[2][3]
+ → A[3][2]=1
+Edge 3 connects node 2 and 4 → A[2][4]
+ =[4][2]=1
+
+∴ Adjaceny Matrix ό
+ 
+ 0 1  0 0
+ 1 0  1 1
+ 0 1  0 0
+ 0 1  0 0
+
+1 b. B. Erdos-Ranyi (Random Network Model)
+ → as this Comads nairs of nodes with fixed probabiving independently.
+
+1 C. C. Nash Equilibrium
+ → Nash Equibrium has no player benefit by chanyiy their strategy while others keep unchyed.
+
+1 d. B. Aszontative Mixing
+ → This refer to proefence of network rades to comed with opens that are similar in altitutes.
+
+1 e. D. Because it quantities how ofan a rode lies on shortest path between other woles.
+ → Betweennen contrality identities nodes that are fuction of bridges in infomation flow which is important for network play ryuinind speic routing
+
+I f.
+C. The presenu of many nodes with very high degree Cules) that maintain connectivity.
+→ Hobes in Gaule tree networks sustain comectivity makiy random failhres tolerabl but fargeted affals can be devastating.
+
+I g.
+A. The number of intra community edges in signitivently higher than expected in a random network with same degree Sequence
+→ Modularity calculate density of link inwiches communities excredo what would be expected randomly.
+
+I h.
+B. 2/5
+Sol": Neijwear of X → A, B, C, D
+Neighbours of Y → C, D, E
+
+Intirsection → (C, D) of dize → 2
+Union → (A, B, C, D, E) of Size - 5.
+
+Jaccand Co-offiint = 
+Intiction
+Union
+= 2/5
+
+1. i) 
+   A. ICM uses edge probabilities independently.
+      LTM uses a weighted sum of active neighbors
+      compared to node threshold.
+   → ICM works like activating neighbors with
+      independent probabilities.
+      LTM, activate node. once the influence crosses
+      a threshold.
+
+1. j)
+   - B. Because aggregating features from dissimilar
+       neighbors can blur node's own representative
+       features, making classification harder.
+   → In heterophily network, feature aggregation
+      from different nodes can block meaningful
+      patterns, and reduce classification accuracy.
+
+Question 2: [Full answer for question 2, consolidated from all relevant page segments]
+To effectively minimize the total number of infections in the
+    city while vaccinating only 5% of population,
+    we can employ a strategy of combining two distinct
+    concepts is network analysis which can
+    bridge the gaps in the other. In this example,
+    consider (i) Betweenness Centrality and
+                     Community Detection
+    They function in a way that target different
+    properties of networks and complement each other to
+    minimize impact of limited resources.
+(1) Betweennes centrality :
+It is the measure of how
+mary nodes lie an Shontist
+path between other nodes in the network. Nodes
+with high betweeners centrality can thow
+paths
+are
+bridges on
+parts of retronk
+Which
+comectors between diffunt
+Applications: -Vacinate individuals with high betweenso to
+dismpt pod fhow of information in dittent
+pourts of network
+By removing these fridges, we
+network into small
+I've can
+Sul divide the
+sub-groups
+disconnected
++
+fom each other to avoid Ipread to non infected
+parts
+25tification: High betweennes noch are critical fir
+maintaining comectinity
+which can result in
+footer spread of dinge. Removing these can restrict
+font pusseye to other
+norts.
+-
+This is gection in carly party where the spread is
+Less and avoid sub-groups com gettin affected.
+(2) Community Detection & Community detection identites.
+denly comme ded nodes within.
+the network, inse represent chisters of people who
+interat frequently viry each other but have twer
+conections to other commissies.
+Application:- - User modularity based algorithms to detect
+                   communities in network. eg. Girvan Newman (1408)
+- vaccinate individuals who are highly central in their
+respective clusters (with high degree of centrality)
+
+Justification:- Targetting central individuals within communities
+                  helps contain, spread of disease locally
+                  reducing the overall rate of infections within
+                  small clusters or groups.
+- The combination will helps reduce infection
+  Spread both within communis & between
+  commun'ha.
+
+Combined Strategy:- Follow the following in order:-
+
+① Identity Communities - use community detection algorithms
+                         to sub divide network into subgroup,
+   here we can focus on areas where disease is
+   likely to spread rapidly due to dense networks
+   between nodes.
+② Calculate between centrality of all nodes in the
+   network, Prioritize vaccination to individuals with
+   highest between centrality as they serve bridges
+   between communities.
+③ Vacinate contral modes within comunities to limit
+   spread of disise within comunity. This can be
+   dove by identityong individuh with high contling
+   metrics.
+
+② Allocate vaccine resources proportionally,
+   - Distribute 5%. vaccine budget. aurigs
+   turo girtyies.
+   - Provider higher past to high betweens nodes
+     to disrupt internal spread
+   - Ascate rest to cestral nodes to avoid
+     spuad between comunities.
+
+Justification of Cambind Strategy Effectivinum:
+1.
+A
+   Both Lonepts complement each other &
+  - Betuens Centrality targets nodes Comictig
+    dittut Connities.
+  - community cutection tagets Local noder with in
+    communiy with high network rate,
+
+2. Limited Ronduras but Etech vilisation.
+   - vaccinating high between modes diupts networte
+     stwtun at high besintde comunity lend while
+     Va
+     vavinti, central nodes adors intra- comunity Covedspread.
+
+3. Robustnes against Uncertainty
+   - If infution starts with one commity, high betuens prevents
+     Spread to oran.
+   - Even if it spreads, vecinati) contrad modes rodicts comunity
+                                            Spread
+
+Diagram Example:
+
+0
+0
+I
+J
+Consider I & J in two different communities infected.
+These two will be vaccinated first as they are bridges
+between communities and also dense network within
+community. If they spread to their adjacent nodes
+the third network will also get infected.
+
+Question 3: [Full answer for question 3, consolidated from all relevant page segments]
+Task: To improve suggested collaborators on the platform for academic researchers
+
+Soly: A impactful appach would be to combine link prediction algorithms with node embeddiy technique applied to co-authorship & citation networks. this captues poty stretol & sementic relestias in reach system.
+
+System Troign to combine lonk Prediction and Mode
+embeddings
+
+1. Network construction: Bwid a graph with
+    Node -> reseacher
+    Edge -> Co-worrisip as citation relatihip.
+
+    :: Edge cas reprent collaboration Suquery a citation Streyth.
+
+2. Node ambeddiy witw Nodez Vec degenato
+
+    - de node 2Vec to gunate vector embeddiys for each ready based on network statue.
+    - Node 2vec barenes homophily cria breafth search) and structural equivalere (depth reach).
+
+    - homophily identition mechers in Jame chanath
+    - Shutined woles help find similar positis.
+
+3.  Link Predictions
+    - Compute cosine
+      dist product
+      Similarity or
+      between mechu embeddings, to predict notential
+      links,
+    - Aho use supervised Lenk prediction which
+      cen identity embedded pairs
+
+4.  Recomendations.
+    - Recomand researchers with high Predicted lines scores
+      who are not already collaborators
+
+    - Priority can be based on other factors, like
+      mutal connections on publication type etc.
+
+Role y Homophily: In accideric networks, researchers collabente with each other in similar topics on field of work
+
+Embedding naturally note dom relationships, making them best suited for collaborator findings in Jane domain.
+
+However for cross or multi disciplinary subjects this might not apply.
+
+Question 4: [Full answer for question 4, consolidated from all relevant page segments]
+To Promote Cross-discipling collaboration's:
+
+→ use Semantic clustery & Network Cembeddings.
+- Clusters use text bored embeddys of publications.
+abstract wing LLMS.
+- Within each chuster, the top overlappiy or
+collaborator likely node can be predicted.
+- Historic relationship tor inter-disciphry or.
+cross as multi discipling topics can be explored
+
+Question 5: [Full answer for question 5, consolidated from all relevant page segments]
+(a) Page Rank algorithm: designed to rank a structure web pages, but it can also be applied to ranking nodes in a network.
+
+Core idea:- A node is important if it is linked by other important nodes.
+e.g. If a paper cited many times in good journals it is more influential.
+
+Random sufy model o
+and
+keepo
+In a
+handom sups nudel,
+The precen starts it a
+click on
+random node
+Outfaiy wily.
+- The PageRank is the probabing that sufier lands bak on thath
+node ofty Mary Step!
+- ofte certain tine, the surfer spends more time on
+inpontents node
+comectins.
+lines with importan-
+This ensures all modes recits some probabing.
+Important mody ang highlighted in
+-
+twerk.
+(b) Damping Factor'. To cuid the sufer getting stuck in
+duad and, the
+Loop or at a
+factor izin sitecuced
+- with probability all - Supa fokus a link.
+- with pribirny
+1-d' sufer jeg to
+random
+-
+node.
+Hance the coverse in the network is better and it avoids getti, stuck in chad ench on Coops.
+(c) Problem with Dangling Node in Page Rank.
+→
+The nodes.
+having no outgoing edges in a
+network are called as
+ey.
+dergling nodes
+A paper which has no
+website with nо
+refernces, as
+forward Link/ hypulink.
+- → If a super lands on such a node, it gets
+  Stick as there is no way forward.
+- This whats Stoppage in distribution of prabilities
+- The algorithm thus fails to converge or
+  giver in correct reject.
+
+→ Handing failures:
+- 20 handle dangling nodes - the redistribution
+  is carried out uniformly across all nodes.
+- This is clone so that super jumps to any random
+  node without a set putter..
+
+Hence, all PageRanks are eventy distributed to stabilize
+& converge at end of surfing algorithm.
+
+Question 6: [Full answer for question 6, consolidated from all relevant page segments]
+(a) Pure Strategy Nash equilibria
+
+- (U, A) : Player 1 lay off = 3 → Switch to L=2
+  (worse)
+  Player 2 pay off = 2 → Switch to B → 1
+  (worse)
+
+∴ Nash Equilibrium properties satisfied.
+
+(L,B): Player 1: pay of 2 → switch to 6 = 0
+(worse)
+Player 2: payoff 3 → switch to A = 0
+(more)
+
+∴ Nash Equilibria pre properties satisfied.
+
+∴ Pure Strategy Nash equilibria (U;A), (L;B) is proven
+as the result of the Switch workers value.
+
+(b) Expected Payoff for Player 2
+
+If Player 1 chooses U with probability 'p'
+ & L with probably (1-p)
+
+If Player 2 chooses A,
+E[P2|A] = p⋅2 + (1-p)⋅0 = 2p
+we get
+
+If Player 2 chooses B
+
+E[P2|B] = p⋅1 + (1-p)⋅3 = p + 3(1-p) = p + 3 - 3p
+= 3-2p
+
+∴ P₂ chooses A E[P2|A] = 2p
+   B E[P2|B] = 3-2p
+
+(c) p=0.7.
+E[P2|A] = 2x0.7 = 1.4
+E[P2|B] = 3-2.0.7= 3-1.4
+=1-6
+
+∴ Playe 2 would prefer strategy B with higher pay off
+1.6.
+
+∴ Expected outcome: P₁ plays U with 0.7, L with 0.3.
+Player 2 plays B .
+
+∴ Expected Pay off P₁ = 0.7.0 + 0.3x 2=0.6
+P₂ = 1.6.
+
+Question 7: [Full answer for question 7, consolidated from all relevant page segments]
+Given that: B: A→ B, C→ B, D→ B
+
+Compute upouts feature for node B, h(1)
+(B).
+(0)
+(0)
+(0)
+also- ha = (1)
+hc = (3)
+hd = (2)
+1
+W= (0.5 0
+(0.1 0.2)
+B
+D
+A
+
+0
+hA
+0
+hC Agg Avg → Tx(W)→ Active 0 (ho
+hB
+0
+hp
+
+Sol":
+
+Neighbours nodes of B: N(B) = {A, C, D}
+
+Initial layer : hO = (1) ho=(3) ho= (2)
+A
+B
+D
+
+W=[ 0.5 0
+  0.1 0.2
+
+Apply neigh matriz W:
+
+W.h(0) = [ 0.5 0 
+N
+   0.1 0.2] * h(0)
+                         N
+
+00 ho = (ho + ho + ho ) = 1/3((1) + (0) + (3)
+(W)
+             A      C      D                 3
+=1/3 [6] = 1/2
+
+: [0.5 0
+0.1 0.2
+][1]= [0.5+ +0.2]
+=
+= 0.5
+0.1+0.4
+[0.1.1 + 0.2.2
+[:
+0.5
+0.5
+]
+Apply ReLU
+ReLU(
+0.5
+0.5
+) = [ max (0, 0.5)
+max (0, 0.5)
+[0.5]
+.: hb(l)
+=
+[0.5
+0.5
+]
+
+Question 8: [Full answer for question 8, consolidated from all relevant page segments]
+The Girwan-Newmus Algorithm is used to detect
+Comunities by prigreninly removing edges that are
+Ornaging dittent commiser or Cluster together
+This is done so that edges comertiy dilitant
+commiticy will Lie en shontest path betwen
+Nodes in dittert clusters.
+
+The key steps are: -
+(ⅰ) Calculate betweenus. centrality for all edys in network
+(ii) Remore edge with highest inetic of B.C.
+(バ) Reccelculate B.C. far remaing edges as the
+would be chye in network topology.
+(iv) pepew-steps until smaku Chistes che
+obtained in the network.
+This approach breaks down the network into.
+smaller subgroups from top to bottom (creating
+clusters)...
+It is considered that inter community connections
+will have more between than intra community
+connections.
+
+(b) Edges between Centrality Iteration.
+
+- Calculate edge betweenness centrality for all edges.
+- Remove edge w/ highest betweenness.
+- Recalculate edge betweenness after each removed
+- Repeat until the network breaks into distinct
+ communities.
+
+(c) Major Computational Limitation.
+
+- Calculating edge betweenness between each
+ node requires O(nm) time with
+  n nodes & m edges & is repeated
+ many time => High Computational cost
+
+- Total run time O(nm²) is extremely large
+ for large graphs -> high time, {memory issue
+
+(d) Louvain Method advantages:.
+
+- This method is Greedy modularity optimization
+ process.
+
+-This method uses two phase iterations:.
+
+(a) Local Optimization:- It assign each node to own community. Then moves individual was to neighboring communities thus creating modular structure.
+
+(b) Network aggregation: It creates a compressed network where each community from phase 1 becomes a single node with edges weighed by total connections between communities.
+
+This ensures:-
+(1) less number of calculations.
+(2) local moving to computing faster
+(3) hierarchy to reduce network size.
+```
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+INDIAN INSTITUTE OF TECHNOLOGY
+JODHPUR
+
+SOCIAL NETWORK ANALYSIS
+
+Shreyas Graikwad
+G24A11060 PGD-DE
+
+ANSWER SHEET
+
+I a. Convert Given matrix of simple undirected graph
+into adjacency matrix
+
+ 100 We know that Each colum represents edge
+ 110 ; and row shows nodes-
+ 0 10
+ Edge 1 connects node 1&2→ A[1][3]
+ 001
+ → A[2,1]=1
+Edge 2 connects node 2&3 → A[2][3]
+ → A[3][2]=1
+Edge 3 connects node 2 and 4 → A[2][4]
+ =[4][2]=1
+
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+∴ Adjaceny Matrix ό
+ 
+ 0 1  0 0
+ 1 0  1 1
+ 0 1  0 0
+ 0 1  0 0
+
+1 b. B. Erdos-Ranyi (Random Network Model)
+ → as this Comads nairs of nodes with fixed probabiving
+ independently.
+
+1 C. C. Nash Equilibrium
+ → Nash Equibrium has no player benefit by
+  chanyiy their strategy while others keep unchyed.
+
+1 d. B. Aszontative Mixing
+ → This refer to proefence of network rades to comed
+ with opens that are similar in altitutes.
+
+1 e. D. Because it quantities how ofan a rode lies on
+ shortest path between other woles.
+ → Betweennen contrality identities nodes that are fuction of
+ bridges in infomation flow which is important for network play
+ ryuinind speic routing
+
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+I f.
+C. The presenu of many nodes with very high degree
+Cules) that maintain connectivity.
+→ Hobes in Gaule tree networks sustain comectivity makiy
+random failhres tolerabl but fargeted affals
+can be devastating.
+
+I g.
+A. The number of intra community edges in signitivently
+higher than expected in a random network with
+same degree Sequence
+→ Modularity calculate density of link inwiches communities
+excredo what would be expected randomly.
+
+I h.
+B. 2/5
+Sol": Neijwear of X → A, B, C, D
+Neighbours of Y → C, D, E
+
+Intirsection → (C, D) of dize → 2
+Union → (A, B, C, D, E) of Size - 5.
+
+Jaccand Co-offiint = 
+Intiction
+Union
+= 2/5
+
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+1. i) 
+   A. ICM uses edge probabilities independently.
+      LTM uses a weighted sum of active neighbors
+      compared to node threshold.
+   → ICM works like activating neighbors with
+      independent probabilities.
+      LTM, activate node. once the influence crosses
+      a threshold.
+
+1. j)
+   - B. Because aggregating features from dissimilar
+       neighbors can blur node's own representative
+       features, making classification harder.
+   → In heterophily network, feature aggregation
+      from different nodes can block meaningful
+      patterns, and reduce classification accuracy.
+
+2.  To effectively minimize the total number of infections in the
+    city while vaccinating only 5% of population,
+    we can employ a strategy of combining two distinct
+    concepts is network analysis which can
+    bridge the gaps in the other. In this example,
+    consider (i) Betweenness Centrality and
+                     Community Detection
+    They function in a way that target different
+    properties of networks and complement each other to
+    minimize impact of limited resources.
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+(1) Betweennes centrality :
+It is the measure of how
+mary nodes lie an Shontist
+path between other nodes in the network. Nodes
+with high betweeners centrality can thow
+paths
+are
+bridges on
+parts of retronk
+Which
+comectors between diffunt
+Applications: -Vacinate individuals with high betweenso to
+dismpt pod fhow of information in dittent
+pourts of network
+By removing these fridges, we
+network into small
+I've can
+Sul divide the
+sub-groups
+disconnected
++
+fom each other to avoid Ipread to non infected
+parts
+25tification: High betweennes noch are critical fir
+maintaining comectinity
+which can result in
+footer spread of dinge. Removing these can restrict
+font pusseye to other
+norts.
+-
+This is gection in carly party where the spread is
+Less and avoid sub-groups com gettin affected.
+(2) Community Detection & Community detection identites.
+denly comme ded nodes within.
+the network, inse represent chisters of people who
+interat frequently viry each other but have twer
+conections to other commissies.
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here is the transcription of the handwritten text from the image, preserving the layout and line breaks:
+
+```
+Application:- - User modularity based algorithms to detect
+                   communities in network. eg. Girvan Newman (1408)
+- vaccinate individuals who are highly central in their
+respective clusters (with high degree of centrality)
+
+Justification:- Targetting central individuals within communities
+                  helps contain, spread of disease locally
+                  reducing the overall rate of infections within
+                  small clusters or groups.
+- The combination will helps reduce infection
+  Spread both within communis & between
+  commun'ha.
+
+Combined Strategy:- Follow the following in order:-
+
+① Identity Communities - use community detection algorithms
+                         to sub divide network into subgroup,
+   here we can focus on areas where disease is
+   likely to spread rapidly due to dense networks
+   between nodes.
+② Calculate between centrality of all nodes in the
+   network, Prioritize vaccination to individuals with
+   highest between centrality as they serve bridges
+   between communities.
+```
+
+--- Page 7 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+③ Vacinate contral modes within comunities to limit
+   spread of disise within comunity. This can be
+   dove by identityong individuh with high contling
+   metrics.
+
+② Allocate vaccine resources proportionally,
+   - Distribute 5%. vaccine budget. aurigs
+   turo girtyies.
+   - Provider higher past to high betweens nodes
+     to disrupt internal spread
+   - Ascate rest to cestral nodes to avoid
+     spuad between comunities.
+
+Justification of Cambind Strategy Effectivinum:
+1.
+A
+   Both Lonepts complement each other &
+  - Betuens Centrality targets nodes Comictig
+    dittut Connities.
+  - community cutection tagets Local noder with in
+    communiy with high network rate,
+
+2. Limited Ronduras but Etech vilisation.
+   - vaccinating high between modes diupts networte
+     stwtun at high besintde comunity lend while
+     Va
+     vavinti, central nodes adors intra- comunity Covedspread.
+
+3. Robustnes against Uncertainty
+   - If infution starts with one commity, high betuens prevents
+     Spread to oran.
+   - Even if it spreads, vecinati) contrad modes rodicts comunity
+                                            Spread
+
+--- Page 8 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Diagram Example:
+
+0
+0
+I
+J
+Consider I & J in two different communities infected.
+These two will be vaccinated first as they are bridges
+between communities and also dense network within
+community. If they spread to their adjacent nodes
+the third network will also get infected.
+
+--- Page 9 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+3.
+
+Task: To improve suggested collaborators
+    on the
+    platfom for academic revanchers
+
+Soly: A impactful appach would be to combine
+    link prediction algorithms with node embeddiy
+    technique applied to co-authorship & citation
+    networks. this captues poty stretol & sementic
+    relestias in reach system.
+
+System Troign to combine lonk Prediction and Mode
+embeddings
+
+1. Network construction: Bwid a graph with
+    Node -> reseacher
+    Edge -> Co-worrisip as citation relatihip.
+
+    :: Edge cas reprent collaboration Suquery a citation
+    Streyth.
+
+2. Node ambeddiy witw Nodez Vec degenato
+
+    - de node 2Vec to gunate vector embeddiys
+    for each ready based on network statue.
+    - Node 2vec barenes homophily cria breafth search)
+    and structural equivalere (depth reach).
+
+    - homophily identition mechers in Jame chanath
+    - Shutined woles help find similar positis.
+
+
+--- Page 10 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+3.  Link Predictions
+    - Compute cosine
+      dist product
+      Similarity or
+      between mechu embeddings, to predict notential
+      links,
+    - Aho use supervised Lenk prediction which
+      cen identity embedded pairs
+
+4.  Recomendations.
+    - Recomand researchers with high Predicted lines scores
+      who are not already collaborators
+
+    - Priority can be based on other factors, like
+      mutal connections on publication type etc.
+
+Role y Homophily: In accideric networks, researchers
+collabente with each other in
+similar topics on field of work
+
+Embedding naturally note dom relationships, making them
+best suited for collaborator findings in Jane
+domain.
+
+However for cross or multi disciplinary subjects this
+might not apply.
+
+
+--- Page 11 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+To Promote Cross-discipling collaboration's:
+
+→ use Semantic clustery & Network Cembeddings.
+- Clusters use text bored embeddys of publications.
+abstract wing LLMS.
+- Within each chuster, the top overlappiy or
+collaborator likely node can be predicted.
+- Historic relationship tor inter-disciphry or.
+cross as multi discipling topics can be explored
+4
+
+αλ
+The Girwan-Newmus Algorithm is used to detect
+Comunities by prigreninly removing edges that are
+Ornaging dittent commiser or Cluster together
+This is done so that edges comertiy dilitant
+commiticy will Lie en shontest path betwen
+Nodes in dittert clusters.
+
+The key steps are: -
+(ⅰ) Calculate betweenus. centrality for all edys in network
+(ii) Remore edge with highest inetic of B.C.
+(バ) Reccelculate B.C. far remaing edges as the
+would be chye in network topology.
+(iv) pepew-steps until smaku Chistes che
+obtained in the network.
+
+--- Page 12 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+This is a good attempt! Here's a slightly refined version with a few corrections and clarifications to better reflect the handwritten text:
+
+This approach breaks down the network into.
+smaller subgroups from top to bottom (creating
+clusters)...
+It is considered that inter community connections
+will have more between than intra community
+connections.
+
+(b) Edges between Centrality Iteration.
+
+- Calculate edge betweenness centrality for all edges.
+- Remove edge w/ highest betweenness.
+- Recalculate edge betweenness after each removed
+- Repeat until the network breaks into distinct
+ communities.
+
+(c) Major Computational Limitation.
+
+- Calculating edge betweenness between each
+ node requires O(nm) time with
+  n nodes & m edges & is repeated
+ many time => High Computational cost
+
+- Total run time O(nm²) is extremely large
+ for large graphs -> high time, {memory issue
+
+(d) Louvain Method advantages:.
+
+- This method is Greedy modularity optimization
+ process.
+
+
+--- Page 13 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+-This method uses two phase iterations:.
+
+(a) Local Optimization:- It assign each node to own community. Then moves individual was to neighboring communities thus creating modular structure.
+
+(b) Network aggregation: It creates a compressed network where each community from phase 1 becomes a single node with edges weighed by total connections between communities.
+
+This ensures:-
+(1) less number of calculations.
+(2) local moving to computing faster
+(3) hierarchy to reduce network size.
+
+5
+
+(a) Page Rank algorithm: designed to rank a structure web pages, but it can also be applied to ranking nodes in a network.
+
+Core idea:- A node is important if it is linked by other important nodes.
+e.g. If a paper cited many times in good journals it is more influential.
+
+
+--- Page 14 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here is the transcription of the handwritten text from the image:
+
+```
+Random sufy model o
+and
+keepo
+In a
+handom sups nudel,
+The precen starts it a
+click on
+random node
+Outfaiy wily.
+- The PageRank is the probabing that sufier lands
+bak on thath
+node ofty Mary Step!
+- ofte certain tine, the surfer spends more time on
+inpontents node
+comectins.
+lines with importan-
+This ensures all modes recits some probabing.
+Important mody ang highlighted in
+-
+twerk.
+(b) Damping Factor'. To cuid the sufer getting stuck in
+duad and, the
+Loop or at a
+factor izin sitecuced
+- with probability all - Supa fokus a link.
+- with pribirny
+1-d' sufer jeg to
+random
+-
+node.
+Hance the coverse in the network is better and it
+avoids getti, stuck in chad ench on Coops.
+(c) Problem with Dangling Node in Page Rank.
+→
+The nodes.
+having no outgoing edges in a
+network are called as
+ey.
+dergling nodes
+A paper which has no
+website with nо
+refernces, as
+forward Link/ hypulink.
+```
+
+--- Page 15 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+- → If a super lands on such a node, it gets
+  Stick as there is no way forward.
+- This whats Stoppage in distribution of prabilities
+- The algorithm thus fails to converge or
+  giver in correct reject.
+
+→ Handing failures:
+- 20 handle dangling nodes - the redistribution
+  is carried out uniformly across all nodes.
+- This is clone so that super jumps to any random
+  node without a set putter..
+
+Hence, all PageRanks are eventy distributed to stabilize
+& converge at end of surfing algorithm.
+
+6
+(a) Pure Strategy Nash equilibria
+
+- (U, A) : Player 1 lay off = 3 → Switch to L=2
+  (worse)
+  Player 2 pay off = 2 → Switch to B → 1
+  (worse)
+
+∴ Nash Equilibrium properties satisfied.
+
+
+--- Page 16 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+(L,B): Player 1: pay of 2 → switch to 6 = 0
+(worse)
+Player 2: payoff 3 → switch to A = 0
+(more)
+
+∴ Nash Equilibria pre properties satisfied.
+
+∴ Pure Strategy Nash equilibria (U;A), (L;B) is proven
+as the result of the Switch workers value.
+
+(b) Expected Payoff for Player 2
+
+If Player 1 chooses U with probability 'p'
+ & L with probably (1-p)
+
+If Player 2 chooses A,
+E[P2|A] = p⋅2 + (1-p)⋅0 = 2p
+we get
+
+If Player 2 chooses B
+
+E[P2|B] = p⋅1 + (1-p)⋅3 = p + 3(1-p) = p + 3 - 3p
+= 3-2p
+
+∴ P₂ chooses A E[P2|A] = 2p
+   B E[P2|B] = 3-2p
+
+
+--- Page 17 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+(c) p=0.7.
+E[P2|A] = 2x0.7 = 1.4
+E[P2|B] = 3-2.0.7= 3-1.4
+=1-6
+
+∴ Playe 2 would prefer strategy B with higher pay off
+1.6.
+
+∴ Expected outcome: P₁ plays U with 0.7, L with 0.3.
+Player 2 plays B .
+
+∴ Expected Pay off P₁ = 0.7.0 + 0.3x 2=0.6
+P₂ = 1.6.
+
+7) Given that: B: A→ B, C→ B, D→ B
+
+Compute upouts feature for node B, h(1)
+(B).
+(0)
+(0)
+(0)
+also- ha = (1)
+hc = (3)
+hd = (2)
+1
+W= (0.5 0
+(0.1 0.2)
+
+
+--- Page 18 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+B
+D
+A
+
+0
+hA
+0
+hC Agg Avg → Tx(W)→ Active 0 (ho
+hB
+0
+hp
+
+Sol":
+
+Neighbours nodes of B: N(B) = {A, C, D}
+
+Initial layer : hO = (1) ho=(3) ho= (2)
+A
+B
+D
+
+W=[ 0.5 0
+  0.1 0.2
+
+Apply neigh matriz W:
+
+W.h(0) = [ 0.5 0 
+N
+   0.1 0.2] * h(0)
+                         N
+
+00 ho = (ho + ho + ho ) = 1/3((1) + (0) + (3)
+(W)
+             A      C      D                 3
+=1/3 [6] = 1/2
+```
+
+--- Page 19 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+: [0.5 0
+0.1 0.2
+][1]= [0.5+ +0.2]
+=
+= 0.5
+0.1+0.4
+[0.1.1 + 0.2.2
+[:
+0.5
+0.5
+]
+Apply ReLU
+ReLU(
+0.5
+0.5
+) = [ max (0, 0.5)
+max (0, 0.5)
+[0.5]
+.: hb(l)
+=
+[0.5
+0.5
+]
+```
+

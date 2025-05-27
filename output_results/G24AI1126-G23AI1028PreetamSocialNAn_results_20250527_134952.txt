@@ -1,0 +1,407 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\G24AI1126-G23AI1028PreetamSocialNAn.pdf
+Processing Date: 2025-05-27 13:49:52
+Model Used: gemini-2.0-flash
+Total Pages Processed: 8
+API Calls Made: 112
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+Question 1:  (a) Adjacency matrix:
+```
+1 0 0
+1 1 1
+0 1 0
+0 0 1
+```
+(b)
+```
+0 1 0 0
+1 0 1 0
+0 1 0 1
+0 0 1 0
+```
+(c) Erdos-Random network model. connects nodes evith fixed probability s generates randous graphs.evith out considering Node properties.
+(d) Equilibrium. (s. 6tos) optimal Combination of strategies forsotm playes. unilateral chang Assortivemixing of strat reduces preference of individuals to connect exith similar ones.like. Sameinterest, Age group, profession. in social networks. chances of swinging
+(e) D. because it quantifies how often a node lies on he shortest paths blwater betweenness? Measures frequency nodes centrality at which Node appearion shortes patus. For identifying critical nodes in a network, betweenness centrality is more relevant because it quantifies how often a node lies on the shortest path b/w other nodes as this indicates the nodes importance in communication information flow across the network.
+(f) C. Presence of many nodes with hight degrees that maintain connectivity gives scale-free networks +their robustness because hubs are critical for network connectivity & random failure affects less Presence of high No. of connected nodes. but the hubs & targeted attacks on hubs make them vulnerable.
+(g) A. No. of : intra community edges) expec vandm N with savedegr High modularity indicates strong community structure with dense intra - Community connections, which is one of importa -nt goal in community detection. hence optimiza tion finds Partitions with high No. of intra community edges.
+(h) B. (2/5) Jaccard co-ef. = intersection = (20) = 2 sentence size of union of (AIBCCDE) neigh.sets
+(i) Nodes in ICM are activated based on independent edge probabilities. But LTM uses threshold depenbigon sumos Neighbo influences.
+(j) (B). As connected notes are dissimilarit leads to less accurate feat.aggregations poor classif
+
+Question 2: strategy to identify individual, Perforure for most effectively use limited laccines for minimizing. infections
+(1) Identify individuals that night act as bridges to spread across groups using Betweenners centrality
+(2) Vaccinate individuals with high degre of connectivity. -> high No. of direct contact using Degree centrality
+This minimizes spread evitin and across groups esfectively
+
+Question 3: Combiving link prediction algorithm witn node embedding to gererede recommendationa
+(1) use Nodezvec to capture structurals Semantic relationships in network
+(2) predict potential collasofation cointhi해 existing netwoch using link prediction
+(3) Homophily is context of collaborating among researchers. while generating recommendation for collaborations, use the factor that the suggested researcher be from a different field but complimenting descipli can create a crosswalk to suggest which desciplines other than own are complimentary for collaboration, for each researcher looking to collaborate.
+
+Question 4: (a) Girvan - Newman Algorithm for community detection. - Iteratively removes edges exity highest betweenness centrality to discover community structure
+(b) It Identifies and removes edges that act as bridges b/w communities by using edges betweenness centreli
+(C) Computational Limitation of Girven is its high cost of computation. which becomes prohibitive for large networκς
+(d) For optimizing madurarity Louvain metho uses heirarchical clustering -> As a scala alternative
+
+Question 5: (a) Intention in Pagerank algoritus - Node importance indetermined based on number of quality links of a Node
+(b) In a surfer based Page-Rauk algorithms (d) damping factor. accounts for probability that of a random surfer continuing following links & preventing sink
+(c) Problem with nodes that have no out going links. is they disrupt convergence ranks of such dangling nodes canbe redistributed to other nodes to ensure convergence of Algorithm.
+
+Question 6: Finding Nash equilibria- identifying if a player outcome can imprime (a) by changing strateg. (1) Player I's strategy "U" v/s Player 2's A.
+Player 1 Player 2
+A B
+U (3,2) (0,1)
+L (2,0) (2,3)
+Player 1 switering from Uoo L, Playoff decreases from (3 to 2)
+Player 2 switering from A to B decreases players from (2 to 1). (U, A) is a Nash equilibrium
+(2) U vs B. Play 2 from B to A, increases playoff 0 to 3. X doesnt querity to 2
+Play 2 switering from BtoA Playoff increases 1 to 2. X Noman.
+(3) (L,A) play I swit L to U P. Off 2 ->3 X doent increases quality Play 1 A to B. increases, doent P. Off 0 -> 3 X al.
+(4) (L,B) Playerl Sw. from (L to U) Play off decrease 2 to 0. Dikon Player 2 Sw from B to A, 3 -> 0
+(a) So, pure strategy Nash equilibria are (UIA), and (LIB) where unilater change of strategy reduces chance of playoff for both players.
+(b) when player 1 chooses U with prob P Player 2's strategy A playoff. (P.2) +(1-P).0=2P
+Player 2's strategy B Playoff. P. 1+ (1-P). 3=3-2P.
+(c) when P=0.7, 2P= 1.4 Playoff for player 2 win Strategy A. Playoff for Player 2 =3-2P win strat. B = 3-1.4 = 1.6.
+
+Question 7: GNN
+Step1 Aggregation of neighbor features Avg of initial featur vectors
+          h(0)(B) = ⅓ [(1,1)+(0,3)+(2,2)] = ⅓ [(3,6)] = (1,2)
+Step2 Transformation
+          h(1)B = W * h(0)B.
+          Transform weight matrix
+             = (0.5 0)(1)  0.1 0.2(2)
+             = (0.5x+ 0.2) = (0.5+0)  0.1x1+0.2x2   0.4+0.4
+            = (0.5) (0.5)
+Steps Activation
+             σ(0.5 0)(1/(12) Σ h(0))
+                    0.1 0.2
+            = σ(0.5 0)(1/(12) ((1 1)+(0 3)+(2
+                     0.1 0.2
+
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+ Social network analys
+Roll NO
+624A11126 Preetam Eklempur
+19-4-2025
+(623A11028701d
+ests.
+(Pg 1
+(a)
+(
+1 0 0
+1 1 1
+0 1 0
+0 0 1
+)
+Confesty
+->
+Adjacency
+matrix
+(b)
+(c)
+(d)
+0 1 0 0
+1 0 1 0
+0 1 0 1
+0 0 1 0
+Erdos-Random network model. connects nodes
+B-> evith fixed probability s generates randous
+graphs.evith out considering Node properties.
+e. Namequilibrium. (s. 6tos) optimal
+Combination of strategies forsotm playes. unilateral chang
+B. Assortivemixing of strat reduces
+preference of individuals to connect exith similar ones.like.
+Sameinterest, Age group, profession. in social networks.
+chances of swinging
+(e)
+Re
+Ansewed
+at last
+Pagef.
+D. because it quantifies how oftena
+
+node lies on he shortest paths blwater
+betweerness? Measures frequency
+nodes centrality at which Node appearion
+shortes patus.
+1
+(f)
+C. Presence of many nodes with hight
+
+degrees that maintain connectivity
+(g) A.
+No. of : intra community edges) expec
+vandm N
+with savedegr
+(h) B. (2/5)
+Jaccard co-ef. = intersection = (20) = 2 sentence
+5
+size of union of (AIBCCDE)
+neigh.sets
+1
+```
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Nodes in ICM are activated based on
+(A) LTM uses threshold depenbigon sumos Neighbo
+independent edge probabilities. But (Pg2
+influences.
+(j) (B). As connected notes are dissimilarit leads to
+less accurate feat.aggregations poor classif
+(62) strategy to identify individual, Perforure
+for most effectively use limited laccines for
+minimizing. infections
+(1) Identify individuals that night act
+as bridges to spread across groups using
+Betweenners centrality
+(2) Vaccinate individuals with high degre
+of connectivity. -> high No. of direct contact
+using Degree centrality
+This minimizes spread evitin and across groups
+esfectively
+93 •Combiving link prediction algorithm witn
+node embedding to gererede recommendationa
+(1) use Nodezvec to capture structurals
+Semantic relationships in network
+(2) predict potential collasofation cointhi해
+existing netwoch using link prediction
+Re
+2
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+(3) Homophily is context of collaborating
+among researchers.
+lwhile generating recommendation
+for collaborations, use the factor that
+the suggested researcher be from a
+different field but complimenting descipli
+can create a crosswalk to suggest which
+desciplines other than own are complimentary
+for collaboration, for each researcher
+looking to collaborate.
+
+Q4.) (a) Girvan - Newman Algorithm for community
+detection. - Iteratively removes edges
+exity highest betweenness centrality to
+discover community structure
+(b) It Identifies and removes edges that
+act as bridges b/w communities by
+using edges betweenness centreli
+
+(C) Computational Limitation of Girven is
+its high cost of computation. which
+becomes prohibitive for large networκς
+(d) For optimizing madurarity Louvain metho
+uses heirarchical clustering -> As a scala
+alternative
+3
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+8.5
+(a) Intention in Pagerank algoritus (Pg4)
+- Node importance indetermined
+  based on number of quality links
+  of a Node
+
+(b) In a surfer based Page-Rauk algorithms
+(d) damping factor. accounts for probability
+that of a random surfer continuing
+following links & preventing sink
+
+(c) Problem with nodes that have no out
+going links. is they disrupt convergence
+ranks of such dangling nodes
+canbe redistributed to other nodes to
+ensure convergence of Algorithm.
+
+Ⓧ (৮)
+Player 2
+Player 1
+Strat A   Strat B.
+Nash equilibria
+Strat U | (3,2) | (0,1) | = optimal
+Strat L | (2,0) | (2,3) | = best strategy
+Combo for both
+players
+-continuedin
+Any oneswitching
+will only do worse.
+nxt pg.
+```
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+86
+Finding
+Narnequillibia-
+Pg 5
+identifying if a player outcone can imprime
+(a) by changing strateg.
+(1) Player I's strategy "U" v/s Player 2's A.
+
+Pls
+1
+player
+is
+Player 2
+A
+U
+L
+(3,2)
+(2,0)
+B
+(0,1)
+(2,3)
+I switering from Uoo L,
+Playoff decreases from (3 to 2)
+Player 2 switering from A to B
+decreases players from (2 to 1).
+(U, A) is a Nash equilibrium
+tel
+CORE
+
+(2) U vs B.
+(0,1)
+Play 2 from B to A,
+increases playoff 0 to 3.
+X doesnt querity to 2
+Play 2 switering from BtoA Playoff
+increases 1 to 2. X Noman.
+
+(3) (L,A) play I swit L to U
+P. Off 2 ->3 X doent
+increases quality
+Play 1 A to B. increases, doent
+P. Off
+0 -> 3 X
+al.
+Ngh
+(4) (L,B) Playerl Sw. from (L to U) equilib
+Play off decrease 2 to 0. Dikon
+Player 2 Sw from B to A, 3 -> 0
+5
+```
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+(Q6.) (continued)
+(a) So, pure strategy Nash  (Pg 6)
+equilibria are  (UIA), and (LIB)
+where unilater change of strategy
+reduces chance of playoff for both players.
+
+(b) when player 1 chooses U with prob P
+Player 2's strategy A playoff.
+(P.2) +(1-P).0=2P
+
+Player 2's strategy B Playoff.
+P. 1+ (1-P). 3=3-2P.
+
+(c) when P=0.7, 2P= 1.4
+
+Playoff for player 2
+win Strategy A.
+Playoff for Player 2 =3-2P
+win strat. B = 3-1.4
+= 1.6.
+
+Playz
+ALB
+Play,j | 0. 0.7
+6
+
+
+--- Page 7 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page 7 - layer0 h(0)=(1),h(0) =(30)h(0)=(2)
+(7)GNN 
+A   C  D
+Step1 Aggregation of neighbor fearens
+    Avg of initial featur vectors
+
+          h(0)(B) = ⅓ [(1,1)+(0,3)+(2,2)]
+
+                       = ⅓ [(3,6)] = (1,2)
+
+Step2 Transformation
+         
+          h(1)B = W * h(0)B.
+
+          Transform weight
+          matrix
+             = (0.5 0)(1)
+                 0.1 0.2(2)
+
+             = (0.5x+ 0.2) = (0.5+0)
+                0.1x1+0.2x2   0.4+0.4
+
+            = (0.5)
+                (0.5)
+Steps Activation
+
+             σ(0.5 0)(1/(12) Σ h(0))
+                    0.1 0.2
+
+            = σ(0.5 0)(1/(12) ((1 1)+(0 3)+(2
+                     0.1 0.2
+
+7
+
+
+--- Page 8 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+with
+(8.1) Justification
+Am (D).
+All re-answered with
+JustificationPage 8
+(e)↑ For identifying critical nodes in a
+network, betweenness centrality is more
+relevant because it quantifies how often a
+node lies on the shortest path b/w other nodes
+as this indicates the nodes importance in
+communication information flow across the
+network.
+
+(f) Ans. "C." Presence of many nodes
+with high degrees that maintain connectivity
+gives scale-free networks +their robustness
+because hubs are critical for network
+connectivity & random failure affects less
+Presence of high No. of
+connected nodes. but the hubs & targeted
+attacks on hubs make them vulnerable.
+
+(g) Aus. "A! High modularity indicates strong
+community structure with dense intra
+- Community connections, which is one of importa
+-nt goal in community detection. hence optimiza
+tion finds Partitions with high No. of intra community
+                                                                                                               edges.
+```
+

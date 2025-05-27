@@ -1,0 +1,308 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\G24AI1120_SNAMAJOR.pdf
+Processing Date: 2025-05-27 13:48:04
+Model Used: gemini-2.0-flash
+Total Pages Processed: 6
+API Calls Made: 103
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+Okay, I have analyzed the provided text from the answer sheets and identified the questions and their corresponding answers.
+
+**Question 1:** The presence of many high degree hubs / Random failures miss hubs, targeted ones do not miss hubs.
+
+**Question 2:** The number of Intra-community edges is significantly higher than expected in a random network with the same degree sequence. High modularity seeks denser connections within groups.
+
+**Question 3:** Because it quantifies how often a node lies on the shortest path. This helps identity critical path dependent nodes.
+
+**Question 4:** It refers to preference linking with similar objects.
+
+**Question 5:** No player benefits from unilaterally changing their strategy.
+
+**Question 6:** It draws edges, independently with uniform probability
+
+**Question 7:** LTM sums neighbour influence, ICM is probabilities via edge.
+ICM uses edge probabilities independantly, LTM uses a weighted sum of active neighbours compared to a node threshold.
+
+**Question 8:** Because aggregating features from dis similar neighbour can blur the note's own representative features, making classification harder. This degrades classification in heteropholic settings
+
+**Question 9:** To minimize infection, we identity influential nodes using betweeness centrality, which spots individuals on many shortest paths. These act as bridges in the network and are key in controlling spread. We then apply degree centrality to detect highly connected individuals who can spread quickly. Ranking note based on a hybrid of both centralities gives a more effective vaccination target set. Targetting only high degree nodes may ignore those bridging communities. Betweeness helps protect against cross-cluster infection: with only 50% covered, this strategy maxi miss impact on SIR dynamics
+
+**Question 10:** We can use Node2Vec to generate vector embeddings capturing structural roles, and then we can combine with link prediction metrics like Jaccard for Scoring links. Then train a model to learn from co-authorship & citation patterns.
+
+**Question 11:** Homophily drives most links - similar diad nodes collaborate often. To promote cross-disciplinmy collaboration, we Can add diversity-aware regularisation to scoring links, penalise recommending too many similm Inutiles, etc
+
+**Question 12:** Girvan - Newman algorithm detects communities of remove edges with highest bestuconess, and this separates densely connected groups as bridges are eliminated. Iteratively It recalculates edge betiveness are each removed and finally it also betroem high trattic link Cut through also.
+*It recalculates edge betweeness at each iteration Remove the edge with the highest value gradually separate communities.
+*It 2 Computationally expensive, line for large graphs 2 enen step recalculates all pairwise Shortest paths of this 2 a majion disadvantage
+
+**Question 13:** The Louvain method optimises modularity through local moving of the nodes. It also then further aggregated community unto super nodes. This process is fast & scalable for optimising modularity.
+
+**Question 14:** Pagerank ranks nodes based on the importance of their neighbours, It distributes rank through links recursively, used widely an web seanch
+
+**Question 15:** The damping dacton modds random jump probability. It ensures that the surfer occasionally jumps to random noder to prevents trapping in loop/dead ends. A higha damping factor gives mone weight to link STRUCTUL.
+
+**Question 16:** Problem dangling nodes: - Dangsing notes have no outbound links, and hence they break rank redistibution. This lead to rank sanks & prevents convergence. Can be died by adding links every node, which leads to convergence of the Page Rank vector.
+
+**Question 17:** Nash Equilibrium: (U,A), (L,B) are Dive Strategy Nash quilibr. (Based on the payoff matrix)
+
+**Question 18:** Play I plasiy U with probability (p) L with probability (1-p) given expected payoff
+Strategy A: expected payoff = 2p
+Strategy B: Expected payoff: -2p+3
+Solution for strategy payoffs to be the same.
+
+**Question 19:** N(B) = {A, C, D} and calculations based on provided h(0) values for A, C, and D, leading to h(1) for B.  The calculation involves averaging neighbor features, linear transformation using a weight matrix, and ReLU activation.
+
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here is the transcription of the handwritten text from the image, preserving the original layout and line breaks as accurately as possible:
+
+```
+SNA
+G2MAI 1120
+19 April, 2025
+ITO Major
+Social Network Analysis
+
+edgel edger edges
+1 0 0
+1 1 1
+0 1 0
+0 0 1
+
+Q24AI 1120
+Abhing Ghosh
+
+E1 → A-B
+E2 → B-C
+E3 → B-D
+
+Adjacency matrix
+A  B  C  D
+A 0 1 0 0
+B 1 0 1 1
+C 0 1 0 0
+D 0 1 0 0
+
+Endos-Rényi (Random
+Network Model)
+
+It draws edges, independently with uniform
+probability
+
+Nash equilibrium.
+No player benefits from unilaterally changing
+their strategy.
+
+Assortative mixing
+It refers to preference linking with
+similar objects.
+
+Because it quantifies how often a node lies
+on the shortest path.
+This helps identity critical path dependent nodes.
+
+The presence of many high degree hubs
+Random failures miss hubs, targeted ones do
+not miss hubs.
+
+The number of Intra-community edges is
+significantly higher than expected in a
+random network with the same degree sequence.
+High modularity seeks denser connections
+within groups.
+```
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+② 2/5
+(ICM) = 2, Iunion /=5 ➔ Jaccard > 2/5
+①① ICM uses edge probabilities independantly, LTM uses
+a weighted sum of active neighbours compared to a
+node threshold.
+
+LTM sums neighbour influence, ICM is probabilities
+ia edge.
+① ③ Because aggregating features from dis similar neighbour
+can blur the note's own representative features,
+making classification harder.
+This degrades classification in heteropholic settings
+② To minimize infection, identity we identity influential nodes
+using betweeness centrality, which spots individuals on
+before 
+many shortest paths. These act as bridges in the network
+and are wey in controlling spread. We then appig
+
+degree centrality to detect highly connected
+individuals who can spread quickly. Ranking note
+based on a hybrid of both centralities gives a more
+effective vaccination target set. Targetting only high
+degree nodes may ignore those bridging communities.
+
+Betweeness helps protect against cross-cluster
+infection: with only 50% covered, this
+strategy maxi miss impact on SIR dynamics
+③ We can use Node2Vec to generate vector embeddings
+
+capturing structural roles, and then we can combine
+with link prediction metrics like Jaccard for
+Scoring links.
+Then train a model to learn from co-authorship
+& citation patterns.
+
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Homophily drives most links - similar diad nodes collaborate
+often. To promote cross-disciplinmy collaboration, we
+Can add diversity-awme regularisation to scoring
+line penalise recommending too many similm
+Inutiles, etc
+①. @ Girvan - Newman algorithm detects communities of remove
+edges with highest bestuconess, and this separates densely
+connected groups as bridges are eliminated. Iteratively
+It recalculates edge betiveness are each removed.
+and finally it also betroem high trattic link
+Cut through also.
+⑤ It recalculates edge betweeness at each iteration
+Remove the edge with the highest value p
+gradually separate communities.
+Ⓒ. It 2 Computationally expensive, line for large
+graphs 2 enen step recalculates all pairwise
+Shortest paths of this 2 a majion disadvantage
+The Louvain method optimises modularity through
+local moving of the nodes. It also then further
+aggregated community unto super nodes. This
+process is fast & scalable for optimising
+modularity.
+Pagerank ranks nodes based on the importance of
+their neighbours, It distributes rank through linky
+recunsively, used widely an web seanch
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here's the transcription of the handwritten text, preserving the original layout as closely as possible:
+
+① The damping dacton modds random jump probability. It
+ensures that the sunta occasionally jumps pa random
+noder t prevents trapping in loop/dead ends.
+A higha damping factor gives mone weight to link
+STRUCTUL.
+
+② Problem dangling nodes: -
+Dangsing notes have no outbound links, and hence
+they break rank redistibution. This lead to rank
+sanks & prevents convergence.
+Can be died by adding links every node, which
+leads to convergence of the Page Rank vector.
+
+③
+Strategy Strategy
+A B
+Strategy (3,2) (0,1)
+Strategy L (2,0) (2,3)
+
+④ Best response of Playa 1
+It playa 2 chooses A :-
+
+U→3 L→2 → Best response of V
+
+Player 2 chooses B:-
+U→0 L→2→ Best response
+
+Best response of playa 2
+best repose A
+Plasa 1 choose U A→2 B→1
+Playa 1 Choose L A→0 B→3→ Best repose
+
+(U,A), (L,B) are Dive Strategy Nash quilibr.
+
+PQ
+
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+① den playa I plasiy
+U with probability (p)
+L with probability (1-p)
+given
+expected payoff:-
+
+Strategy A
+If Pl plays U: payoff = 2
+Pl Play L: payoff = 0
+expected payoff = 2p+0(1-p) = 2p
+
+Strategy B
+Pl play U: payoff=1
+Pl play L: payoff = 3
+Expected payoff: 1p+3(1-p) = p-3p+3
+= -2p+3
+
+Som payoff
+
+② using formulas
+Strategy. A : payoff = 2x0.7 = 1.4
+Strategy B : payoff :- -2x0.7 +3 = 1.6 ↑
+higher
+⑦
+B
+N(B) = {A, C, D}
+A C D
+given things in the question,
+h(1) = σ( W.
+B
+1
+|N(B)|
+Σ h(0) )
+MEN(B) n
+
+→ this needs to be calculated.
+
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+σ 2) ReLu activation, weight matrix W2 (0.5 0
+Initial vectors
+A
+469
+(1) , h (0) (3), ho (D (2)
+>
+>
+C
+① Assengate neighboun features
+(0)
+Eneno ho > (1) + (3) + (2) = (3)
+Average :- 1
+(N(B))
+Σμενο) ho > [3]-[2]
+② Transform ty using linear transformation
+W. [12] = [0.501 + 0.02] > (05)
+0.1x1+0.202
+>
+0.5
+③ Applying Re.LV activation herein
+ReLV ([05]) = [mo(0,0.5)] >(05)
+0.5
+>
+0.5
+(0)
+h
+B
+>
+[0.5
+0.5]
+

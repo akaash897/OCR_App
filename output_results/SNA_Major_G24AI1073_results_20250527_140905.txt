@@ -1,0 +1,1259 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\SNA_Major_G24AI1073.pdf
+Processing Date: 2025-05-27 14:09:05
+Model Used: gemini-2.0-flash
+Total Pages Processed: 25
+API Calls Made: 209
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+Here's a breakdown of the content, organized by question and consolidating answers across pages:
+
+**Question Q1a:**
+
+[
+1 0 0
+1 1 1
+0 1 0
+0 0 1
+]
+
+Each column represents an Edge  rous are nodes.
+
+Edge 1 → Node 1-2
+Edge 2 → Node 2-3
+Edge 3 → Node 2-4
+
+The results in symmetric 1's position (1,2) (2,3) (2,4) in adjacency Matrix.
+
+[
+0 1 0 0
+1 0 1 1
+0 1 0 0
+0 1 0 0
+]
+→ Adjacency Matrix.
+
+Each Edge In the lucidence matrix connects two nodes → these pairs are marked as 1 in the adjacency Matrix.
+
+(1)
+(2)
+(3)
+(4)
+
+**Question Q1b:**
+
+Erdos - Renyi (Random Network) Model. Erdos-Renyi &(n,p) model forms edges between each pair of nodes Independently with the same probability (p) which is the definition of uniform and Independent edge formation.
+
+Other models like configuration Model or Watts - Strogatz invelde degree sequences or rewiring rules not uniform independence.
+
+O     1
+       /  \
+       /   \
+2 — 3  Small network n=4
+
+**Question Q1c:**
+
+Nash Equilibrium
+
+Nash Equilibrium occurs when no player benefits from unilaterally changing strategy.
+  q1
+   ↑
+   |         Nash Equilibrium
+  1/3 - - - ↗
+   |
+---------> q2
+  1/3
+
+**Question Q1d:**
+
+Assortative Mixing. Assortative Mixing refers to the tendency of nodes to connect with Similar other (eg-degree or attributes) as opposed to structural equivance. (shared neighbors) or network. density (edge count)
+
+Black nodes connect mostly with black nodes
+White nodes connect mostly with white nodes
+
+high degree nodes Lower degree nodes
+
+**Question Q1e:**
+
+Because it qualifies how often a node lies on the shortest paths between others.
+
+Betweenness Centrality identifies nodes Critical to information I flow along specific paths shortest paths. Unlike degrees Centrality (total Connections) or clustering coefficients (Local Connectivity). This is the particularly relevant for systems where information follows defined routes.
+
+**Question Q1f:**
+
+The presence of many nodes with high degrees (hubs) that maintain connectivity.
+
+Scale-free networks have a few highly connected hubs; removing random Inodes rarely affects thise but targeting hubs disrupts the network.
+
+**Question Q1g:**
+
+The number of intra-community edges is significantly higher than expected in a random network with the same degree sequences.
+
+High modularity means Communities have more internal edges than would be expected by chances indicating strong community structure.
+
+**Question Q1h:**
+
+Jaccard coefficient is the size of the inter section divided by the size of Unions by the neighbor sets.
+
+**Question Q1i:**
+
+(a) ICM uses edges probabilities independently. LTM uses a weightaged sum of active neighbors compared to node threshold.
+
+ICM → uses Each active neighbor has an independent chance to activate anode
+LTM → node become active if the weighted Sum of active neighbors exceeds a threshold
+Independent Cascade Mode (ICM)
+
+Linear Threshold Model (LTM)
+
+**Question Q1j:**
+
+because aggregating function features from dissimilar neighbors can blus the node's own representative features making classification Harder. In higher heterophily, neighbors are dissimilar so aggregating their features can obscure the unique characteristics of the target node. harming Classification accuracy
+
+In heterophilic graphs, connected nodes often belong to different classes. Standard GCN aggregation mixes features of dissimilar neighbors reducing discriminative power.
+
+**Question Q2:**
+
+A novel influenza strain (following SIR model) is str spreading in a city. To effective minimize the total number of infections with limited vaccines, combine the following two network
+
+① Betweenness centrality
+② Degree centrality
+
+**Answer to Question 2 (continued):**
+
+S→ suspectible
+I→ Infected
+R→ Recovered
+
+Betweeness Centrality → Qualifies how a node lies on the shortest path between pairs of other noder
+
+cb (v) = ∑ σst (v) / σst where & σsit = Total Shortest Paths from nodes S to t
+
+•st (v) = paths passing through node 'V.
+
+Degree Centrality measures the number of direct connections a node has.
+
+CD (v) = Degree (v)
+
+Role in Vaccination → high-degree nodes are local hubs. Vactinating them reducing iscal super spreading events
+
+Betweennors targets global spreads → preventing the the from jumping from schools to offices. Nodes with high bietweenness outrality act as a bridge or bettereck parts disease between different of the network. Vaccinating these individuals can disrupt transmission-chains preventing the disease from spreading bfw other disconnected communities
+
+Degree Centrality -> Nodes with high degree centrality and are More likely to contract have many direct Contacts and further spread the infection. Vaccinating these "hubs" can significantly reduce the number of potential transmission Events.
+
+Degree Centrality targets Local Outbreaks (ie) stopping rapid transmissionin a dense work place
+
+Normalized Score = Raw Score - Min Score / Total Score - Min Score
+
+Composite Score = w₁ X Betweenness + w₂ X Degree. where w₁ & w₂ are weights based on network Structure.
+
+Step2 After Initial vaccinatiou Betweenness nodes havent vaccinated removed from Network.
+
+Step 3 Recalculation & second vaccination
+After first vaccination new nodes are now the highes betweenness of degree centrality in fragmented network
+
+After Each vaccination round, recalculate Centrality to find next mode critical nodes and remove from the network.
+
+**Question Q3:**
+
+To enhance Suggested Collaborators features for academic researchers you can integrate baditional link Prediction Algorithm with node embedding technique Such as Node 2 vec sained on networks build from paper ciatation and co-althorships
+
+① Integrating link prediction →
+
+@Node Representation
+Node = Individual Researchers
+Edges = existing co-authorships or Citations
+Edge Weights = Number of Collaboration
+
+④ Mode Embedding using Node 2 Vec
+
+Homophily → Researchers in similar domains will appear close in Embedding space
+Structural Roles → Researchers with Similar patterns have Similar representations
+
+CR.Link prediction Mechanism
+Recommendation Score (u,v) = α ∗ cosine SIM (u,v) + (1-α) Heuristiclink Score (u, v)
+
+Role of Homophily → It is the tendency of similar nodes to form ties. Most collaborations occur within disciplinary boundaries which the model learns through co-authorship patterns and Node2vec walks.
+
+Promoting Cross-Disciplinary Collaboration
+Diversi fi cation strategy →
+final Scoke (u,v) = RecomendationScore(u,v) + (1+β Diversity Boost (u,v))
+
+Nodez vec embeddings.
+
+3,5 → Bridge Nodes
+1,2,4 3,5 → cs Researchers
+6,7,8,9,10→ Biology researcher
+
+Implementation benefits
+
+① Balanced Recommendations → provides both safe, within-field collaborations and novel cross disciplinary opportunities
+② Network aware suggestions → Uses both direct connection and global network structure capturing complex relationship patterns
+⑥ Adaptable patter Parameters → Can tune the homophily vs Structural equivalance bade-off based on institutional or Researches preferencer
+
+Diagram Explanation →
+
+① Data processing & Network Constructions
+
+Nodes = Researchers
+3,5 = CS Researchers = 1,2,4
+6,7,8,9,10345 = Biology researchers= 6,7,8,9,10
+
+Edges co-authorship links
+Bridge Nodes = Ke2 3" & 5
+② Embedding & Predictions
+Researchers are mapped into a 2D embedding space using Node2Vec
+CS researchers And Biology Researhers form distinct clustery, reflecting HOMOPHILY
+Bridge Nodes 3 & 5 are positioned O between Clusters Indicating their roles in connecting disciplines
+
+③ Recommendation generation →
+
+Homophilic → Suggests Collaboration between similar researchers within Same field
+
+Cross Disciplinary Recommendation Suggest collaboration blw bridges nodes and researchers from Another field
+
+**Question Q4:**
+
+Girvan - Newman Algorithm
+
+It is a divisive hierarchical method for community detection in comple Networks.
+Its core idea is to identify and remove the edges that are most between communities- specifically those with the highest edge betweenness Centball ty.
+
+Edge betweenness centrality measures the number of shortest paths between pairs of nodes that pass through a given edge. Edge connecting different communities tend to have high betweenness because may many shortest paths between nodes in separate communities must crosd them. By iteratively remoing these Edges the network breaks apart into smalles densely connected components which are interpreted as communities
+
+Remove Edge Divide from ⑦ & ⑧ nodes.
+
+Betweenness (1,3) = 1X5 = 5
+Betweenness (3,7) = Betweenness (6,7) = Betweenness (8,9) = Betweenness (8,12) = 3X4 = 12
+
+ ① Calculate the Edge betweenness Centrality of all edges in the network
+② Remove Edges with highest betweenes
+③ Recalculate betweenness Centrality forall edges affected by the removal.
+④ Repeat ② & ③ until no Edge remain or terminateon condition.
+
+Major Computation limitation It high time complexity. Computing Edge betweenness centrality for all Edges is Computationality Expensive. Typically O(N³) for Network Nhodes. Because it requires re calculating Shortest paths after Each path quincere edge Rencoval. As a result, the algorithi is not Scabeable & becomes impractical for large Network.
+
+Louvain Method as a Scalable Alternative
+
+This is a greedy hierarchical algorithm, designed to optimize Imodularity efficiently making it suitable for large networks.
+
+Phasel → Each Mode is initially assigned to its own community. Nodes are then moved between Communities to makimize the local gain in modularity. continuing until no further improvement is possible.
+
+Phase2 Communities Identifies in Phasel are aggregated into super nodes and process is repeated on this reduced network.
+
+**Question Q5:**
+
+Page Rank Algorithm
+
+Page importance should be based on importance of pages that link to it
+
+2 Key principles
+→ pages recive importance from their inbound links
+→ The importance a page transfers is divided equally among its outbound links.
+
+This creates recursive definition→
+→ A page is important if many important pages link to it
+→ pages with fewer outlinks give more Importance to each link target
+
+This recursive process can be visualize as an iterative Calcution where
+① initially Each page has Equal Importance
+@ At Each step Importance flows along the links.
+③ Eventually this process coverges to a stable distribution.
+
+Random suffer Model & Dumping factor
+The damping factor (d) typically set at 0.85 represents the probability that this random sufer will continave ceicking Links. This means.
+→ with 85% probabity the suffer follous a link set from current page
+→ with 15% probability the sufer gets bored and jumps to random page
+
+This damping factor serves several Critical purposes
+
+① Ensures algo converges mathematically
+② Prevent importance from being trapped in isolated sections of the network
+③ Models realistic user behavior where people dont entisely follow link. PR(A)= (1-d) + d x (Sum of PR(B) / L(B) of all pages B that links to A)
+
+PR(i) = 1-d + d Σjєmi PR(j) / N L(j)
+
+Dangling Nodes → nodes with no outliers outlink eg dead end webpages
+
+issues → They dont distribute these page range anywhere
+→it Can drain total page rankin system
+
+Solution
+
+→ Teleportation → Treat them as linking to all other nodes uni formaly → Keep total score balance.
+
+→ Artificial Links → Replace zero rows in bansition matrix with vector affectively, maning dangling nodes to all other pages with Equal probability
+
+→ Optimization → Random Sufer reaches to a dangling nodes they tele port to a & S
+
+→ optimization → some implementation lump all dangling nodes into a single node to speed up Calculation while maintaining mathematical Equivalavee. I
+
+Result →
+Ensure covergence
+Prevent Rage Rank loss
+make Algo robust to incomplete graph structure.
+
+**Question Q6:**
+
+Strategy A         strateg B
+strategy U       3,2     0,1
+Strategy L       2,0     2,3
+
+Nash Equilibria → (U,A) ( L,B)
+
+(U,A) → Player I wont deviate [3>0]
+           Player 2 munt deviate (2>0)
+
+LB → Player 1 evont deviate [2=2]
+           Player 2 evout deviate [3>1]
+
+Step! Best resp of Pl
+      If P2 plays A
+               Pl, compare U(3) vs L (2)
+               L↳ U is better
+
+      if P2 plays B
+               Pl compare U(0) vs L(2)
+               L is better.
+
+Step 2 Best Response of P2.
+If P1 plays U, P2 compares A(2) vs. B(1)
+Then A is Better.
+If P1 plays L, P2 compare A(0) vs B(3)
+Then B is Better.
+
+(U,A) -> Both player are best responding.
+(L, B) -> Both player are Best responding.
+
+Therefore (U,A) & (L, B) Nash equilibria
+
+Let P1 plays U with probalility p, L with (1-p)
+If P2 plays A payoff = p x 2 + (1-p) 0 = 2p
+If P2 play B pay off = p x 1 + (1-p) 3 = 3-2p
+
+Payoff if P2 plays A
+2p = 2 x 0.7 = 1.4
+payoff if P2 plays B
+3-2p = 3-2x 0.7
+= 3-1.4
+= 1.6
+If p = 0.7 player 2 gets
+1.4 if they choosen A
+1.6 of they choose B
+B is prefered
+
+**Question Q7:**
+
+hB (1) = (W. (1/N) Σhi0) Step1
+Where N(B) = A, C, D
+feature vectors
+h(0) = (1, 1)
+hoc= (0,3)
+ho= (2,2)
+
+W = [ 0.5 0
+0.1 0.2 ]
+
+step1 hnp = 1/3 ( hA(0) + hC(0) + hD(0) )
+
+=> 1/3 [ 1/1 ] + [ 0/3 ] + [ 2/2 ]
+
+= 1/3 [ 3/6 ]
+
+Auq = 1/3 [ 3/6 ] => [ 1/2 ]
+
+step2 Now apply matrix Multiplication
+
+W.r = [ 0.5  0
+0.1  0.2 ] [ 1/2 ]
+
+[ 0.5x1 + 0/0
+0.1x1 + 0.2x2] => [ 0.5/0
+
+Relu([0.5]) = [max(0,0.5)] = 0.5
+h_B^(1) = [0.5]
+
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+SNA
+Manissha Bhalla
+424A1 1073
+
+19/Apr
+
+Qla
+
+[
+1 0 0
+1 1 1
+0 1 0
+0 0 1
+]
+
+Each column represents an Edge  rous are
+nodes
+
+Edge 1
+→ Node 1-2
+Edge 2 → Node 2-3
+Edge 3 → Node 2-4
+
+The results in symmetric 1's position
+(1,2) (2,3) (2,4) in adjacency Matrix.
+
+[
+0 1 0 0
+1 0 1 1
+0 1 0 0
+0 1 0 0
+]
+→ Adjacency Matrix.
+
+Each Edge In the lucidence matrix
+connects two nodes → these pairs are
+marked as 1 in the adjacency Matrix.
+
+(1)
+(2)
+(3)
+(4)
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                            Page No.
+                              Date
+Qlb Ⓑ Erdos - Renyi (Random Network) Model
+Erdos-Renyi &(n,p) model forms
+edges between each pair of nodes
+Independently with the same
+probability (p) which is the definition of
+uniform and Independent edge
+formation
+
+other models like configuration Model or
+Watts - Strogatz invelde degree sequences
+or rewiring rules not uniform
+independence.
+
+O     1
+       /  \
+       /   \
+2 — 3  Small network n=4
+
+Q1C Ⓒ Nash Equilibrium
+
+Nash Equilibrium occurs when no
+player benefits from unilaterally
+changing strategy.
+  q1
+   ↑
+   |         Nash Equilibrium
+  1/3 - - - ↗
+   |
+---------> q2
+  1/3
+```
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Qld
+Ⓑ Assortative mixing
+Assortative Mixing refers to the tendency
+of nodes to connect with Similar
+other
+opposed to
+(eg-degree or attributes)
+as
+to structural equivance.
+(shared neighbors) or network.
+density (edge count)
+
+Black nodes connect mostly
+with black nodes
+White nodes connect
+mostly with white
+nodes
+
+high degree
+nodes
+Lower degree nodes
+
+Qle Ⓓ Because it qualifies how often a node.
+lies on the shortest paths between
+others.
+
+Betweenness Centrality identifies nodes
+Critical to information I flow along specific
+paths shortest paths. Unlike degrees
+Centrality (total Connections)
+or
+clustering coefficients (Local Connectivity)
+This is the particularly relevant for
+systems where information follows defined
+routes
+Page No.
+Date
+
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+A
+1
+B-C-D
+1
+E
+f
+qlf @ The presence of many nodes with high
+degrees (hubs) that maintain connectivity
+
+Scale-free networks have a few highly
+connected hubs; removing random Inodes
+rarely affects thise but targeting hubs
+disrupts the network
+
+Qg @ The number of intra-community edges is
+significantly higher than expected in a
+random network with the same degree
+sequences.
+
+High modularity means Communities have
+more internal edges than would be
+expected by chances indicating strong
+community structure
+
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here is the transcription of the handwritten text from the image, preserving the original layout:
+
+```
+Q
+h
+
+B 2/5
+Page No.
+Date
+
+원
+of
+Jaccard coefficient is the size of the
+inter section divided by the size
+Unions by the neighbor sets
+
+AB C E
+D
+(a) ICM uses edges probabilities independently
+LTM uses a weightaged sum of active
+neighbors compared to node threshold.
+
+ICM → uses Each active neighbor has an
+independent chance to activate anode
+LTM → node become active if the weighted
+Sum of active neighbors exceeds a
+threshold
+Independent Cascade Mode (ICM)
+
+Linear Threshold Model (LTM)
+```
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                                                                                                                Page No.
+                                                                                                                Date
+9J      Ⓑ because aggregating function features
+        from dissimilar neighbors can blus
+        the node's own representative
+        features making classification Harder
+        In higher heterophily, neighbors are
+        dissimilar so aggregating their
+        features can obscure the unique
+        characteristics of the target node. harming
+        Classification accuracy
+                                                       
+                                       
+                                                       
+                                       
+                                                       
+                                       
+                                                       
+                                       
+                                                       
+                                       
+                                                       
+                                       
+                                                       
+
+        In heterophilic graphs, connected nodes often
+        belong to different classes. Standard
+        GCN aggregation mixes features of
+        dissimilar neighbors reducing
+        discriminative power.
+
+Q2 A novel influenza strain (following SIR
+model) is str spreading in a city.
+To effective minimize the total number of
+infections with limited vaccines, combine
+the following two network
+① Betweenness centrality
+② Degree centrality
+```
+
+--- Page 7 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+S→ suspectible
+I→ Infected
+R→ Recovered
+
+Page No.
+Date
+
+Betweeness Centrality → Qualifies how a
+node lies on the shortest path between
+pairs of other noder
+
+cb (v) = ∑ σst (v)
+s≠v≠t σst
+where & σsit = Total Shortest Paths from
+nodes S to t
+
+•st (v) = paths passing through
+node 'V.
+
+Degree Centrality
+
+measures the number of direct
+connections a node has.
+
+CD (v) = Degree (v)
+
+Role in Vaccination → high-degree nodes
+are local hubs. Vactinating them
+reducing iscal super spreading events
+
+Betweennors targets global spreads → preventing
+the the from jumping from schools to
+offices. Nodes with high bietweenness
+outrality act as a bridge or bettereck
+parts
+disease between different
+of the network. Vaccinating
+these individuals can disrupt transmission-
+
+--- Page 8 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here is the transcription of the handwritten text from the image, preserving the original layout and line breaks:
+
+```
+                                                                  Page No.
+                                                                  Date
+chains preventing the disease from :
+spreading bfw other disconnected
+communities
+
+Degree Centrality -> Nodes with high degree
+          centrality
+and  are
+More 
+likely to contract
+have many direct Contacts
+and further spread the infection. Vaccinating
+these "hubs" can significantly reduce
+the number of potential transmission
+Events
+
+Degree Centrality targets Local Outbreaks
+(ie) stopping rapid transmissionin a
+dense work place
+
+Normalized Score = Raw Score - Min Score
+                   Total Score - Min Score
+
+Composite Score = w₁ X Betweenness +
+                    w₂ X Degree.
+
+where w₁ & w₂ are weights based
+on network Structure.
+
+ORIGINAL NETWORK
+
+                                                                   Degree
+
+Betweenness
+```
+
+
+--- Page 9 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No.
+Date
+
+Step2 After Initial vaccinatiou
+Betweenness nodes havent vaccinated
+removed from Network.
+
+Removed from Network
+
+Step 3 Recalculation & second vaccination
+After first vaccination new nodes are
+now the highes betweenness of
+degree centrality in fragmented
+network
+0
+♡
+New
+Nodes
+Removed
+from
+network
+
+After Each vaccination round, recalculate
+
+--- Page 10 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No.
+Date
+
+Centrality to find next mode critical
+nodes and remove from the network
+
+$3 To enhance Suggested Collaborators featurs
+$ for academic researchers you can
+integrate baditional link Prediction
+Algorithm with node embedding technique
+Such as Node 2 vec sained on
+networks build from paper ciatation
+and co-althorships
+
+① Integrating link prediction →
+
+@Node Representation
+Node = Individual Researchers
+Edges = existing co-authorships or
+Citations
+Edge Weights = Number of Collaboration
+
+④ Mode Embedding using Node 2 Vec
+
+Homophily → Researchers in similar
+domains will appear close
+in Embedding space
+Structural Roles → Researchers with
+Similar patterns have
+Similar representations
+
+CR.Link prediction Mechanism
+Recommendation Score (u,v) = α ∗
+cosine SIM (u,v) + (1-α)
+Heuristiclink Score (u, v)
+
+
+--- Page 11 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No.
+Date
+
+Role of Homophily →
+
+It is the tendency of similar nodes
+to form ties. Most collaborations
+occur within disciplinary boundaries
+which the model learns through
+co-authorship patterns and
+Node2vec walks.
+
+Promoting Cross-Disciplinary Collaboration
+Diversi fi cation strategy →
+final Scoke (u,v) = RecomendationScore(u,v)
++
+(1+β Diversity Boost (u,v)) ①
+(1+β * Diversity Boost (U,V)) ②
+
+①
+6
+②
+7
+③
+⑧
+④
+9
+⑤
+10
+
+6
+
+
+--- Page 12 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Nodez vec
+embeddings.
+
+3,5 → Bridge Nodes
+1,2,4 3,5 → cs Researchers
+6,7,8,9,10→ Biology
+researcher
+
+(1)
+(4)
+
+(3)
+(2)
+(6)
+(7)
+
+(9)
+(8)
+(10)
+
+Implementation benefits
+
+① Balanced Recommendations → provides
+both safe, within-field collaborations
+and novel cross disciplinary opportunities
+② Network aware suggestions → Uses both
+direct connection and global network
+structure capturing complex
+relationship patterns
+⑥ Adaptable patter Parameters → Can
+tune the homophily vs Structural
+equivalance bade-off based on institutional
+or Researches preferencer
+
+Diagram Explanation →
+
+① Data processing & Network Constructions
+
+Nodes = Researchers
+3,5 = CS Researchers = 1,2,4
+6,7,8,9,10345 = Biology researchers= 6,7,8,9,10
+
+
+--- Page 13 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                                                                  Page No.
+                                                                 Date
+Edges co-authorship links
+Bridge Nodes = Ke2 3" & 5
+② Embedding & Predictions
+Researchers are mapped into a 2D
+embedding space using Node2Vec
+CS researchers And Biology Researhers
+form distinct clustery, reflecting
+HOMOPHILY
+Bridge Nodes 3 & 5 are positioned
+O between Clusters Indicating
+their roles in connecting
+disciplines
+
+③ Recommendation generation →
+
+Homophilic → Suggests Collaboration
+between similar researchers within
+Same field
+
+Cross Disciplinary Recommendation
+Suggest collaboration blw bridges
+nodes and researchers from
+Another field
+```
+
+--- Page 14 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+049 Girvan - Newman Algorithm
+Page No.
+Date
+
+It is a divisive hierarchical method for
+community detection in comple Networks.
+Its core idea is to identify and remove
+the edges that are most between
+communities- specifically those with
+the highest edge betweenness
+Centball ty.
+
+Edge betweenness centrality measures the
+number of shortest paths between
+pairs of nodes that pass through a
+given edge. Edge connecting different
+communities tend to have high betweenness
+because may many shortest paths
+between nodes in separate
+communities must crosd them. By
+iteratively remoing these Edges
+the network breaks apart into
+smalles densely connected components
+which are interpreted as communities
+
+①
+10
+②
+③
+⑨
+8
+12
+13
+G
+5
+19
+
+
+--- Page 15 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Here's the transcription of the handwritten text from the image, preserving the original layout:
+
+```
+                  Page No.
+                    Date
+Remove Edge
+Divide from ⑦ & ⑧ nodes.
+
+Betweenness (1,3) = 1X5 = 5
+Betweenness (3,7) = Betweenness (6,7) =
+Betweenness (8,9) = Betweenness (8,12) =
+                      3X4 = 12
+
+ ① Calculate the Edge betweenness
+  Centrality of all edges in the
+  network
+② Remove Edges with highest betweenes
+③ Recalculate betweenness Centrality forall
+  edges affected by the removal.
+④ Repeat ② & ③ until no Edge remain
+  or terminateon condition
+```
+
+--- Page 16 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+Page No.
+Date
+
+ⓒ Major Computation limitation
+It high time complexity. Computing Edge
+betweenness centrality for all Edges
+is Computationality Expensive. Typically
+O(N³) for Network Nhodes. Because
+it requires re calculating Shortest
+paths after Each
+path quincere edge Rencoval
+As a result, the algorithi is not
+Scabeable & becomes impractical
+for large Network.
+
+ⓐ Louvain Method as a Scalable
+Alternative
+
+This is a greedy hierarchical
+algorithm, designed to optimize
+Imodularity efficiently making
+it suitable for large networks.
+
+Phasel → Each Mode is initially
+assigned to its own community.
+are then moved between
+Nodes
+Communities to makimize
+the local gain in modularity.
+continuing until no further
+improvement is possible.
+
+Phase2 Communities Identifies in Phasel
+are aggregated into super nodes and
+process is repeated on this reduced
+network
+```
+
+--- Page 17 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                                                                                                                                                                                                                            Page No.
+                                                                                                                                                                                                                            Date                                                                                                                              
+(1)                                 3                                                                                                                                                         4                
+                                                                                                                                                                                                 1
+4                                                                                                                                                                                                 
+(5)                                 7                                                                                                                                                                          
+                                                                                                                                                                                                 1
+6                                                                                                                                                                                                              
+                                                                                                                                                                                           16                
+(15)             
+                                                                                                                                                                                           3
+(14)            8                (11)                                                                                                                                                              these are community
+                9                                                                                                                                                                            aggregationg        
+                        10                (13)                                                                                                                                                                        
+OS @ Page Rank Algorithm
+
+Page importance should be based
+on importance of pages that
+link to it
+
+2 Key principles
+→ pages recive importance from their
+inbound links
+→ The importance a page transfers is
+divided equally among its outbound
+links.
+
+This creates recursive definition→
+→ A page is important if many important
+pages link to it
+→ pages with fewer outlinks give more
+Importance to each link target
+```
+
+--- Page 18 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No
+Date
+This recursive process can be visualize
+as an iterative Calcution where
+① initially Each page has Equal
+Importance
+@
+At Each step Importance flows along
+the links.
+③ Eventually this process coverges
+to a stable distribution.
+
+Random suffer Model & Dumping factor
+The damping factor (d) typically
+set at 0.85 represents the
+probability that this random sufer
+will continave ceicking Links.
+rather than jumping to random
+page. This means.
+→ with 85% probabity the suffer
+follous a link set from current
+page
+→ with 15% probability the sufer
+gets bored and jumps to random
+page
+
+--- Page 19 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                                                                                                                    Page No.
+                                                                                                                    Date
+This damping factor serves several
+Critical purposes
+
+① Ensures algo converges mathematically              →  T
+② Prevent importance from being
+  trapped in isolated sections of                    →
+  the network
+③ Models realistic user behavior where
+  people dont entisely follow link                    →
+  PR(A)= (1-d) + d x (Sum of PR(B)
+  L(B) of all pages B
+  that links to A)
+
+PR(i) = 1-d + d Σjєmi PR(j)        →
+N          L(j)
+Q5
+© Dangling Nodes → nodes with no
+outliers outlink eg dead end
+webpages
+
+issues → They dont distribute these
+page range anywhere
+→it Can drain total page rankin
+system
+```
+
+--- Page 20 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                                                Page No.
+                                                 Date
+Solution 
+
+→ Teleportation → Treat them as linking
+   to all other nodes uni formaly
+    → Keep total score balance.
+
+→ Artificial Links → Replace zero rows
+   in bansition matrix with vector
+   affectively, maning dangling nodes
+   to all other pages
+   with Equal probability
+
+→ Optimization → Random Sufer reaches
+   to a dangling nodes they
+   tele port to a & S
+
+→ optimization → some implementation
+   lump all dangling nodes into
+   a single node to speed up
+   Calculation while maintaining
+   mathematical Equivalavee. I
+
+Result →
+Ensure covergence
+Prevent Rage Rank loss
+make Algo robust to incomplete
+graph structure.
+```
+
+--- Page 21 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No.
+Date
+
+Q6
+
+        Strategy A         strateg B
+strategy U       3,2     0,1
+Strategy L       2,0     2,3
+
+@ Nash Equilibria → (U,A) ( L,B)
+
+(U,A) → Player I wont deviate [3>0]
+           Player 2 munt deviate (2>0)
+
+LB → Player 1 evont deviate [2=2]
+           Player 2 evout deviate [3>1]
+
+Step! Best resp of Pl
+      If P2 plays A
+
+               Pl, compare U(3) vs L (2)
+               L↳ U is better
+
+      if P2 plays B
+               Pl compare U(0) vs L(2)
+               L is better.
+
+
+--- Page 22 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No.
+Date
+
+Step 2 Best Response of P2.
+If P1 plays U, P2 compares
+A(2) vs. B(1)
+Then A is Better.
+If P1 plays L,
+P2 compare A(0) vs B(3)
+Then B is Better.
+
+(U,A) -> Both player are best
+responding.
+(L, B) -> Both player are Best
+responding.
+
+Therefore (U,A) & (L, B) Nash
+equilibria
+
+5 Let P1 plays U with probalility p,
+L with (1-p)
+If P2 plays A
+payoff = p x 2 + (1-p) 0
+= 2p
+
+If P2 play B
+pay off = p x 1 + (1-p) 3
+= 3-2p
+
+
+--- Page 23 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No.
+
+Date
+⑦ Payoff if P2 plays A
+2p = 2 x 0.7 = 1.4
+payoff if P2 plays B
+3-2p = 3-2x 0.7
+= 3-1.4
+= 1.6
+If p = 0.7 player 2 gets
+1.4 if they choosen A
+1.6 of they choose B
+B is prefered
+07 given
+hB (1) = (W. (INN) Σhio) Ste
+Where N(B) = A, C, D
+feature vectors
+h(0) = (1, 1)
+---
+
+--- Page 24 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No.
+Date
+
+(0)
+hoc= (0,3)
+ho= (2,2)
+
+W = [ 0.5
+0.1
+
+0
+0.2
+]
+
+step1 hnp = 1/3 ( hA(0) + hC(0) + hD(0) )
+
+=> 1/3 [ 1/1 ] + [ 0/3 ] + [ 2/2 ]
+
+= 1/3 [ 3/6 ]
+
+Auq = 1/3 [ 3/6 ] => [ 1/2 ]
+
+step2 Now apply matrix Multiplication
+
+W.r = [ 0.5  0
+0.1  0.2 ] [ 1/2 ]
+
+[ 0.5x1 + 0/0
+0.1x1 + 0.2x2] => [ 0.5/0
+---
+
+--- Page 25 (HYBRID_PROCESSING) ---
+Confidence: 0.75
+Text:
+Here's the transcription of the handwritten text:
+
+```
+Relu([0.5]) = [max(0,0.5)]
+0.5
+max(0,0.5)
+= 0.5
+h_B^(1) = [0.5]
+0.5
+```
+

@@ -1,0 +1,560 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\G24AI1058 SNA Major Exam Answers.pdf
+Processing Date: 2025-05-27 13:37:35
+Model Used: gemini-2.0-flash
+Total Pages Processed: 11
+API Calls Made: 51
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+Here's a consolidation of the answers based on the provided text:
+
+Question 1:
+(a) Incidence Matrix: The incidence matrix represents an undirected graph where each column connects two nodes. For the given example (assuming the adjacency matrix provided is correct representation of graph, which is incorrect since its symmetric), the incidence matrix shows the connections between nodes. Each cell (i, j) is 1 if there's an edge between node i and node j. Because the graph is undirected, the matrix is symmetric. The example shows connections: Edge 1 between nodes 1 & 2, Edge 2 between nodes 2 & 3, and Edge 3 between nodes 2 & 4.
+
+(b) Erdos-Renyi (Random Network) Model: It forms edges randomly and independently with uniform probability.
+
+(c) Nash Equilibrium: No player can benefit by changing their strategy alone.
+
+(d) (B) Assortative Mixing: Reason: Tendency to connect with similar nodes.
+
+(e) (D) Lies on Shortest Paths: Reason: As betweenness measures control over information flow.
+
+(f) (C) High degree hubs maintain connectivity: Reason: Random failures miss hubs, affects on hubs disrupt.
+
+(g) (A) More intra-community edges than random: Reason: High modularity = Strong Community Structure.
+
+(h) (B) 2/5: Common = {C, D}, Union = {A, B, C, D, E} = 2/5
+
+(i) (A) Lcm = edge probs., Lim = weighted Sum vs. Threshold: Reason: Activation logic differs fundamentally.
+
+(j) (B) Aggregating dissimilar neighbors blurs features: Reason: In heterophilly, neighbors reduce feature clarity.
+
+Question 2:
+Goal: Vaccinate J% of the population to minimize infection in a contact network (nodes = people, edges = contacts). Controlling Measures: Betweenness Centrality, Degree Centrality.
+
+Betweenness Centrality: Nodes with high betweenness lie on many shortest paths and control infection flow. Usage: Rank all nodes by betweenness centrality and select top ones to vaccinate.
+
+Degree Centrality: High-degree nodes have more direct contacts, so get infected and infect or get infected easily. Prioritize nodes with high degree among top betweenness nodes to block spread from hubs.
+
+Combined Approach: Compute betweenness for all nodes. From the top 10% by betweenness, prioritize top overall based on degree. Vaccinate these people.
+
+Justification: (i) Betweenness blocks paths across communities. (ii) Degree blocks local spreading via super spreaders. (iii) Together reduce both global and local infection effectively.
+
+Question 3:
+Goal: Suggest collaborators using Academic Network data using Link Prediction and Node Embedding.
+
+Node Embedding (Node2Vec): Captures node context (academics - research interest, connections, journals). Train embeddings from citation/co-authorship graph constructed.
+
+Link Prediction: Estimates future or missing links. Use cosine similarity or ML Classifier on pairwise embeddings.
+
+For given researchers, recommend top k-nodes (connections) with the highest predicted link scores.
+
+Role of homophily: Similar researchers tend to collaborate.
+Effect: Embeddings naturally cluster similar domains leading to accurate suggestions within the same field.
+
+Cross-disciplinary Collaboration: Introduce or encourage cross-disciplinary collaboration.
+Effect: Will boost for dissimilar nodes but connected nodes (e.g., from co-citation). Will penalize too-similar embeddings to nudge inner-disciplinary links.
+
+Question 4:
+(a) Girvan-Newman Algorithm: Core Idea: It removes edges with the highest betweenness centrality to split the graph into communities. It assumes inter-community edges lie on many shortest paths. As edges are removed, the network breaks into smaller components representing communities.
+
+(b) Edge Betweenness Centrality: Compute betweenness centrality for each edge (number of shortest paths passing through it). Remove the edge with the highest betweenness. Recalculate betweenness after each removal (since paths have changed). Repeat until the desired community structure emerges.
+
+(c) It's very slow on large graphs! Recomputing betweenness is expensive. Time complexity is O(n^3) for sparse networks, making it not scalable.
+
+Question 5:
+(a) Louvain Method: It works by maximizing modularity. Phase 1: merge nodes into communities to increase modularity. Phase 2: build a new network where nodes are communities and repeat. Faster, scales well to large graphs due to greedy approach.
+
+(a) PageRank: PageRank assigns importance to a node based on the averaging & quality of incoming links. Like a random surfer moving through web pages (nodes) by clicking links. A node earns a rank if it's linked by many important nodes (recursive logic). It models influence propagation, making it useful beyond the web.
+
+(b) Role of Damping Factor (d): Damping factor d ∈ (0, 1) commonly 0.85 ensures the model reflects realistic behavior. With probability d, the surfer follows a link, with (1 - d), may jump to a random node. It helps in escaping loops, avoiding getting stuck on dead ends and ensuring the Markov Chain is irreducible & aperiodic, leading to convergence.
+
+(c) Dangling Nodes: Nodes with no outgoing links act as sinks, absorbing PageRank mass and causing non-convergence. Can be fixed by modifying the transition matrix: redistribute their rank uniformly to all nodes (as if links to everyone). Treat their row as a uniform distribution vector. This preserves the stochastic property of the matrix (rows sum to 1) & ensures convergence of the algorithm.
+
+Problems:
+i) Rank Sinks Page ranks score accumulates in dangling nodes & is not distributed back into graph.
+i) Convergence issue: it violates the requirement of a stochastic transition matrix.
+(i) Markov Chain becomes absorbing, System may fail to converse to a unique solution
+
+Fix:
+→ For any dangling assume it goes to all nodes equally.
+→ FIs now in the transition matrix is replaced with uniform probabilities (I/N for N Nodes)
+Why this works...
+→ maintains the matrix as stochastic
+→ Ensures the pagerank algorithm remains
+a valid Markov process
+→ Prevents rank from getting trapped
+allowing it to flow throughout the n/w.
+
+Question 6:
+(a) Payoff Matrix:
+Strategy A | Strategy B
+------- | --------
+Strategy U | (3, 2) | (0, 1)
+Strategy L | (2, 0) | (2, 3)
+
+For player 1 (row): choose the strategy with the highest payoff in each column. For player 2 (column): choose the strategy with the highest payoff in each row.
+
+Step 1 - Player 1 best response: If Player 2 chooses A, Player 1 will choose U (3 > 2). If Player 2 chooses B, Player 1 will choose L (2 > 0).
+Step 2. Player 2 best response: If Player 1 chooses U, Player 2 will choose A (2 > 1). If Player 1 chooses L, Player 2 will choose B (3 > 0).
+
+Nash equilibrium is strategy pairs where both players are best responding.
+(U, A) -> (3, 2)
+(L, B) -> (2, 3)
+Nash equilibrium will be at (U, A) & (L, B)
+
+(b) Let P = probability Player 1 choose U, (1-P) = probability Player 1 choose L.
+
+Payoffs of Player 2 choose A:
+Expected Payoff = P * 2 + (1-P) * 0 = 2P
+
+if Player 2 chooses B:
+Expected Payoffs = P * 1 + (1-P) * 3 = P + 3(1-P) = P + 3 - 3P = 3 - 2P
+
+(c) Now if P = 0.07
+If Player 2 choose A: 2P = 2 * 0.07 = 0.14  (Note: Corrected calculation here, original was 1.4 for 0.07)
+
+So if Player 2 choose B: 3 - 2P = 3 - 2 (0.07) = 3 - 0.14 = 2.86 (Note: Corrected calculation here, original was 1.6 for 0.7).
+
+So Player 2 will choose B.
+
+Question 7:
+For Graph Neural Network (GNN):
+
+Formula: h_B^(1) = ReLU(W . ( h_B^(0) + 1/|N(B)| * sum(h_u^(0)) ) ) where u is element of N(B)
+
+N(B) = {A, C, D}
+
+Initial Vectors:
+h_A^(0) = [0, 1]^T
+h_C^(0) = [1, 2]^T
+h_D^(0) = [3, 2]^T
+h_B^(0) = [0, 1]^T
+
+Weight Matrix: W = [[0.5, 0], [0.1, 0.2]]
+
+1. Aggregate Neighbor Features: Avg of A, C, D
+
+h_N(B) = (h_A^(0) + h_C^(0) + h_D^(0))/3 = ([0,1] + [1,2] + [3,2])/3 = [4/3, 5/3]^T  (Simplified the calculation)
+
+2. Combined with h_B^(0)
+
+h_B^(0) + h_N(B) = [0, 1]^T + [4/3, 5/3]^T = [4/3, 8/3]^T
+
+We will apply linear transformation (weight matrix):
+
+W * [4/3, 8/3]^T = [[0.5, 0], [0.1, 0.2]] * [4/3, 8/3]^T = [2/3, 2/15]^T.  (Corrected Calculation)
+
+We will apply ReLU activation:
+ReLU([2/3, 2/15]^T) = max(0,x)
+= [2/3, 2/15]^T.
+
+So h_B^(1) = [2/3, 2/15]^T
+
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+RAHUL AGARWAL
+G24AT1058 SNA MAJOR EXAM
+Q1(a) Incidence Matriz
+100] Nod,
+1 1 Node 2
+010 Node 3
+001
+Node 4
+Sime
+Since its undirected Graph each column
+(odja) connect two ndes
+Edge I Nodes with value land Node 1&
+Node 2 > Egde b/w 1-2
+Egelse 2> Fgde b/w 2-3
+Edge 3Edge b/w 2-4
+Each cell cif) is I of men's an edge b/w
+node i & node j Since graph is undirear
+Maseix is gometrex
+0100
+1011
+0100
+0100
+1.6) Fods - Renyl (Random Network
+Model
+It Forms edges randomly & independently
+wim uniform probability.
+1.(C) (C)
+Nash Equilibrium
+Reason No Player can benefit by
+changing Strategy alone.
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+- - 1
+1(d) (B) Assortative Mixing
+       Reason → trendency to connect with
+       Similar Nodes.
+
+1(e) (D) lies on Shortest Pams
+       Reason → As betweenness measures control
+       Over into flow.
+
+1(f) (C) high degree hubs maintain connectivity
+       Reason → Random failures miss hubs, affects
+       On hubs disrupt @ D/W.
+
+1(g) (A) More intra-community edges then random
+       Reason → High modularility = Strong Community
+       Structure
+
+10(d) (B) 2/5
+       Common = {C, D}, Union ={A, B, C, D, E} = 2/5
+
+1(i) (A) Icm = edge probs., Lim = weighted Sum
+         vs. Mreshold
+       Reason = Activation logic differs fundamently
+
+1(j) (B) Aggregating dissimilar neighbours blurs
+         Jeatures
+       Reason - In heterophilly, neighbours reduce
+       Jeatures Clarity
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```text
+                                                                --//--
+02. Goal: Haco Vaccinate J% of he population
+   p minimize infection in a contact NINO
+   cnodes = People, edges = contacts)
+
+   we will Contraling Measures, ie,
+   is Betweeness
+   in, Degree Centraliz
+
+   Betweeness
+   betweeness lie
+   Because Nodes with highh
+   on many shortest paths & Control
+   infection flow.
+   Usage:- Rank all nodes by betweeness
+   Contraling & select hof ones to vaccinate
+
+   Degree Centrality: Because high degree rodes
+                                       have more direct contacks,
+   So get infecter Co infect or get infected easily
+   Neagle Among hop betweeness nade, Prioritize
+   more win bgh degree to block Spread from
+   Ruby
+
+   Combined Approach.
+   -) Compute betweeness
+                                   Jor
+                                   Sto all nods
+   -s From me top 10% by betweeners, Pion top.
+   overall based on degree
+   -> vaccinate mese nodes cleople).
+
+   Justification: Betweeners block paths across communities
+   ji) Degree block local spreading via Sopen spreaders.
+   (in) Together reduce bom global & local infection
+   effea kvely.
+```
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+      _/_
+Q3.
+Goal:- Suggest collaborators using Academic
+Network dara Using Link Prediction
+Node Embedding
+
+is Node Embedding (Node 2 Veas
+→ As it Caprores node context (Academics -
+reasearen interest, Connections, Journals)
+→ we will train embeddings from
+citation/10-authorship groph constructed.
+
+jis Link Prediction
+→ It  estimates the future or
+bany missing links
+→ we will use cosine similarity or
+ML Classifier on fairwise embeddings.
+
+For given researches, recommend
+top k-nodes (omeness) with highest
+predicted link scores.
+
+Role of homophily :- It states that
+Similar researen teand to collaborate
+
+Effeer → Embeddings naturally cluster similar
+domains → aciurate Suggestions within
+Same field.
+
+We can introduce or encourage
+cross- discipilinery Collaboration
+It will introduce diversity factor
+```
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+-/_
+i's It will boost for disimilar nodes
+but connected nodes (eg, from co-citation)
+i's It will penalize too-similar embeddings
+to nudge inner disciplinarily links.
+
+Qu. (a) Girvan - Newman Algoritm - core idea
+It remove edges wim highest betweeness
+centralizing to split graph Into communities,
+It
+pumes inter- communiy edges lie on
+many shortest pas.
+As edges are removed, me n/w break into
+Smaller components representing
+communities.
+→ It assumes such edges connect
+different communities
+
+(b).
+Edges Betweenness Centraliz.
+→ For each node, compute betweenness
+centrality (no. of shortest pats passing
+Mrough it)
+→ Remove edge with highest betweenness.
+→ Recalculate betweeness after each removal
+( Since pans have changed?
+→ Repeat until desired community structure
+emerges
+
+(c) → It's very slow on large graphs !-
+recomputing betweenness is expensive.
+→ Time complexity is O(n3) for sparse
+networks → Not scalabla.
+
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+--- Transcribed Text ---
+-- / --
+
+(a) hovian method.
+→ Ir works by maximizing modularity
+→ Phase 1:- merge nodes into communities
+to increase modularity
+→ Phase 2:- Build a new n/w where nodes-
+communities and repeat.
+→ Faster, Scales well to large graphs due
+to greedy approach
+
+Q.5(a) Pagerank assign Importance to a node
+based on the avaraging & quality of
+incoming links.
+→ Like a random surfer moving through
+web pages (nodes) by clicking links.
+→ A node earns a rank if it's linked
+by many important nodes (recursive
+logic)
+→ Ir models influence propogation, may
+it useful beyond web
+
+(b) Role of Damping factor (d)
+→ Damping factor d ∈ (0, 1) commonly 0.85
+ensures model reflects realistic behavior
+→ wim probability d, the Surfer follows a link,
+wim (1 - d), may jump to random node
+→ It helps in
+→ Escaping loops
+→ Avoid getting stuck on dead ends
+→ Ensuring Markov Chain is irreducible
+& aperiodic, leading to convergence
+---
+
+--- Page 7 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+_L_
+Q1(c) wim Dangling Nodes (nodes wim no
+outgoing links → is that They act as
+Sinks, absorbing Page Rank mass and
+Causing non- convergence
+It can be Fixed- by modify ing
+transition matrix
+→ we can redistribute their rank
+uniformly to all nodes Cas if links
+to everyone?
+→ We treat their row as a uniform
+distribution vector
+• This preserves the stochastic property
+of me matrix Crows sum to 12 & ensures
+convergence of me algorithm.
+
+Problems:-
+i) Rank Sinks Page ranks score
+accumulates in dangling nodes & is not
+distributed back into grafh
+i) Convergence issue:- it violaces me
+requirement of a schotostic transition
+matrix
+(i) morkou Chain become absorbing,
+System may fail to converse to a unique
+solution
+
+Fix
+→ For any danglong assume it goes to all
+nodes equally.
+
+--- Page 8 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+- - -
+→ FIs now in the transition matrix is
+replaced with uniform probabilities
+(IIN for N Nodes)
+
+Why this works...
+→ maintains the matrix as stochastic
+→ Ensures the pagerank algorithm remains
+a valid markov process
+→ Prevents rank from getting trapped
+allowing it to flow throughout the n/w.
+
+QAG) Pay off Matrix
+Strategy A Strategy B
+Strategy U (3, 2) (0, 1)
+Strategy L (2, 0) (2, 3)
+
+→ For player 1 (row): (dowe we will choses
+strategy with highest payoff in each column
+→ For Playe 2 (column) - we will choses
+Strategy with highest payoff in each row
+Step 1 - Player 1 best response
+→ If Player 2 chooses A Player 1 will
+chooes U(3>2)
+→is Playe 2 chooses B Player 2 will
+chooes L (2>0)
+Step 2. Playe 2 best respons.
+→ If Player 1 chooses U Player I will
+choose A(271)
+→ If Player 1 chooses L Player 2 will
+chooes B(3>0)
+
+
+--- Page 9 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+- -/-
+
+Nash equilibrium is strategy pairs where
+both players are best responding.
+• (U,A)→(3,2)
+• (L,B)→(2,3)
+
+Nash equilibrium will be at
+(U,A) & (L,B)
+
+Q.6(b) Let P = probability Player 1 choose U,
+(1-P) = probability Player 1 choose L.
+
+Payoffs of Player 2 choose A.
+Expected Payoff = P×2 + (1-P) × 0
+⇒ 2P + 0
+= 2P
+
+if Player 2 chooses B
+Expected Payoffs = P×1 + (1-P) 3
+= P + 3(1-P)
+⇒ P + 3 - 3P
+⇒ 3 - 2P
+
+(c) Now if P = 0.07
+If Player 2 choose A
+⇒ 2P = 2 × 0.07 = 1.4
+
+So if Player 2 choose B
+⇒ 3-2P ⇒ 3 - 2 (0.7) = 3 - 1.4
+⇒ 1.6
+
+So Player 2 will choose B
+
+
+--- Page 10 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+_/_
+Q7. For Graph Neural Networ GNN-
+Formula to= (w. (1
+(0)
+Lu NB
+))
+ME N(B)
+T = ReLU activation = ReLU(x)=max(0,x)
+
+N(B)= {A, C, D}
+
+Initial Vectors
+0
+1
+n
+0
+2
+[2]
+ho=
+3
+2
+[
+Weigh matrix =[0.50]
+0.1 0.2
+P→ Aggregate Neighbour Featurs
+Avg of A,C,D
+h = ($+he+n)
+3
+= +[]+[]+[]]
+0
+(0) 1 [31
+h
+(B)
+1 [2]
+=
+3
+6
+2
+→ We will apply linear transformation
+(weigh matrix)
+
+W.hn =10.5.10] [1
+0.1 0.2
+2
+=>0.5x1 + 0x270.5
+0.1x1
++ 0.2x2
+0.5
+```
+
+--- Page 11 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+__//__
+
+=> we will apply ReLU activation
+σ( [ 0.5 ] ) = max(0,x) (applied
+   [ 0.5 ] ) 
+    = [ 0.5 ]
+      [ 0.5 ]
+So h_B^(1) = [ 0.5 ]
+           [ 0.5 ]
+```
+

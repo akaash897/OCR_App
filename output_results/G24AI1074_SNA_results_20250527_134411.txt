@@ -1,0 +1,672 @@
+HANDWRITTEN TEXT EXTRACTION RESULTS
+Source PDF: input_pdfs\G24AI1074_SNA.pdf
+Processing Date: 2025-05-27 13:44:11
+Model Used: gemini-2.0-flash
+Total Pages Processed: 11
+API Calls Made: 83
+
+============================================================
+ASSEMBLED ANSWERS:
+============================================================
+
+Here's a breakdown of the answers, consolidated from the various pages:
+
+**Question 1:**
+
+A.1 Convert this into an adjacency matrix:
+
+```
+1 0 0
+1 1 1
+0 1 0
+0 0 1
+```
+
+Each column represents an edge, and the rows are nodes.
+Edge 1 connects Node 1 & Node 2
+Edge 2 connects Node 2 & Node 3
+Edge 3 connects Node 2 & Node 4
+
+Adjacency Matrix:
+```
+0 1 0 0
+1 0 1 1
+0 1 0 0
+0 1 0 0
+```
+
+b] B- Erdős - Rénju (Random Network) Model
+In this model, each possible edge between a pair of nodes is formed independently with equal probability.
+
+c] C-Nash equilibrium.
+A Nash equilibrium occurs when each player's strategy is optimal given the strategies of all other players. Thus, no one can improve their outcome by changing their strategy alone.
+
+2] B- Assortative Mixing.
+This refers to the tendency of nodes to connect to others that are similar in some way like age, Degree etc.
+
+e] D - Because it quantifies how often a node lies on the shortest paths between other nodes.
+- Betweenness centrality focuses on how crucial a node is for connecting others, especially when information has to pass along the shortest path. Unlike degree centrality, which just counts immediate connections.
+
+f] C - The presence of many nodes with very high degree (hubs) that maintain connectivity - Scale-free network.
+Hubs have a few highly connected nodes.
+Random failure usually hits low-degree nodes, so the network survives. But if the hub fails, it can break the whole structure, making it vulnerable to targeted attacks.
+
+g] A- The number of intra-community edges is significantly higher than in a more random setup.
+- High modularity means most connections are within communities, and very few are between them.
+
+h] B- 2/5
+- Neighbours of X : A,B,C,D
+Neighbours of Y : C, D, E
+Intersection : C,D -> 2 nodes
+Union : A, B, C, D, E ->5 nodes
+
+.. Jaccard coefficient = 2/5
+
+i] A - 4CM uses edge probability independent; LTM uses a weight of active - - Threshold.
+- 4CM - each active neighbour gets one independent chance to activate a node.
+LTM- a node becomes active only when the Sum of influence from my neighbour crosses a threshold.
+
+j] B- Because aggregating features from dissimilar neighbours can blur the nodes harder.
+- In heterophilic network, pulling in features from neighbours can actually confuse the model. The GCN ends up blending unrelated info, which reduces classification accuracy.
+
+**Question 2:**
+
+A-2 To effectively reduce the spread of a novel influenza strain, modeling by the SIR framework, and with the constraint of vaccinating only 5% of the population, we can use a combination of network analysis techniques to identify the most strategic individuals for vaccination. The goal is to maximize impact with minimal resource by targeting those most critical to the virus's potential spread.
+
+- Using two network concepts:
+
+1.  Degree centrality - This metric identifies individuals with the highest number of direct connections in the network. These people interact with many others and are more likely to become infected and pass the disease to several others.
+
+Why it works - Vaccinating individuals with high degree centrality can prevent a large number of initial infections. Sort nodes by degree. Like a person who interacts with 30 people daily poses a high risk of spreading the virus. So, vaccinating them early cuts off multiple potential transmission chains.
+
+- 2. Betweenness centrality - This metric highlights nodes that frequently lie on the shortest paths between other nodes. These people serve as a bridge between the parts of the network, enabling the disease to jump between groups or communities.
+
+Vaccinating high-betweenness individuals can stop the spread from moving across communities, which is critical in keeping the outbreak localized. Compute betweenness scores and flag nodes that take risk highly, especially those not already chosen by degree centrality. Like even if someone doesn't have a lot of connections, they may be the only link between two large groups. So, if the disease reaches them, it could suddenly infect the entire new section.
+
+- To maximize effectiveness - Rank all individuals by both degree & betweenness centrality. Then identify those that score high on both, as they are both highly connected and act as crucial bridges. Select the top 5% from this prioritized list for vaccination. This ensures that we are vaccinating not just the socially active individuals, but also the strategically important 'gatekeepers' of the network.
+
+- To justify this - Using just degree centrality might ignore structurally important nodes with lower connections but high strategic placement. Using only betweenness might ignore super-spreaders with many contacts. Combining both ensures a balanced strategy, blocking both high frequency and high impact paths.
+
+**Question 3:**
+
+A:3 To enhance the suggested collaborators feature for academic researchers, we can combine link prediction algorithms with node embedding techniques like Node2Vec, using data from co-citation and co-authorship networks. This would identify meaningful, research-driven connections that are both relevant and novel.
+
+Using link prediction + Node Embedding:
+
+So, link prediction helps forecast which pairs of researchers are likely to collaborate in the future based on existing network patterns. Like - Jaccard coefficient, Adamic-Adar, etc. However, these methods rely mostly on local network structure and may miss deeper patterns.
+
+Node embedding techniques like Node2Vec solve this by learning a vector representation of each researcher based on their position in the network. These vectors capture both structural & semantic similarities.
+
+By combining the two - Node2Vec provides dense embeddings that capture the researcher's role and context. Link prediction uses these embeddings to predict future or potential links.
+
+- Role of Homophily in collaboration - This is a tendency for similar individuals to collaborate more often.
+
+In practice: A computer scientist is more likely to co-author with another CS than with a biologist.
+
+Effect on recommendation : Node2Vec embeddings naturally capture homophily, since co-authorship and citation networks often group researchers with similar interests.
+
+- While homophily is useful, it can also reinforce academic silos. To encourage cross-disciplinary collaboration, we can tweak our system to highlight "bridge" opportunities.
+
+Add a diversity penalty or bonus to the recommended score. For example, suggest a data scientist to a climate researcher if they have both co-authored with someone in environmental modeling. This promotes novel and interdisciplinary connections without compromising on quality.
+
+**Question 4:**
+
+A. 4 The Girvan-Newman algorithm is a method for community detection that works by progressively removing edges to reveal the underlying community structure of a network. Think of it like cutting away at the weakest links between groups to let natural clusters emerge.
+
+b- At each step, compute edge betweenness for all edges and remove the edge with the highest value. Repeat this until a desired or known community structure emerges.
+
+c- Computing edge betweenness centrality is expensive per calculation making the algorithm slow for large networks.
+
+d. The Louvain method is a popular, fast & scalable algorithm that detects communities by optimizing modularity. This allows it to efficiently find the high-modularity partitions in very large networks, often with millions of nodes, much faster than the Girvan-Newman algorithm.
+
+**Question 5:**
+
+A.5 a) Intuition behind Page Rank algorithm -
+PageRank models the importance of the node as the probability that a random walker lands on it considering both direct links and the importance of linking nodes.
+
+b) Damping factor Role - The Damping factor (typically 0.85) represents the probability that a random walker follows a link, 1-d is the probability of jumping to a random node, ensuring the process does not get stuck.
+
+c) Dangling nodes are nodes with no outgoing link to any other page. If the random surfer lands on a dangling node, there's nowhere to go, which can cause the PageRank score to leak and the algorithm may not converge properly.
+
+A common solution is to redistribute the Page Rank of dangling nodes evenly to all nodes in the network. This tweak ensures that the PageRank score continues to sum to 1 and that the algorithm converges smoothly even with dangling nodes present.
+
+**Question 6:**
+
+A.6 a] A strategy pair where a player can improve their payoff by unilaterally changing their strategy is NOT a Nash equilibrium.
+
+- Check each pair:
+
+(U, A) : Payoff (3,2)
+- player 1: Switch to L -> 2<3, no improvement.
+- player 2: Switch from A to B -> 1<2, no improvement.
+- Nash equilibrium.
+
+(U, B) Payoff (0, 1)
+- Player 1: Switch to L -> 2>0, improve.
+- Not Nash
+
+(L, B), Pay off (2,3):
+- Player 1: Switch to U -> 0<2, No improvement.
+- player 2: Switch to A->0<3 No improvement.
+- Nash equilibrium
+
+There are two pure strategy Nash equilibira: (U,A) & (L,B)
+
+b) player I plays U with probability P and L with probability 1-P. Player 2's strategy.
+
+Expected pay off for player 2 in choosing Strategy A:
+E[A]: Px2 + (1-p) x0 = 2p
+
+Expected pay off for player 2 if choosing strategy B:
+E(B) = px1+(1-p) x3 = P + 3(1-p) = P+3 -3p = 3-2p
+
+c) For player 2
+∈ [A] = 2p = 2x0.7 = 1.4
+E [B] = 3-2p = 3- 2(0.7) = 1.6
+
+Since E (B) > ∈ (A), player 2 would choose strategy B
+
+For player 1, (0.7U, 0.3L)
+Expected pay off = 0.7 x0 +0.3×2 =0.6 (when player 2 chose B)
+The expected outcome for player 1 receives a payoff of 0.56 and player 2 receives a pay off of 1.6
+
+**Question 7:**
+
+A-7
+Given:
+Directed edges: A→B, C→B, D→B
+Weighted matrix W =
+
+[0.5  0 ]
+[0.1 0.2]
+
+1. Aggregate neighbours -
+
+h⁰ =  ¹⁄₃ (h⁰ + h⁰ + h⁰ )= ([¹]) + ([⁰]) + ([²]) ¹⁄₃
+  n
+
+= ¹⁄₃ ([³]) = ([1])
+6          2
+
+b) Transform -
+
+ w ∙ hn⁰ = ([0.5  0]) ∙ ([¹])
+       [0.1 0.2]   2
+
+  = ([0.5(1) + 0(2) ] )
+    [0.1(1) + 0.2(2)]
+
+      =  ([0.5])
+        0.5
+
+c) Apply Relu Activation.
+
+Applying Relu
+
+h(¹) = Relu ([0.5])
+   B             0.5
+
+ = ([0.5])
+   0.5
+
+Final Answer h(¹) = [0.5, 0.5]
+  B
+
+
+============================================================
+INDIVIDUAL PAGE EXTRACTIONS:
+============================================================
+
+--- Page 1 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+G24AI1074
+HARSH GOYAL
+SNA
+Page No. 
+Date
+A.1 Convert this intre & adjacent matrise:
+1 0 0
+1 1 1
+0 1 0
+0 0 1
+Each column represent an adge, and the rous are rader,
+Edge 1 connets Node 1 & Node 2
+Edge 2 connets Node 2 & Node 3
+Edge 3 connete Node 2 & Node 4
+0 1 0 0
+1 0 1 1
+0 1 0 0
+0 1 0 0
+
+b] B- Erdős - Rénju (Random Network) Model
+In this model each possible edge betwen
+a pair of nodes is formed independent
+with equal probability.
+
+c] C-Nash equilibrium.
+A Nash equilibrium occurs when each player's
+strategy is oplinal given the strategies ther
+of all other players thes no one can improve
+their outcome by changing their strategy
+alone.
+
+--- Page 2 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+2] B- Assortative Missing.
+This refperes to
+the tendency of noder
+to connect to others
+that
+are
+similar
+in some
+way like age,
+Degree ete.
+
+e] D - Because it quantify how often a rode line
+on
+the shorted path's betuan ether neder.
+- Betweenness certainly focuser on hour cruthail
+a node is for connecting others, especially when
+information has so tee pars long shortest path
+conlike degree carteinlity, which you just counte
+imidiate connections.
+
+f] C - The presence of many nodes with very high
+degree (haly) that maintain connectivity
+- Scale - free network
+hulz
+chave a few chighly connected
+Random failure usually hit low-lagrel
+nodes, so the network survives. But if
+the hub fails, it
+structure, making et valserable the targeted
+attalks.
+con
+break the whole
+
+g] A- The number of intra-community
+significantly higher than
+- High modularity
+are
+Means
+• edge in
+degard reques
+most connections
+within communities, and very few are
+hetusen tham-
+in
+a
+more
+random setup
+than what you'd repet
+
+--- Page 3 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+Page No.
+Date
+h] B- 2/5
+- Neighbours of X : A,B,C,D
+Neighbours of Y : C, D, E
+Intersection : C,D -> 2 nodes
+Union : A, B, C, D, E ->5 nodes
+
+.. Jaccard coefficient = 2/5
+i] A - 4CM uses edge probability independent;
+LTM uses a weight of active - - Threshold.
+- 4CM - each active neighbour gets one independent
+chance to activate a node.
+LTM- a node becomes active only when the
+Sum of influence from my neighbour crosses a threshold.
+
+j] B- Because aggregateng feature from dissimilar
+neighbours can blur the nodes harder.
+- In heterophilic network, pulling in feature
+from neighbours can actually confuse the model.
+The GCN ends up blending unrelated info
+whe which reduces classification accuray
+
+A-2 To effectively reduce the spread of a novel
+influena strain modeling by the SIR framework,
+and with the constraint of vaccinating only
+5% of the population, we can use a
+combination of network analysis technique to
+identify the most strategic individual for
+vaccination . The goal is to maximize impact
+with no minimal resource by targeting these
+```
+
+--- Page 4 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+most critical to the virus potential spread.
+
+- Using two natworks concepts.
+1. Degree contrality - This metric identifies individals
+with the highest number of direct connections in
+the network. These people interact with many
+others and are more likely to become infected
+and pass the desease to several others.
+Why it works - Vaccaniting individuals with high
+degree centrality can prevent a large number
+of initial infections.
+Sort noder by degeve. Like a person whee
+interacts with 30 people daily poses a high
+risk of spreading the virus. So, vaccinating them
+early cats off multiple potential transmission
+chains.
+
+- 2. Between centrality - This metric highlights noder
+that frequentiy die on the shortest path between
+other nodes. These people serve ar a bridge
+between the parts of the network, enabling
+the deasease to jump between groups or
+communities.
+Vaccanating high - betweeners individuals can
+stop the spread from moving across communities
+which is criteal in keeping the outbreak
+localized.
+Comp ide betweeness scores and flags nodes that
+take risk highly especially those not already
+choosen by degree criteal.
+Like even if someone dosen't have a lot of
+
+
+--- Page 5 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                                                                                                Page No.
+                                                                                                Date
+connections, they may be the only link between
+ture large groups. So, if desses reaches than
+it could suddenly infect the entire new section.
+
+- To maseinze effectiveness - Ranek all individuaks by
+  I breth degree & lietueenness centrality.
+  Then identify the score high on breth, as they
+  are both highly connected and act as actual
+  badges.
+  Select the top 5% from this prioritized list
+  of for vaccination. This insurees that we are
+  vaccinated not just the socially active
+  individuals, but also the strertend 'gatekeepers'
+  of the network.
+
+- To justify this - Using just degree contrality
+  might ignore strectionally important nodes with
+  lower connection but high strategic planart.
+
+  Using only lietueenness might ignore isuper
+  experiding with many contack .
+
+  Combining both ensures a balame strategy
+  blocking bath high fropony and high impact paths.
+A:3 To onhance the suggested collaborators feature
+    bor academic voserchers que can combine link
+    predection algorithm with node embedding
+    technique like Neede 2Vee, cising data from
+    co-citation and co-authorship networks. This
+    would identify meaningful, research-driven connection
+```
+
+--- Page 6 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No.
+Date
+-
+that are both relevent and novel.
+
+Csing link prediction + Node Embedding.
+So, link prodution helps forcesting which pairs
+of reserchers are dizely to collaborate in the
+future based on eseisting cnetusack patterns.
+Like-Jaccard coeffiont
+However these methods
+Adomic - Adar , etc.
+ard
+morty oly
+on
+deeper
+local netwerk structure and may miss
+patters.
+
+Node ombedding technique like Node 2 Vee sober
+this dey learning ca vector representation of each
+rvasher based on their position in the
+netwerk. These vectors captures both structural
+& semantic similarities
+
+By combining the ture - Node 2 veu provides dense
+ombedding capture the resercher's
+crale I contest.
+Link predection uses these embeddeds the predets
+future or pro potential linka
+
+- Role of Homophile in collaboration - This is a
+tendery for simdar individual to colaborate
+more eften.
+
+In practice: A computer scientist is more likely
+te
+Co-author with another CS than cewith
+a bicologist.
+
+Effect on recommendation : Node 2 ve embedding's
+
+--- Page 7 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Okay, here is the transcription of the handwritten text from the image, preserving the original layout and line breaks as accurately as possible:
+
+```
+naturally captures homophily, since co-authorship
+and citation network often group reseashes with
+rimdar interests.
+
+- while homophiely is useful, it cam also reinforce
+acadimy sitos. To encourage cross - descilenary
+collaboration cue can tweck our system the highlight
+"bridge' oppurlintier.
+
+Add a diversèty penalty or bones to the
+recommmraded sere.
+For reample, seeggert a data scientist tee a
+I limate sercher if they have both co-authoris
+with Eomeone in envirnmental modeling.
+
+This promoter noved and interdisciplinary connections
+without comparomising on quality.
+
+A. 4 of The Girvan-Newman olgorithm is a method for
+ccomnucnity destation that works by progresilvely
+removing edges to revel the cinderty ing community
+struture of a netwerk. Think of it like cuttry
+or the weekert link between groups to let
+natural cluster omerge.
+
+6- At each step compate odge Metuenness for
+all edges and remove the edge with the
+highest value Repeat ther until disered ton
+corned community structure emerges.
+```
+
+**Notes:**
+
+*   I've tried to match the line breaks and spacing as closely as possible to the original.
+*   I've preserved the original spelling and grammatical errors.
+*  I've used my best judgment to interpret some of the less clear words, and made some small alterations such as "and" to "or" to make better sense of the writing.
+*   I have left the handwriting as is, without correcting any spelling or grammatical errors.
+
+Let me know if you have any other questions or requests!
+
+
+--- Page 8 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+```
+                                                                                                   Page No.
+                                                                                                    Date
+
+C- Computing edge betweenness outravily is ropensive
+per calculation making the algorithm slow fer
+large networks.
+d. The Lauvain method is a popular, fast
+& salable algorithm that detects communities
+dry optimizing modularity. This cellows do it la
+efficiently find the high-modularity partitions in
+very large networks, often with millions of nader,
+much faster them &de Girvan - Newman.
+
+A.5 a) Intution behind Pega Rank dgorithm -
+Page rank models the importantce of the node
+node as probability that makes a random
+walker lands on it considering both direct
+link and importance of linking noder.
+
+b) Damping facteer Role - The Damping factier
+in (Dyperally 0.85) represents probability
+that ca random walker flows a link, 1-d
+is the probability of & Jumping to a random
+node , Insering the process dees not give
+stuck.
+
+c) Dangling nodes are nodes with on outgoing
+link doe any other pade page. If the
+random surface lands on a dangling node, there's
+nowhere to go, which can I cure the
+PageRank score the leak and algorithm may
+not converge properly.
+```
+
+--- Page 9 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No.
+Data
+A common solution to redistribute the Page Rank
+of dangling
+crodes
+ovenly to all rodes in
+the
+network.
+This twelk ensures that the Page Rank
+rare continues to sum to I and that the
+algorithm converges smoothly
+onen
+with dargling
+noder present.
+
+A.6 a] Astrategy païs where Heyer Cem improve
+their pay off by institially vas changing
+their strategy.
+
+- chak wach pair:
+
+(u, A) : Puy ceff (3,2)
+player 1: Snitch tol
+-
+2<3, no emprar
+- player 2: sinthey A to B1(2
+Nash equilibraüm. equilibra.
+
+(U, B) Paycreff (0, 1)
+- Play er 1: Swithh L-270, improu
+
+- Nat Nash
+((, B), Pay off (2,3):
+- Player 1: Swith to U → 0 C2, No improvet.
+- player 2: Swith bee A.0C3
+- Nash equilibraüm
+
+There
+are twee neve strategy Nash oquillira
+(UA) & (LB)
+5) player I plays U with probability PC with
+probability L-P.
+Player 2's strategy.
+
+--- Page 10 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+Page No.
+Date
+Exacuted pt pay off for player 2 in choosing
+Strategy
+A
+[A]: Px2
++ (1-p) x0 = 2p
+
+Expected pay off for player 2 it cohousing
+stratayy B:
+E(B) = pxI+(1-p) x3
+= P + 3(1-p)
+= P+3 -3p = 3-2p
+
+C) For player 2
+∈ [A] = 2p = 2x0.7 = 1.4
+E [B] = 3-2p = 3- 2(0.7) = 1.6
+
+Sinces E (B) > ∈ (A), player 2 would choose
+stratages B
+
+For player 1, (0.7U, 0.32)
+Expected pay off = 0.7 x0 +0.3×2
+=0.6 (when player 2 chose B)
+
+The repected outiome for player 1 groover
+a payoff of 0.56 player 2 racourr a pay off
+of 1.6
+
+A-7
+Grios
+Directed edger A→B
+C→3
+D→B
+weighted matrise W =
+[0.5
+0
+[0.1
+0.2
+]
+
+--- Page 11 (LLM_PROCESSING) ---
+Confidence: 0.85
+Text:
+2.  Aggregate nighbours -
+
+    h⁰ =  ¹⁄₃ (h⁰ + h⁰ + h⁰ )= ([¹]) + ([⁰]) + ([²]) ¹⁄₃
+      n
+
+= ¹⁄₃ ([³]) = ¹⁄₂
+    6
+
+b)  Transform -
+
+     w ∙ hn⁰ = ([0.5  0]) ∙ ([¹])
+                    [0.1 0.2]   2
+
+                = ([0.5(1) + 0(2) ] )
+                  [0.1(1) + 0.2(2)]
+
+              =0.5 ([0.5])
+                    0.5
+c)  Apply Relu Activation.
+
+     Applying Relu
+
+     h(¹) = Relu ([0.5])
+      B             0.5
+
+         = ([0.5])
+                      0.5
+
+     Final Answer h(¹) = [0.5, 0.5]
+                       B
+
+
