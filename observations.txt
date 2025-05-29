@@ -1,0 +1,19 @@
+Common Errors in Extracted Text
+
+Cons:-
+1)LLM explaining answers extra 
+2)Fixing grammatical mistakes
+3)Printing words that have been crossed out
+4)Cannot properly detect cutout text in input_pdfs
+5)Missed Few Lines
+6)Unable to Find Diagrams
+7)Missed Few Q.No/Wrong No
+8)Detecting cutout text leading to ignoring actual answer,and hallucinating
+9)Slight errors in matrix values
+10)Table Formatting Can be done better
+11)Writing Complex Formulas is difficult
+12)Too Zoomed Out Pages unable to be detected properly
+13)Assembly Agent removing correctly detected text
+
+Pros:- 
+1)Was able to detect messy handwriting well in most cases
